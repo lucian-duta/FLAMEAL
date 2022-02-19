@@ -1,13 +1,20 @@
 import React, { Component } from "react";
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./getWeb3";
-
+import { BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Transfer from "./pages/Transfer";
+import MyInventory from "./pages/MyInventory";
+import SignUp from "./pages/SignUp";
+import Foodbanks from "./pages/Foodbanks";
+import TopCont from "./pages/TopCont";
+import UserStats from "./pages/UserStats";
 import "./App.css";
+import Navbar from "./components/Navbar/Navbar.js";
 
+/*
 class App extends Component {
-  /*
+  
   state = { storageValue: 0, web3: null, accounts: null, contract: null };
 
   componentDidMount = async () => {
@@ -50,13 +57,14 @@ class App extends Component {
     // Update state with the result.
     this.setState({ storageValue: response });
   };
-*/
+
   render() {
-    /*
+    
     if (!this.state.web3) {
       return <div>Loading Web3, accounts, and contract...</div>;
     }
-    */
+    
+   
     return (
       <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -81,7 +89,42 @@ class App extends Component {
       </Navbar>
       </div>
     );
+    
+   return (
+     <Router>
+       <Navbar />
+       <Routes>
+         <Route path = '/transfer' exact element ={Transfer} />
+         <Route path = '/myinventory' exact element ={MyInventory} />
+         <Route path = '/foodbanks' exact element ={Foodbanks} />
+         <Route path = '/topcont' exact element ={TopCont} />
+         <Route path = '/userstats' exact element ={UserStats} />
+         <Route path = '/signup' exact element ={SignUp} />
+       </Routes>
+
+     </Router>
+     
+    
+      );
+   
   }
+}
+*/
+
+function App() {
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/transfer" exact element={Transfer} />
+        <Route path="/myinventory" exact element={MyInventory} />
+        <Route path="/foodbanks" exact element={Foodbanks} />
+        <Route path="/topcont" exact element={TopCont} />
+        <Route path="/userstats" exact element={UserStats} />
+        <Route path="/signup" exact element={SignUp} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
