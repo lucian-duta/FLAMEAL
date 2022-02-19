@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./getWeb3";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Intro from "./pages/Intro";
 import Transfer from "./pages/Transfer";
 import MyInventory from "./pages/MyInventory";
 import SignUp from "./pages/SignUp";
@@ -116,12 +116,13 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/transfer" exact element={Transfer} />
-        <Route path="/myinventory" exact element={MyInventory} />
-        <Route path="/foodbanks" exact element={Foodbanks} />
-        <Route path="/topcont" exact element={TopCont} />
-        <Route path="/userstats" exact element={UserStats} />
-        <Route path="/signup" exact element={SignUp} />
+        <Route path="/" element={<Intro />} exact />
+        <Route path="/transfer" element={<Transfer />} />
+        <Route path="/myinventory" element={<MyInventory />} />
+        <Route path="/foodbanks" element={<Foodbanks />} />
+        <Route path="/topcont" element={<TopCont />} />
+        <Route path="/userstats" element={<UserStats />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Router>
   );
