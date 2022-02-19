@@ -3,7 +3,7 @@ import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./getWeb3";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Intro from "./pages/Intro";
-import Transfer from "./pages/Transfer";
+import Transfer from "./pages/Transfer/Transfer";
 import MyInventory from "./pages/MyInventory";
 import SignUp from "./pages/SignUp";
 import Foodbanks from "./pages/Foodbanks";
