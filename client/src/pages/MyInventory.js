@@ -1,9 +1,10 @@
 import React from "react";
+import GoodsList from "../components/GoodsList/GoodsList";
 
-export default function MyInventory(){
-    return (
-        <>
-            <h1 className = 'myinv'>My Inventory</h1>
-        </>
-    )
+export default function MyInventory() {
+  return (
+    <>
+      <GoodsList />
+    </>
+  );
 }
