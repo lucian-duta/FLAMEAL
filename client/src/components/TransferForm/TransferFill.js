@@ -28,37 +28,11 @@ const TransferFill = ({ submitForm }) => {
         </div>
 
         <div className="form-inputs">
-          <label className="form-label">Goods</label>
-          <input
-            type="text"
-            name="goods"
-            className="form-input"
-            placeholder="enter goods"
-            value={values.goods}
-            onChange={handleChange}
-          />
-          {errors.goods && <p>{errors.goods}</p>}
-        </div>
-
-        <div className="form-inputs">
-          <label className="form-label">Amount</label>
-          <input
-            type="text"
-            name="amount"
-            className="form-input"
-            placeholder="enter amount"
-            value={values.amount}
-            onChange={handleChange}
-          />
-          {errors.amount && <p>{errors.amount}</p>}
-        </div>
-
-        <div className="form-inputs">
           <label className="form-label">Comments</label>
-          <input
+          <textarea
             type="text"
             name="comments"
-            className="form-input"
+            className="form-input-comm"
             placeholder="enter comments"
             value={values.comments}
             onChange={handleChange}

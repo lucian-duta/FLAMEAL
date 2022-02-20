@@ -1,5 +1,5 @@
 :root {
-  --primary: cyan;
+  --primary: #3aa4f5;
 }
 
 .btn {
@@ -18,7 +18,7 @@
   transition: all 0.3s ease-out;
   background-color: transparent;
   background: #fff;
-  border: 2px solid var(--primary);
+  border: 2px sol;
   color: #6668f4;
   transition: 250ms;
 }

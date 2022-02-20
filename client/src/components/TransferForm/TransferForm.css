@@ -102,6 +102,17 @@
   border: none;
 }
 
+.form-input-comm {
+  display: block;
+  padding-left: 10px;
+  padding-top: 10px;
+  outline: none;
+  border-radius: 2px;
+  height: 70px;
+  width: 100%;
+  border: none;
+}
+
 .form-input::placeholder {
   color: #595959;
   font-size: 12px;

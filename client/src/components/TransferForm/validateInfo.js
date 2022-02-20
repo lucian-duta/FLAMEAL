@@ -7,14 +7,6 @@ export default function validateInfo(values) {
     errors.address = "Adddres must be x caracters or more";
   }
 
-  if (!values.goods) {
-    errors.goods = "Goods required";
-  }
-
-  if (!values.amount) {
-    errors.amount = "Amount required";
-  }
-
   if (!values.comments) {
     errors.comments = "Comment required";
   }
