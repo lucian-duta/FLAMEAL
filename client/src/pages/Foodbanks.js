@@ -1,9 +1,10 @@
 import React from "react";
+import List from "../components/List/List";
 
-export default function Foodbanks(){
-    return (
-        <>
-            <h1 className = 'foodbanks'>Foodbanks</h1>
-        </>
-    )
+export default function Foodbanks() {
+  return (
+    <>
+      <List />
+    </>
+  );
 }

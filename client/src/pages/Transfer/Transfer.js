@@ -4,6 +4,7 @@ import TransferSuccess from "../../components/TransferForm/TransferSuccess";
 import "./Transfer.css";
 import "../../components/GoodsList/Goods.css";
 import GoodsList from "../../components/GoodsList/GoodsList";
+import List from "../../components/List/List";
 
 const Transfer = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -16,7 +17,7 @@ const Transfer = () => {
       <div className="form-container">
         <div className="form-content-left">
           <div className="todo-app">
-            <GoodsList />
+            <List />
           </div>
         </div>
         {!isSubmitted ? (
