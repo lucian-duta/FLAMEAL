@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import { items } from "../List/List.js";
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({
     address: "",
     comments: "",
+    items: [],
   });
-
   const [errors, setErrors] = useState({});
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,8 +21,10 @@ const useForm = (callback, validate) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setErrors(validate(values));
     setIsSubmitting(true);
+    //alert(JSON.stringify(items));
   };
 
   useEffect(() => {
