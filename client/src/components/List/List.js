@@ -56,24 +56,24 @@ function List() {
   };
 
   return (
-    <div className="todo-app">
+    <div className="list-app">
       <h1>Add goods to the contract</h1>
-      <div className="todo-form">
-        <div className="todo-form">
+      <div className="list-form">
+        <div className="list-form">
           <input
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}
-            className="todo-input"
+            className="list-input"
             placeholder="Add an item..."
           />
-          <button className="todo-button" onClick={() => handleAdd()}>
+          <button className="list-button" onClick={() => handleAdd()}>
             Add
           </button>
         </div>
 
         <div className="item-list">
           {items.map((item, index) => (
-            <div className="todo-row">
+            <div className="list-row">
               <div>{item.itemName}</div>
 
               <div className="icons">
