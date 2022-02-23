@@ -4,7 +4,7 @@ import "./TransferForm.css";
 const TransferSuccess = () => {
   return (
     <div className="form-content-right">
-      <h1 className="form-success">We have recieved your request</h1>
+      <h1 className="form-success">Transfer complete</h1>
     </div>
   );
 };
