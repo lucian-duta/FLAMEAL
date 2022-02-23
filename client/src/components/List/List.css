@@ -5,7 +5,7 @@ body {
     rgba(100, 115, 255, 1) 100%
   );
 }
-.todo-app {
+.list-app {
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -25,11 +25,11 @@ h1 {
   font-size: 24px;
 }
 
-.todo-form {
+.list-form {
   margin-bottom: 32px;
 }
 
-.todo-input {
+.list-input {
   padding: 14px 32px 14px 16px;
   border-radius: 4px 0 0 4px;
   border: 2px solid #3aa4f5;
@@ -39,11 +39,11 @@ h1 {
   color: #fff;
 }
 
-.todo-input::placeholder {
+.list-input::placeholder {
   color: #e2e2e2;
 }
 
-.todo-button {
+.list-button {
   padding: 16px;
   border: none;
   border-radius: 0 4px 4px 0;
@@ -58,13 +58,13 @@ h1 {
   text-transform: capitalize;
 }
 
-.todo-container {
+.list-container {
   display: flex;
   flex-direction: row;
   position: relative;
 }
 
-.todo-row {
+.list-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
