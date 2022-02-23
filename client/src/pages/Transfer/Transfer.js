@@ -3,6 +3,7 @@ import TransferFill from "../../components/TransferForm/TransferFill";
 import TransferSuccess from "../../components/TransferForm/TransferSuccess";
 import "./Transfer.css";
 import List from "../../components/List/List";
+import Listv2Fill from "../../components/Listv2Beta/Listv2Fill";
 
 const Transfer = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -14,8 +15,9 @@ const Transfer = () => {
     <>
       <div className="form-container">
         <div className="form-content-left">
-          <div className="todo-app">
-            <List />
+          <div className="list-app">
+            <h1>Add goods to the contract</h1>
+            <Listv2Fill />
           </div>
         </div>
         {!isSubmitted ? (
