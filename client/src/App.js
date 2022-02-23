@@ -4,7 +4,7 @@ import getWeb3 from "./getWeb3";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Intro from "./pages/Intro";
 import Transfer from "./pages/Transfer/Transfer";
-import MyInventory from "./pages/MyInventory";
+import MyInventory from "./pages/MyInventory/MyInventory";
 import SignUp from "./pages/SignUp";
 import Foodbanks from "./pages/Foodbanks";
 import TopCont from "./pages/TopCont";
