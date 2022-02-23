@@ -1,0 +1,21 @@
+.list-containter {
+  margin: 100px auto;
+  width: 80%;
+  min-height: 70%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+
+  display: flex;
+}
+
+.list-app-inv {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+  min-height: 100%;
+  background: #161a2b;
+  text-align: center;
+  margin: 0;
+  border-radius: 10px;
+  padding-bottom: 0;
+}
