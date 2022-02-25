@@ -1,35 +1,51 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# FLAMEAL
+
+A decentralised software solution using blockchain technology that will help communities to effectively distribute food or other forms of help for the ones in need.
 
 ## Prerequisites
 
-NodeJS and npm which can be downloaded from [NodeJs website](https://nodejs.org/en/download/).
+NodeJS and npm which can be downloaded from the [NodeJS website](https://nodejs.org/en/download/).
 
 Truffle Framework
 
-### `npm install -g truffle`
+```bash
+  npm install -g truffle
+```
 
-## Available Scripts
-
-### Back-end
-
-In the main folder
+## Run Locally
 
 Start the development enviroment
 
-### `truffle develop`
+```bash
+  truffle develop
+```
 
 Compile the contracts
 
-### `migrate`
+```bash
+  compile
+```
 
-### Front-end
+Deploy the contracts
 
-In the /client/src folder
+```bash
+  migrate
+```
 
-### `npm run start`
+Start the DApp
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+  cd /client/src
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+  npm run start
+```
+
+## Tech Stack
+
+**Client:** React
+
+**Server:** Node, Truffle
+
+## Acknowledgements
+
+- [Moesif For Dapp Example](https://github.com/Moesif/moesif-ethereum-js-example)
