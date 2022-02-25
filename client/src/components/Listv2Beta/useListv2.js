@@ -1,6 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
+/**
+ * * useListv2
+ * * Holds the functions needed during user interaction i.e. adding, deleting...
+ * @param {*} callback
+ * @returns the functions needed during filling
+ */
 const useListv2 = (callback) => {
   const [items, setItems] = useState([
     { itemName: "2kg box of Apples", quantity: 3 },
@@ -8,6 +14,11 @@ const useListv2 = (callback) => {
     { itemName: "Pack of 6 Tuna", quantity: 5 },
   ]);
 
+  /**
+   * *handleAdd
+   * @param {*} inputValue - from the main function
+   * ! VALIDATE BEFORE ADDING
+   */
   function handleAdd(inputValue) {
     const newItem = {
       itemName: inputValue,
@@ -42,7 +53,7 @@ const useListv2 = (callback) => {
     const removeArr = [...items];
     delete removeArr[index];
     console.log(removeArr);
-    const filterArr = removeArr.filter((item) => item != null);
+    const filterArr = removeArr.filter((item) => item != null); //? Is there a better way to delete ?
     console.log(filterArr);
     setItems(filterArr);
   };

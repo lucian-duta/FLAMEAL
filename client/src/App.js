@@ -12,7 +12,8 @@ import UserStats from "./pages/UserStats";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar.js";
 
-/*
+/* 
+!The inital boilerplate of the web3 app (may be useful later)
 class App extends Component {
   
   state = { storageValue: 0, web3: null, accounts: null, contract: null };
@@ -116,7 +117,8 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Intro />} exact />
+        <Route path="/" element={<Intro />} exact /> //? Should it have an intro
+        page to begin with?
         <Route path="/transfer" element={<Transfer />} />
         <Route path="/myinventory" element={<MyInventory />} />
         <Route path="/foodbanks" element={<Foodbanks />} />

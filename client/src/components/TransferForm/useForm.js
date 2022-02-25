@@ -1,11 +1,22 @@
 import { useState, useEffect } from "react";
 import { items } from "../List/List.js";
 import useListv2 from "../Listv2Beta/useListv2";
+/**
+ * * useForm
+ * * Handles the functionality of the transfer form
+ * TODO: Find a way to import items from the list
+ * !Does not refresh after subbmit
+ * ? Should it refresh after the transaction is confirmed ?
+ *
+ * @param {*} callback
+ * @param {*} validate
+ * @returns
+ */
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({
     address: "",
     comments: "",
-    itemsList: [],
+    itemsList: [], //! Has to be imported from the list function
   });
   let { items } = useListv2();
   const [errors, setErrors] = useState({});
@@ -23,6 +34,7 @@ const useForm = (callback, validate) => {
   };
 
   const handleSubmit = (e) => {
+    //TODO: update items when submitting only
     e.preventDefault();
 
     setErrors(validate(values));

@@ -12,6 +12,7 @@ const Transfer = () => {
     setIsSubmitted(true);
   }
   return (
+    //TODO: Improve mobile compatibility
     <>
       <div className="form-container">
         <div className="form-content-left">

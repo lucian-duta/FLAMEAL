@@ -3,6 +3,14 @@ import useForm from "./useForm";
 import validate from "./validateInfo";
 import "./TransferForm.css";
 
+/**
+ * *TransferFill
+ * * Handles the visual aspect of the transfer form
+ * !Has known mobile issues
+ * TODO: Display the left div (list) on top and right div (transfer form) on bottom
+ * @param {*} param0
+ * @returns
+ */
 const TransferFill = ({ submitForm }) => {
   const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm,

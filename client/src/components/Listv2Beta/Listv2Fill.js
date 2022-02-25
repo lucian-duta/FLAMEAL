@@ -8,6 +8,13 @@ import {
 } from "react-icons/bs";
 import { RiCloseCircleLine } from "react-icons/ri";
 
+/**
+ * * Listv2Fill
+ * * Used to display the form and elements inside
+ *
+ * @param {*} param0
+ * @returns The list html code
+ */
 const Listv2Fill = ({ submitList }) => {
   const {
     handleQuantityDecrease,
@@ -25,7 +32,7 @@ const Listv2Fill = ({ submitList }) => {
     <div className="list-app">
       <div className="list-form">
         <div className="list-form">
-          <input
+          <input //TODO: Add browse inventory functionality
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}
             className="list-input"

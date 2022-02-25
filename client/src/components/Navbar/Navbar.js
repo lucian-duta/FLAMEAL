@@ -4,6 +4,13 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import Dropdown from "../Dropdown/Dropdown";
 
+/**
+ * *Navbar
+ * * handles the navigation features of the app
+ * TODO: Change the style of the links
+ * ! Possible issues on mobile rendering - further testing required
+ * @returns The html div
+ */
 function Navbar() {
   const [click, setClick] = useState(false);
 
@@ -28,7 +35,6 @@ function Navbar() {
       setDropdown(false);
     }
   };
-
   return (
     <>
       <nav className="navbar">
