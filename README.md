@@ -1,8 +1,30 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequisites
+
+NodeJS and npm which can be downloaded from [NodeJs website](https://nodejs.org/en/download/).
+
+Truffle Framework
+
+### `npm install -g truffle`
+
 ## Available Scripts
 
-In the project directory, you can run:
+### Back-end
+
+In the main folder
+
+Start the development enviroment
+
+### `truffle develop`
+
+Compile the contracts
+
+### `migrate`
+
+### Front-end
+
+In the /client/src folder
 
 ### `npm run start`
 
