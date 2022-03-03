@@ -11,6 +11,7 @@ import "./TransferForm.css";
  * @param {*} param0
  * @returns
  */
+
 const TransferFill = ({ submitForm }) => {
   const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm,
@@ -20,7 +21,7 @@ const TransferFill = ({ submitForm }) => {
   return (
     <div className="form-content-right">
       <form className="form" onSubmit={handleSubmit} noValidate>
-        <h1>Transfer good to another entity</h1>
+        <h1>Transfer goods to another entity</h1>
 
         <div className="form-inputs">
           <label className="form-label">Address</label>
