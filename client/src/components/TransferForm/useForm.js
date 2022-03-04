@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { items } from "../List/List.js";
 import useListv2 from "../Listv2Beta/useListv2";
+import SendData from "../../pages/Transfer/sendData.js";
 /**
  * * useForm
  * * Handles the functionality of the transfer form
@@ -26,7 +27,7 @@ const useForm = (callback, validate) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     //alert(JSON.stringify(items));
-    console.log(items);
+    //console.log(items);
     setValues({
       ...values,
       [name]: value,
@@ -39,11 +40,14 @@ const useForm = (callback, validate) => {
 
     setErrors(validate(values));
     setIsSubmitting(true);
+
     //alert(JSON.stringify(items));
   };
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
+      console.log("should go", values.address, values.comments);
+      SendData(values.address, values.comments);
       callback();
     }
   }, [errors]);
