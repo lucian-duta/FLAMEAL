@@ -2,6 +2,7 @@ import React from "react";
 import useForm from "./useForm";
 import validate from "./validateInfo";
 import "./TransferForm.css";
+import SendData from "../../pages/Transfer/sendData";
 
 /**
  * *TransferFill
@@ -49,7 +50,13 @@ const TransferFill = ({ submitForm }) => {
           {errors.comments && <p>{errors.comments}</p>}
         </div>
 
-        <button className="form-input-btn" type="submit">
+        <button
+          className="form-input-btn"
+          type="submit"
+          onClick={() => {
+            SendData(values.address, values.comments);
+          }}
+        >
           Transfer
         </button>
       </form>
