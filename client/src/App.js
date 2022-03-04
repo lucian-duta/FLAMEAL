@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SimpleStorageContract from "./contracts/SimpleStorage.json";
+
 import getWeb3 from "./getWeb3";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Intro from "./pages/Intro";

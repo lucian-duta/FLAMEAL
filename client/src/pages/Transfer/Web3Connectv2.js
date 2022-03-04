@@ -42,30 +42,30 @@ function Web3Connectv2() {
   });
 }
 
-return (
-  <>
-    {/* <button
-        onClick={() => {
-          // console.log("button web", web3Elements);
-          runExample(web3Elements);
-        }}
-      >
-        Transfer
-      </button>
-      <textarea
-        type="text"
-        name="comments"
-        className="form-input-comm"
-        placeholder="enter comments"
-        value={response}
-      /> */}
-  </>
-);
+// return (
+//   <>
+//     {/* <button
+//         onClick={() => {
+//           // console.log("button web", web3Elements);
+//           runExample(web3Elements);
+//         }}
+//       >
+//         Transfer
+//       </button>
+//       <textarea
+//         type="text"
+//         name="comments"
+//         className="form-input-comm"
+//         placeholder="enter comments"
+//         value={response}
+//       /> */}
+//   </>
+// );
 
-//   if (!web3Elements.web3) {
-//     return <div>Loading Web3, accounts, and contract...</div>;
-//   } else {
+// //   if (!web3Elements.web3) {
+// //     return <div>Loading Web3, accounts, and contract...</div>;
+// //   } else {
 
-//}
+// //}
 
 export default Web3Connectv2;
