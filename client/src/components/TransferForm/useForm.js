@@ -47,7 +47,7 @@ const useForm = (callback, validate) => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       console.log("should go", values.address, values.comments);
-      SendData(values.address, values.comments);
+      SendData("0x41FdC3a760C618f15AE1F314E80781b6cf4AAE1E", "salutttt");
       callback();
     }
   }, [errors]);
