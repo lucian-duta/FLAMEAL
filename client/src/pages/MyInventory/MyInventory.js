@@ -1,5 +1,5 @@
 import React from "react";
-import Listv2Fill from "../../components/Listv2Beta/Listv2Fill";
+import Listv2Fill from "../../components/List/List";
 import "./MyInventory.css";
 /**
  * * MyInventory
