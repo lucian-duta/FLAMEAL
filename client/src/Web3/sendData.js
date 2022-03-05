@@ -4,6 +4,7 @@ const SendData = (addressIn, contentIn) => {
   const content = contentIn;
   console.log(address, content);
   const web3 = fetchData();
+  let transferError = null;
   const makeTrans = async (web3el) => {
     console.log("beforew TRY", web3el);
     try {
@@ -21,9 +22,11 @@ const SendData = (addressIn, contentIn) => {
       console.log(response);
     } catch (error) {
       console.log("err from sendData", error);
+      transferError = error;
     }
   };
   makeTrans(web3);
+  return transferError;
 };
 
 export default SendData;

@@ -13,6 +13,7 @@ import { fetchList } from "../List/useList";
  * @returns
  */
 const useForm = (callback, validate) => {
+  let transferError = null;
   const [values, setValues] = useState({
     address: "",
     comments: "",
@@ -60,9 +61,17 @@ const useForm = (callback, validate) => {
       //Transform the object into a json strig
       payload = JSON.stringify(payload);
       //Send the json string to the SendData function
-      SendData(values.address, payload);
+      transferError = SendData(values.address, payload);
       console.log(JSON.stringify(values));
-      callback();
+      console.log("TRANSFER ERRORRR", transferError);
+      if (!transferError) {
+        callback();
+      } else {
+        setErrors({
+          ...errors,
+          itemsList: "TRANSFER FAILED: The address was not found",
+        });
+      }
     }
   }, [errors]);
 
