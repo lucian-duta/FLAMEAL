@@ -1,5 +1,5 @@
-import getWeb3 from "../../getWeb3";
-import GoodsTransfer from "../../contracts/GoodsTransfer.json";
+import getWeb3 from "./getWeb3";
+import GoodsTransfer from "../contracts/GoodsTransfer.json";
 
 let web3Elements = {
   web3: null,

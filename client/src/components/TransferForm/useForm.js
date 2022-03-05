@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { items } from "../List/List.js";
 import useListv2 from "../Listv2Beta/useListv2";
-import SendData from "../../pages/Transfer/sendData.js";
+import SendData from "../../Web3/sendData.js";
 /**
  * * useForm
  * * Handles the functionality of the transfer form
