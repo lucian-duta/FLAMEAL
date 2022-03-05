@@ -3,14 +3,6 @@ const SendData = (addressIn, contentIn) => {
   const address = addressIn;
   const content = contentIn;
   console.log(address, content);
-  // getData().then(function (res) {
-  //   console.log("THIS IS RES", res);
-  //   web3 = res;
-  //   //const web3Elements = res;
-  //   console.log("INSIDE THE NEW FUNC", web3);
-
-  //   makeTrans(web3);
-  // });
   const web3 = fetchData();
   const makeTrans = async (web3el) => {
     console.log("beforew TRY", web3el);
