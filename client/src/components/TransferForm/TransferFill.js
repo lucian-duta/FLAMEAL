@@ -22,7 +22,6 @@ const TransferFill = ({ submitForm }) => {
     <div className="form-content-right">
       <form className="form" onSubmit={handleSubmit} noValidate>
         <h1>Transfer goods to another entity</h1>
-
         <div className="form-inputs">
           <label className="form-label">Address</label>
           <input
@@ -49,7 +48,7 @@ const TransferFill = ({ submitForm }) => {
           {errors.comments && <p>{errors.comments}</p>}
         </div>
 
-        <button className="form-input-btn" type="submit">
+        <button className="form-input-btn" type="submit" onClick={() => {}}>
           Transfer
         </button>
       </form>

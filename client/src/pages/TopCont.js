@@ -1,5 +1,4 @@
 import React from "react";
-import Web3Connectv2 from "./Transfer/Web3Connectv2";
 /**
  * * TopCont
  * * This should shot the top contributors based on the number of transactions
@@ -9,9 +8,11 @@ import Web3Connectv2 from "./Transfer/Web3Connectv2";
  * @returns
  */
 export default function TopCont() {
+  const address = "0x0cbC0EafaA0f1043c386287eEB1E57da6a3290bB";
+  const cont = "HELLLO";
   return (
     <>
-      <Web3Connectv2 />
+      <h1 className="topcont">Top Contributors</h1>
     </>
   );
 }
