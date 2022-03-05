@@ -13,7 +13,7 @@ import "./TransferForm.css";
  */
 
 const TransferFill = ({ submitForm }) => {
-  const { handleChange, handleSubmit, values, errors } = useForm(
+  const { handleChange, handleSubmit, fetchItemList, values, errors } = useForm(
     submitForm,
     validate
   );
@@ -48,9 +48,16 @@ const TransferFill = ({ submitForm }) => {
           {errors.comments && <p>{errors.comments}</p>}
         </div>
 
-        <button className="form-input-btn" type="submit" onClick={() => {}}>
+        <button
+          className="form-input-btn"
+          type="submit"
+          onMouseEnter={() => {
+            fetchItemList(); //!THIS MAY BE A PROBLEM
+          }}
+        >
           Transfer
         </button>
+        {errors.itemsList && <p>{errors.itemsList}</p>}
       </form>
     </div>
   );
