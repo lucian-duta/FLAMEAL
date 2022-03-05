@@ -58,7 +58,7 @@ const useListv2 = (callback, validate) => {
   const removeItem = (index) => {
     const removeArr = [...items];
     delete removeArr[index];
-    const filterArr = removeArr.filter((item) => item != null); //? Is there a better way to delete ?
+    const filterArr = removeArr.filter((item) => item !== null); //? Is there a better way to delete ?
     setItems(filterArr);
     globalItems = filterArr;
   };
