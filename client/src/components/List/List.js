@@ -4,6 +4,7 @@ import { useState } from "react";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { RiCloseCircleLine } from "react-icons/ri";
 import "./List.css";
+import validateInput from "./validateList";
 /**
  * * Listv2Fill
  * * Used to display the form and elements inside
@@ -18,7 +19,8 @@ const Listv2Fill = ({ submitList }) => {
     items,
     handleAdd,
     removeItem,
-  } = useListv2(submitList);
+    errors,
+  } = useListv2(submitList, validateInput);
 
   const [inputValue, setInputValue] = useState("");
 
@@ -34,9 +36,17 @@ const Listv2Fill = ({ submitList }) => {
             className="list-input"
             placeholder="Add an item..."
           />
-          <button className="list-button" onClick={() => handleAdd(inputValue)}>
+
+          <button
+            className="list-button"
+            onClick={() => {
+              handleAdd(inputValue);
+              setInputValue("");
+            }}
+          >
             Add
           </button>
+          {errors.item && <p cl>{errors.item}</p>}
         </div>
 
         <div className="item-list">

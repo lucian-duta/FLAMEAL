@@ -7,12 +7,13 @@ import { useState } from "react";
  * @returns the functions needed during filling
  */
 let globalItems = null;
-const useListv2 = (callback) => {
+const useListv2 = (callback, validate) => {
   const [items, setItems] = useState([
     { itemName: "2kg box of Apples", quantity: 3 },
     { itemName: "Box of 10 Noodles", quantity: 4 },
     { itemName: "Pack of 6 Tuna", quantity: 5 },
   ]);
+  const [errors, setErrors] = useState({});
 
   /**
    * *handleAdd
@@ -20,15 +21,19 @@ const useListv2 = (callback) => {
    * ! VALIDATE BEFORE ADDING
    */
   function handleAdd(inputValue) {
-    const newItem = {
-      itemName: inputValue,
-      quantity: 1,
-    };
+    const err = validate(inputValue);
+    setErrors(validate(inputValue));
+    if (Object.keys(err).length === 0) {
+      const newItem = {
+        itemName: inputValue,
+        quantity: 1,
+      };
 
-    const newItems = [...items, newItem];
+      const newItems = [...items, newItem];
 
-    setItems(newItems);
-    globalItems = newItems;
+      setItems(newItems);
+      globalItems = newItems;
+    }
     //alert(JSON.stringify(items));
   }
 
@@ -63,6 +68,7 @@ const useListv2 = (callback) => {
     handleQuantityDecrease,
     removeItem,
     items,
+    errors,
   };
 };
 

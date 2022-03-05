@@ -21,5 +21,9 @@ export default function validateInfo(values) {
     errors.comments = "Comment required";
   }
 
+  if (!values.itemsList || values.itemsList.length === 0) {
+    errors.itemsList = "There are no goods in the contract";
+  }
+
   return errors;
 }
