@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import TransferFill from "../../components/TransferForm/TransferFill";
 import TransferSuccess from "../../components/TransferForm/TransferSuccess";
 import "./Transfer.css";
-import List from "../../components/List/List";
 import Listv2Fill from "../../components/Listv2Beta/Listv2Fill";
 
 const Transfer = () => {
@@ -24,7 +23,9 @@ const Transfer = () => {
         {!isSubmitted ? (
           <TransferFill submitForm={submitForm} />
         ) : (
-          <TransferSuccess />
+          <>
+            <TransferSuccess />
+          </>
         )}
       </div>
     </>

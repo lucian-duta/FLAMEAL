@@ -1,11 +1,7 @@
 import React from "react";
 import useListv2 from "./useListv2";
-import { useState, useEffect } from "react";
-import {
-  BsChevronRight,
-  BsChevronLeft,
-  BsEmojiExpressionlessFill,
-} from "react-icons/bs";
+import { useState } from "react";
+import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { RiCloseCircleLine } from "react-icons/ri";
 
 /**
