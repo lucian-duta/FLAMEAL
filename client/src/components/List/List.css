@@ -5,6 +5,10 @@ body {
     rgba(100, 115, 255, 1) 100%
   );
 }
+
+.list-form p {
+  color: red;
+}
 .list-app {
   display: flex;
   flex-direction: column;

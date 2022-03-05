@@ -32,33 +32,41 @@ const useForm = (callback, validate) => {
     });
   };
 
-  const handleSubmit = (e) => {
-    //TODO: update items when submitting only
-    e.preventDefault();
+  const fetchItemList = () => {
     const fetchedItems = fetchList();
     console.log("items fetched", fetchedItems);
     setValues({
       ...values,
       itemsList: fetchedItems,
     });
+  };
 
+  const handleSubmit = (e) => {
+    //TODO: update items when submitting only
+    e.preventDefault();
     setErrors(validate(values));
     setIsSubmitting(true);
 
     //alert(JSON.stringify(items));
   };
-
+  //Triggered when submission condisions are met
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      console.log("should go", values.address, values.comments);
-      const payload = JSON.stringify(values);
+      //Preparing the payload by creating a new object without the address
+      let payload = {
+        comments: values.comments,
+        itemsList: values.itemsList,
+      };
+      //Transform the object into a json strig
+      payload = JSON.stringify(payload);
+      //Send the json string to the SendData function
       SendData(values.address, payload);
       console.log(JSON.stringify(values));
       callback();
     }
   }, [errors]);
 
-  return { handleChange, handleSubmit, values, errors };
+  return { handleChange, handleSubmit, fetchItemList, values, errors };
 };
 
 export default useForm;
