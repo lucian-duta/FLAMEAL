@@ -9,9 +9,10 @@ const getWeb3 = () =>
         const web3 = new Web3(window.ethereum);
         try {
           // Request account access if needed
-          await window.ethereum.enable();
+          await window.ethereum.request({ method: "eth_accounts" });
           // Accounts now exposed
           resolve(web3);
+          console.log("CONNECTED TO METAMASK");
         } catch (error) {
           reject(error);
         }

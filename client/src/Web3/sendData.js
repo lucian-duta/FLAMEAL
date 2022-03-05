@@ -11,7 +11,7 @@ const SendData = (addressIn, contentIn) => {
       // Stores a given value, 5 by default.
       await web3el.contract.methods
         .addToBlockchain(address, content)
-        .send({ from: web3el.accounts[2], gas: 6721975 });
+        .send({ from: web3el.accounts[0], gas: 6721975 });
 
       // Get the value from the contract to prove it worked.
       const response = JSON.stringify(
