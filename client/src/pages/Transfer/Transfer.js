@@ -13,8 +13,8 @@ const Transfer = () => {
   return (
     //TODO: Improve mobile compatibility
     <>
-      <div className="form-container">
-        <div className="form-content-left">
+      <div className="form-container-transfer">
+        <div className="form-content-left-transfer">
           <div className="list-app">
             <h1>Add goods to the contract</h1>
             <ListFill />

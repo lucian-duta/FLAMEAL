@@ -161,7 +161,7 @@
 @media screen and (max-width: 960px) {
   .form-container {
     margin: 0;
-    width: 90rem;
+    width: 100rem;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
     position: relative;
     border-radius: 2rem;
@@ -178,18 +178,21 @@
     );
     border-radius: 10px 0 0 10px;
     position: relative;
-    grid-row: 2;
+    grid-row: 1;
     grid-column: 1;
+    width: 100%;
   }
 
   .form-content-right {
-    border-radius: 0 10px 10px 0;
+    border-radius: 0;
     position: relative;
     background: linear-gradient(
       90deg,
       rgb(40, 40, 40) 0%,
       rgb(17, 17, 17) 100%
     );
+    grid-row: 2;
+    grid-column: 1;
   }
 
   .form-input-btn {
