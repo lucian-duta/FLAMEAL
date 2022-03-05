@@ -12,7 +12,7 @@ import validateInput from "./validateList";
  * @param {*} param0
  * @returns The list html code
  */
-const Listv2Fill = ({ submitList }) => {
+const ListFill = ({ submitList }) => {
   const {
     handleQuantityDecrease,
     handleQuantityIncrease,
@@ -80,4 +80,4 @@ const Listv2Fill = ({ submitList }) => {
   );
 };
 
-export default Listv2Fill;
+export default ListFill;

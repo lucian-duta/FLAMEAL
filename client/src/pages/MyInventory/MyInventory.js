@@ -1,5 +1,5 @@
 import React from "react";
-import Listv2Fill from "../../components/List/List";
+import ListFill from "../../components/List/ListFill";
 import "./MyInventory.css";
 /**
  * * MyInventory
@@ -12,7 +12,7 @@ export default function MyInventory() {
     <div className="list-containter">
       <div className="list-app-inv">
         <h1>Add goods to the inventory</h1>
-        <Listv2Fill />
+        <ListFill />
       </div>
     </div>
   );
