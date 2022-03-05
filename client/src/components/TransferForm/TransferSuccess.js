@@ -1,5 +1,6 @@
 import React from "react";
 import "./TransferForm.css";
+
 /**
  * * TransferSuccess
  * * Simple function to inform the user that the transfer was successful
