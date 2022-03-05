@@ -1,14 +1,14 @@
 import getWeb3 from "../../getWeb3";
 import GoodsTransfer from "../../contracts/GoodsTransfer.json";
-import React, { useState } from "react";
+
+let web3Elements = {
+  web3: null,
+  accounts: null,
+  contract: null,
+};
 
 const getData = () =>
   new Promise(async (resolve, reject) => {
-    let web3Elements = {
-      web3: null,
-      accounts: null,
-      contract: null,
-    };
     try {
       // Get network provider and web3 instance.
       web3Elements.web3 = await getWeb3();
@@ -35,3 +35,6 @@ const getData = () =>
   });
 
 export default getData;
+export const fetchData = () => {
+  return web3Elements;
+};
