@@ -6,6 +6,7 @@ import { useState } from "react";
  * @param {*} callback
  * @returns the functions needed during filling
  */
+let globalItems = null;
 const useListv2 = (callback) => {
   const [items, setItems] = useState([
     { itemName: "2kg box of Apples", quantity: 3 },
@@ -27,6 +28,7 @@ const useListv2 = (callback) => {
     const newItems = [...items, newItem];
 
     setItems(newItems);
+    globalItems = newItems;
     //alert(JSON.stringify(items));
   }
 
@@ -36,7 +38,7 @@ const useListv2 = (callback) => {
     newItems[index].quantity++;
 
     setItems(newItems);
-    console.log(items);
+    globalItems = newItems;
   };
 
   const handleQuantityDecrease = (index) => {
@@ -45,16 +47,15 @@ const useListv2 = (callback) => {
     newItems[index].quantity--;
 
     setItems(newItems);
-    alert(JSON.stringify(items));
+    globalItems = newItems;
   };
 
   const removeItem = (index) => {
     const removeArr = [...items];
     delete removeArr[index];
-    console.log(removeArr);
     const filterArr = removeArr.filter((item) => item != null); //? Is there a better way to delete ?
-    console.log(filterArr);
     setItems(filterArr);
+    globalItems = filterArr;
   };
   return {
     handleAdd,
@@ -66,3 +67,6 @@ const useListv2 = (callback) => {
 };
 
 export default useListv2;
+export const fetchList = () => {
+  return globalItems;
+};

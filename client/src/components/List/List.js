@@ -1,68 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
+import useListv2 from "./useList";
+import { useState } from "react";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { RiCloseCircleLine } from "react-icons/ri";
 import "./List.css";
-
-function List() {
-  const [items, setItems] = useState([
-    { itemName: "2kg box of Apples", quantity: 3 },
-    { itemName: "Box of 10 Noodles", quantity: 4 },
-    { itemName: "Pack of 6 Tuna", quantity: 5 },
-  ]);
+/**
+ * * Listv2Fill
+ * * Used to display the form and elements inside
+ *
+ * @param {*} param0
+ * @returns The list html code
+ */
+const Listv2Fill = ({ submitList }) => {
+  const {
+    handleQuantityDecrease,
+    handleQuantityIncrease,
+    items,
+    handleAdd,
+    removeItem,
+  } = useListv2(submitList);
 
   const [inputValue, setInputValue] = useState("");
 
-  const handleAdd = () => {
-    const newItem = {
-      itemName: inputValue,
-      quantity: 1,
-    };
-
-    const newItems = [...items, newItem];
-
-    setItems(newItems);
-    setInputValue("");
-  };
-
-  const handleQuantityIncrease = (index) => {
-    const newItems = [...items];
-
-    newItems[index].quantity++;
-
-    setItems(newItems);
-    console.log(items);
-  };
-
-  const handleQuantityDecrease = (index) => {
-    const newItems = [...items];
-
-    newItems[index].quantity--;
-
-    setItems(newItems);
-    alert(JSON.stringify(items));
-  };
-
-  const removeItem = (index) => {
-    const removeArr = [...items];
-    delete removeArr[index];
-    console.log(removeArr);
-    const filterArr = removeArr.filter((item) => item != null);
-    console.log(filterArr);
-    setItems(filterArr);
-  };
+  // let value = "";
 
   return (
     <div className="list-app">
-      <h1>Add goods to the contract</h1>
       <div className="list-form">
         <div className="list-form">
-          <input
+          <input //TODO: Add browse inventory functionality
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}
             className="list-input"
             placeholder="Add an item..."
           />
-          <button className="list-button" onClick={() => handleAdd()}>
+          <button className="list-button" onClick={() => handleAdd(inputValue)}>
             Add
           </button>
         </div>
@@ -96,6 +68,6 @@ function List() {
       </div>
     </div>
   );
-}
+};
 
-export default List;
+export default Listv2Fill;
