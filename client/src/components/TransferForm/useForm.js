@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { items } from "../List/List.js";
-import useListv2 from "../Listv2Beta/useListv2";
 import SendData from "../../Web3/sendData.js";
+import { fetchList } from "../List/useList";
 /**
  * * useForm
  * * Handles the functionality of the transfer form
@@ -17,9 +16,8 @@ const useForm = (callback, validate) => {
   const [values, setValues] = useState({
     address: "",
     comments: "",
-    itemsList: [], //! Has to be imported from the list function
+    itemsList: null, //! Has to be imported from the list function
   });
-  let { items } = useListv2();
   const [errors, setErrors] = useState({});
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,6 +35,12 @@ const useForm = (callback, validate) => {
   const handleSubmit = (e) => {
     //TODO: update items when submitting only
     e.preventDefault();
+    const fetchedItems = fetchList();
+    console.log("items fetched", fetchedItems);
+    setValues({
+      ...values,
+      itemsList: fetchedItems,
+    });
 
     setErrors(validate(values));
     setIsSubmitting(true);
@@ -47,7 +51,9 @@ const useForm = (callback, validate) => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       console.log("should go", values.address, values.comments);
-      SendData("0x41FdC3a760C618f15AE1F314E80781b6cf4AAE1E", "salutttt");
+      const payload = JSON.stringify(values);
+      SendData(values.address, payload);
+      console.log(JSON.stringify(values));
       callback();
     }
   }, [errors]);

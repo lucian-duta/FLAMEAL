@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TransferFill from "../../components/TransferForm/TransferFill";
 import TransferSuccess from "../../components/TransferForm/TransferSuccess";
 import "./Transfer.css";
-import Listv2Fill from "../../components/Listv2Beta/Listv2Fill";
+import Listv2Fill from "../../components/List/List";
 
 const Transfer = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
