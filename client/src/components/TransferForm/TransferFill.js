@@ -11,8 +11,9 @@ import "./TransferForm.css";
  * @param {*} param0
  * @returns
  */
+
 const TransferFill = ({ submitForm }) => {
-  const { handleChange, handleSubmit, values, errors } = useForm(
+  const { handleChange, handleSubmit, fetchItemList, values, errors } = useForm(
     submitForm,
     validate
   );
@@ -20,8 +21,7 @@ const TransferFill = ({ submitForm }) => {
   return (
     <div className="form-content-right">
       <form className="form" onSubmit={handleSubmit} noValidate>
-        <h1>Transfer good to another entity</h1>
-
+        <h1>Transfer goods to another entity</h1>
         <div className="form-inputs">
           <label className="form-label">Address</label>
           <input
@@ -48,9 +48,16 @@ const TransferFill = ({ submitForm }) => {
           {errors.comments && <p>{errors.comments}</p>}
         </div>
 
-        <button className="form-input-btn" type="submit">
+        <button
+          className="form-input-btn"
+          type="submit"
+          onMouseEnter={() => {
+            fetchItemList(); //!THIS MAY BE A PROBLEM
+          }}
+        >
           Transfer
         </button>
+        {errors.itemsList && <p>{errors.itemsList}</p>}
       </form>
     </div>
   );

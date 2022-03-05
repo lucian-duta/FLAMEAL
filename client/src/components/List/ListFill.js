@@ -1,13 +1,10 @@
 import React from "react";
-import useListv2 from "./useListv2";
-import { useState, useEffect } from "react";
-import {
-  BsChevronRight,
-  BsChevronLeft,
-  BsEmojiExpressionlessFill,
-} from "react-icons/bs";
+import useListv2 from "./useList";
+import { useState } from "react";
+import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { RiCloseCircleLine } from "react-icons/ri";
-
+import "./List.css";
+import validateInput from "./validateList";
 /**
  * * Listv2Fill
  * * Used to display the form and elements inside
@@ -15,14 +12,15 @@ import { RiCloseCircleLine } from "react-icons/ri";
  * @param {*} param0
  * @returns The list html code
  */
-const Listv2Fill = ({ submitList }) => {
+const ListFill = ({ submitList }) => {
   const {
     handleQuantityDecrease,
     handleQuantityIncrease,
     items,
     handleAdd,
     removeItem,
-  } = useListv2(submitList);
+    errors,
+  } = useListv2(submitList, validateInput);
 
   const [inputValue, setInputValue] = useState("");
 
@@ -38,9 +36,17 @@ const Listv2Fill = ({ submitList }) => {
             className="list-input"
             placeholder="Add an item..."
           />
-          <button className="list-button" onClick={() => handleAdd(inputValue)}>
+
+          <button
+            className="list-button"
+            onClick={() => {
+              handleAdd(inputValue);
+              setInputValue("");
+            }}
+          >
             Add
           </button>
+          {errors.item && <p cl>{errors.item}</p>}
         </div>
 
         <div className="item-list">
@@ -74,4 +80,4 @@ const Listv2Fill = ({ submitList }) => {
   );
 };
 
-export default Listv2Fill;
+export default ListFill;

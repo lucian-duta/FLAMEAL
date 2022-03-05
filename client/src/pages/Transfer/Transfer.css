@@ -1,4 +1,4 @@
-.form-container {
+.form-container-transfer {
   margin: 100px auto;
   width: 1000px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
@@ -9,7 +9,7 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.form-content-left {
+.form-content-left-transfer {
   background: linear-gradient(
     90deg,
     rgb(39, 176, 255) 0%,
@@ -17,4 +17,31 @@
   );
   border-radius: 10px 0 0 10px;
   position: relative;
+}
+
+@media screen and (max-width: 960px) {
+  .form-container-transfer {
+    margin: 0;
+    width: 108vh;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 2rem;
+    height: 100rem;
+    display: grid;
+    grid-template-rows: auto;
+    row-gap: 0;
+  }
+
+  .form-content-left-transfer {
+    background: linear-gradient(
+      90deg,
+      rgb(39, 176, 255) 0%,
+      rgb(0, 232, 236) 100%
+    );
+    border-radius: 0;
+    position: relative;
+    width: 100%;
+    grid-row: 1;
+    grid-column: 1;
+  }
 }

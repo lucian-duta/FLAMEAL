@@ -1,5 +1,5 @@
 import React from "react";
-import List from "../components/List/List";
+
 /**
  * * Foodbanks showcase page
  * ? Should I use react-slick?

@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 /**
  * * useListv2
@@ -7,12 +6,14 @@ import { useState, useEffect } from "react";
  * @param {*} callback
  * @returns the functions needed during filling
  */
-const useListv2 = (callback) => {
+let globalItems = null;
+const useListv2 = (callback, validate) => {
   const [items, setItems] = useState([
     { itemName: "2kg box of Apples", quantity: 3 },
     { itemName: "Box of 10 Noodles", quantity: 4 },
     { itemName: "Pack of 6 Tuna", quantity: 5 },
   ]);
+  const [errors, setErrors] = useState({});
 
   /**
    * *handleAdd
@@ -20,14 +21,19 @@ const useListv2 = (callback) => {
    * ! VALIDATE BEFORE ADDING
    */
   function handleAdd(inputValue) {
-    const newItem = {
-      itemName: inputValue,
-      quantity: 1,
-    };
+    const err = validate(inputValue);
+    setErrors(validate(inputValue));
+    if (Object.keys(err).length === 0) {
+      const newItem = {
+        itemName: inputValue,
+        quantity: 1,
+      };
 
-    const newItems = [...items, newItem];
+      const newItems = [...items, newItem];
 
-    setItems(newItems);
+      setItems(newItems);
+      globalItems = newItems;
+    }
     //alert(JSON.stringify(items));
   }
 
@@ -37,7 +43,7 @@ const useListv2 = (callback) => {
     newItems[index].quantity++;
 
     setItems(newItems);
-    console.log(items);
+    globalItems = newItems;
   };
 
   const handleQuantityDecrease = (index) => {
@@ -46,16 +52,15 @@ const useListv2 = (callback) => {
     newItems[index].quantity--;
 
     setItems(newItems);
-    alert(JSON.stringify(items));
+    globalItems = newItems;
   };
 
   const removeItem = (index) => {
     const removeArr = [...items];
     delete removeArr[index];
-    console.log(removeArr);
     const filterArr = removeArr.filter((item) => item != null); //? Is there a better way to delete ?
-    console.log(filterArr);
     setItems(filterArr);
+    globalItems = filterArr;
   };
   return {
     handleAdd,
@@ -63,7 +68,11 @@ const useListv2 = (callback) => {
     handleQuantityDecrease,
     removeItem,
     items,
+    errors,
   };
 };
 
 export default useListv2;
+export const fetchList = () => {
+  return globalItems;
+};
