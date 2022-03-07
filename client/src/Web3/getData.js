@@ -1,12 +1,17 @@
 import getWeb3 from "./getWeb3";
 import GoodsTransfer from "../contracts/GoodsTransfer.json";
 
+//global value to hold the elements needed
 let web3Elements = {
   web3: null,
   accounts: null,
   contract: null,
 };
-
+/**
+ * *getData
+ * *Function used to extract the elements needed from the web 3 element
+ * @returns - a promise
+ */
 const getData = () =>
   new Promise(async (resolve, reject) => {
     try {
@@ -35,6 +40,7 @@ const getData = () =>
   });
 
 export default getData;
+//function to send the web3 elements needed to other components
 export const fetchData = () => {
   return web3Elements;
 };

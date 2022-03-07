@@ -5,8 +5,9 @@ import "./Transfer.css";
 import ListFill from "../../components/List/ListFill";
 
 const Transfer = () => {
+  //hook to hold the state of submission
   const [isSubmitted, setIsSubmitted] = useState(false);
-
+  //function to set the state of submission to true
   function submitForm() {
     setIsSubmitted(true);
   }
@@ -21,8 +22,10 @@ const Transfer = () => {
           </div>
         </div>
         {!isSubmitted ? (
+          //if the form is not submitted -> display the form
           <TransferFill submitForm={submitForm} />
         ) : (
+          //if the form is submitted -> display the success page
           <>
             <TransferSuccess />
           </>

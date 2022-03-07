@@ -1,6 +1,11 @@
 import Web3 from "web3";
-
+//global variable to hold the state of the MetaMask connection
 let metamaskConnected = false;
+/**
+ * *getWeb3
+ * *Function the fetch the web 3 elements based on the enviroment
+ * @returns - a promise
+ */
 const getWeb3 = () =>
   new Promise((resolve, reject) => {
     // Wait for loading completion to avoid race conditions with web3 injection timing.
@@ -40,6 +45,7 @@ const getWeb3 = () =>
   });
 
 export default getWeb3;
+//function used to send the state of the MetaMask connection to other components
 export const fetchMetaState = () => {
   return metamaskConnected;
 };
