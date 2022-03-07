@@ -9,27 +9,30 @@ import Dropdown from "../Dropdown/Dropdown";
  * * handles the navigation features of the app
  * TODO: Change the style of the links
  * ! Possible issues on mobile rendering - further testing required
- * @returns The html div
+ * @returns - the navbar component
  */
 function Navbar() {
+  //constant to hold the state of the button appearing on mobile version
   const [click, setClick] = useState(false);
-
+  //constant to hold the state of the dropdown menu( needed for mobile compatibility)
   const [dropdown, setDropdown] = useState(false);
-
+  //handle the clik of the menu button
   const handleClick = () => setClick(!click);
-
+  //function to close the mobile menu after a link was clicked
   const closeMobileMenu = () => setClick(false);
-
+  //function to display the dropdown menu if the screen is big enough
   const onMouseEnter = () => {
     if (window.innerWidth < 960) {
+      //if the windown is small (mobile view) the dropdown menu will not be displayed
       setDropdown(false);
     } else {
       setDropdown(true);
     }
   };
-
+  //function to hide the dropdown menu if the screen is big enough
   const onMouseLeave = () => {
     if (window.innerWidth < 960) {
+      //if the windown is small (mobile view) the dropdown menu will not be displayed
       setDropdown(false);
     } else {
       setDropdown(false);

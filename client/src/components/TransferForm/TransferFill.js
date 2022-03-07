@@ -5,14 +5,15 @@ import "./TransferForm.css";
 
 /**
  * *TransferFill
- * * Handles the visual aspect of the transfer form
+ * * Handles the visual aspect of the transfer form while taking imputs and handling interactions
  * !Has known mobile issues
  * TODO: Display the left div (list) on top and right div (transfer form) on bottom
- * @param {*} param0
- * @returns
+ * @param {*} param0 - the function to set the state of submission to true
+ * @returns - the transfer form component
  */
 
 const TransferFill = ({ submitForm }) => {
+  //importing the functions from the useForm function while passing the callback function and validation function
   const { handleChange, handleSubmit, fetchItemList, values, errors } = useForm(
     submitForm,
     validate
@@ -52,6 +53,8 @@ const TransferFill = ({ submitForm }) => {
           className="form-input-btn"
           type="submit"
           onMouseEnter={() => {
+            //fetching the items from the list component every time the mouse enters the transfer button
+            //used to avoid submitting with a null list
             fetchItemList(); //!THIS MAY BE A PROBLEM
           }}
         >

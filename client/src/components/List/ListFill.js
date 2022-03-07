@@ -8,11 +8,9 @@ import validateInput from "./validateList";
 /**
  * * Listv2Fill
  * * Used to display the form and elements inside
- *
- * @param {*} param0
- * @returns The list html code
+ * @returns - the form to take and handle input of the list
  */
-const ListFill = ({ submitList }) => {
+const ListFill = () => {
   const {
     handleQuantityDecrease,
     handleQuantityIncrease,
@@ -20,7 +18,7 @@ const ListFill = ({ submitList }) => {
     handleAdd,
     removeItem,
     errors,
-  } = useListv2(submitList, validateInput);
+  } = useListv2(validateInput);
 
   const [inputValue, setInputValue] = useState("");
 
