@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import SendData from "../../Web3/sendData.js";
 import { fetchList } from "../List/useList";
+import { fetchMetaState } from "../../Web3/getWeb3.js";
 /**
  * * useForm
  * * Handles the functionality of the transfer form
@@ -64,12 +65,18 @@ const useForm = (callback, validate) => {
       transferError = SendData(values.address, payload);
       console.log(JSON.stringify(values));
       console.log("TRANSFER ERRORRR", transferError);
+      const metaState = fetchMetaState();
       if (!transferError) {
         callback();
-      } else {
+      } else if (metaState) {
         setErrors({
           ...errors,
           itemsList: "TRANSFER FAILED: The address was not found",
+        });
+      } else if (!metaState) {
+        setErrors({
+          ...errors,
+          itemsList: "ERROR: Please login with metamask",
         });
       }
     }

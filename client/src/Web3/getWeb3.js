@@ -1,5 +1,6 @@
 import Web3 from "web3";
 
+let metamaskConnected = false;
 const getWeb3 = () =>
   new Promise((resolve, reject) => {
     // Wait for loading completion to avoid race conditions with web3 injection timing.
@@ -9,10 +10,11 @@ const getWeb3 = () =>
         const web3 = new Web3(window.ethereum);
         try {
           // Request account access if needed
-          await window.ethereum.request({ method: "eth_accounts" });
+          await window.ethereum.enable();
           // Accounts now exposed
           resolve(web3);
           console.log("CONNECTED TO METAMASK");
+          metamaskConnected = true;
         } catch (error) {
           reject(error);
         }
@@ -22,6 +24,7 @@ const getWeb3 = () =>
         // Use Mist/MetaMask's provider.
         const web3 = window.web3;
         console.log("Injected web3 detected.");
+        metamaskConnected = true;
         resolve(web3);
       }
       // Fallback to localhost; use dev console port by default...
@@ -37,3 +40,6 @@ const getWeb3 = () =>
   });
 
 export default getWeb3;
+export const fetchMetaState = () => {
+  return metamaskConnected;
+};
