@@ -11,7 +11,7 @@ export default function validateInfo(values) {
   if (!values.address) {
     //if the address field is empty update error
     errors.address = "Address required";
-  } else if (values.address.length === 42) {
+  } else if (values.address.length < 42) {
     //if the address is too short update error
     errors.address = "Adddres must be x caracters or more";
   }
