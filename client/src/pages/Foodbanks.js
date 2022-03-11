@@ -1,8 +1,6 @@
 import React from "react";
 import extractFeatures from "../Web3/extractFeatures";
 
-import getTransactions, { fetchTransactions } from "../Web3/getTransactions";
-
 /**
  * * Foodbanks showcase page
  * ? Should I use react-slick?
