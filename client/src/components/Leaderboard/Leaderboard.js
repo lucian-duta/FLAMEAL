@@ -12,6 +12,7 @@ const Leaderboard = () => {
 
   return (
     <div className="lead-app">
+      <h1>Top contributors this month</h1>
       <ul className="lead-list">
         {contributors.map((item, key) => (
           <li key={key} className="lead-row">
