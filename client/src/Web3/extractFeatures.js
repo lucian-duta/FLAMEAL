@@ -1,16 +1,16 @@
 import getData, { fetchTransactions } from "./getData";
 
-let senders = [];
+let features = {
+  transactionCount: 0,
+  transLastMonth: null,
+  topSenders: [],
+  contributorsLastMonth: null,
+};
 const extractFeatures = () => {
   getData().then(() => {
     const transactions = fetchTransactions();
     console.log(transactions);
-    let features = {
-      transactionCount: 0,
-      transLastMonth: null,
-      topSenders: [],
-      contributorsLastMonth: null,
-    };
+
     //array to hold the senders
     let senders = [];
     //array to hold the senders in the last month
@@ -42,10 +42,11 @@ const extractFeatures = () => {
     };
     //create the hashmap for extracting the top senders
     let topHashmap = createHashmap(senders);
+    console.log("tooooooop", topHashmap);
     //extract an array of the most top most occured addresses in the sender array
     //based on the values of the hashmap created earlier
     features.topSenders = Object.keys(topHashmap).filter((x) => {
-      return topHashmap[x] == Math.max.apply(null, Object.values(topHashmap));
+      return topHashmap[x];
     });
     //counting the transactions last month
     features.transLastMonth = transactions.filter((obj) => {
@@ -68,3 +69,12 @@ const extractFeatures = () => {
 };
 
 export default extractFeatures;
+export const fetchTopSenders = () => {
+  return features.topSenders;
+};
+export const transLastMonth = () => {
+  return features.transLastMonth;
+};
+export const contLastMonth = () => {
+  return features.contributorsLastMonth;
+};
