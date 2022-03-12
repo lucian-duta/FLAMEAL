@@ -49,7 +49,7 @@ const ListFill = () => {
 
         <div className="item-list">
           {items.map((item, index) => (
-            <div className="list-row">
+            <div key={index} className="list-row">
               <div>{item.itemName}</div>
 
               <div className="icons">
