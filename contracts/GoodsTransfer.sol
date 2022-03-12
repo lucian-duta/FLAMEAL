@@ -39,69 +39,31 @@ contract GoodsTransfer {
         return transfers;
     }
 
+    // function getTransfers()
+    //     public
+    //     view
+    //     returns (
+    //         address[] memory,
+    //         address[] memory,
+    //         string[] memory,
+    //         uint256[] memory
+    //     )
+    // {
+    //     address[] memory senders = new address[](transactionCount);
+    //     address[] memory receivers = new address[](transactionCount);
+    //     string[] memory contents = new string[](transactionCount);
+    //     uint256[] memory timestamps = new uint256[](transactionCount);
+
+    //     for (uint256 i = 0; i < 2; i++) {
+    //         senders[i] = (transfers[i].sender);
+    //         receivers[i] = (transfers[i].reciever);
+    //         contents[i] = (transfers[i].content);
+    //         timestamps[i] = (transfers[i].timestamp);
+    //     }
+    //     return (senders, receivers, contents, timestamps);
+    // }
+
     function getTrasactionCount() public view returns (uint256) {
         return transactionCount;
     }
-
-    // uint256 transactionCount;
-
-    // event Transfer(
-    //     address from,
-    //     address reciever,
-    //     string comment,
-    //     uint256 timestamp,
-    //     string keyword
-    // );
-
-    // struct TransferStruct {
-    //     address sender;
-    //     address reciever;
-    //     string comment;
-    //     uint256 timestamp;
-    //     string keyword;
-    // }
-
-    // TransferStruct[] transactions;
-
-    // function addToBlockchain(
-    //     address payable reciever,
-    //     string memory comment,
-    //     string memory keyword
-    // ) public {
-    //     transactionCount += 1;
-    //     transactions.push(
-    //         TransferStruct(
-    //             msg.sender,
-    //             reciever,
-    //             comment,
-    //             block.timestamp,
-    //             keyword
-    //         )
-    //     );
-
-    //     emit Transfer(msg.sender, reciever, comment, block.timestamp, keyword);
-    // }
-
-    // function getAllTransactions()
-    //     public
-    //     view
-    //     returns (TransferStruct[] memory)
-    // {
-    //     return transactions;
-    // }
-
-    // function getTrasactionCount() public view returns (uint256) {
-    //     return transactionCount;
-    // }
-
-    //     struct Transfer {
-    //         string content;
-    //         uint256 timestamp;
-    //     }
-
-    //     event TransferCreated(string content, uint256 timestamp);
-
-    //     function addToBlockchain(string memory content) public {
-    //         emit TransferCreated(content, block.timestamp);
-    //     }
 }

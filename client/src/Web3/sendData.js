@@ -17,7 +17,6 @@ const SendData = (addressIn, contentIn) => {
       const response = JSON.stringify(
         await web3el.contract.methods.getAllTransactions().call()
       );
-
       // Update state with the result.
       console.log(response);
     } catch (error) {

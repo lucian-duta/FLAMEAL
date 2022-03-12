@@ -1,4 +1,5 @@
 import React from "react";
+import extractFeatures from "../Web3/extractFeatures";
 
 /**
  * * Foodbanks showcase page
@@ -8,6 +9,9 @@ import React from "react";
  * @returns
  */
 export default function Foodbanks() {
+  //getTransactions();
+
+  //console.log(JSON.stringify(fetchTransactions));
   return (
     <>
       <h1 className="foodbanks">Food banks</h1>

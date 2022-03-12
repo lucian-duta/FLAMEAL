@@ -7,6 +7,7 @@ let web3Elements = {
   accounts: null,
   contract: null,
 };
+let transactions = null;
 /**
  * *getData
  * *Function used to extract the elements needed from the web 3 element
@@ -28,7 +29,11 @@ const getData = () =>
         GoodsTransfer.abi,
         deployedNetwork && deployedNetwork.address
       );
+      transactions = await web3Elements.contract.methods
+        .getAllTransactions()
+        .call();
       console.log(web3Elements);
+      console.log(transactions);
       resolve(web3Elements);
     } catch (error) {
       reject(error);
@@ -40,7 +45,12 @@ const getData = () =>
   });
 
 export default getData;
-//function to send the web3 elements needed to other components
+//function to send the web3 elements needed by other components
 export const fetchData = () => {
   return web3Elements;
+};
+
+//function to send the transaction array needed by other components
+export const fetchTransactions = () => {
+  return transactions;
 };
