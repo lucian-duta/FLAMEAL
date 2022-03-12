@@ -5,7 +5,7 @@ import Transfer from "./pages/Transfer/Transfer";
 import MyInventory from "./pages/MyInventory/MyInventory";
 import SignUp from "./pages/SignUp";
 import Foodbanks from "./pages/Foodbanks";
-import TopCont from "./pages/TopCont";
+import TopCont from "./pages/TopContributors/TopCont";
 import UserStats from "./pages/UserStats";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar.js";
