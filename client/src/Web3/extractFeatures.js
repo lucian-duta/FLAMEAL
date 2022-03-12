@@ -72,9 +72,9 @@ export default extractFeatures;
 export const fetchTopSenders = () => {
   return features.topSenders;
 };
-export const transLastMonth = () => {
+export const fetchTransLastMonth = () => {
   return features.transLastMonth;
 };
-export const contLastMonth = () => {
+export const fetchContLastMonth = () => {
   return features.contributorsLastMonth;
 };
