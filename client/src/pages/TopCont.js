@@ -1,4 +1,6 @@
 import React from "react";
+import Leaderboard from "../components/Leaderboard/Leaderboard";
+import extractFeatures from "../Web3/extractFeatures";
 /**
  * * TopCont
  * * This should shot the top contributors based on the number of transactions
@@ -8,11 +10,11 @@ import React from "react";
  * @returns
  */
 export default function TopCont() {
-  const address = "0x0cbC0EafaA0f1043c386287eEB1E57da6a3290bB";
-  const cont = "HELLLO";
   return (
     <>
-      <h1 className="topcont">Top Contributors</h1>
+      <h1 className="topcont">
+        <Leaderboard />
+      </h1>
     </>
   );
 }
