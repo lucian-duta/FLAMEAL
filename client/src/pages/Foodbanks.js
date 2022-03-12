@@ -10,7 +10,7 @@ import extractFeatures from "../Web3/extractFeatures";
  */
 export default function Foodbanks() {
   //getTransactions();
-  extractFeatures();
+
   //console.log(JSON.stringify(fetchTransactions));
   return (
     <>
