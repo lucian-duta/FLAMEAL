@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Statistics from "../components/Statistics/Statistics";
+import TopContLoading from "../components/TopContributors/TopContLoading";
+import extractFeatures from "../Web3/extractFeatures";
 /**
  * * UserStats
  * * This should display user statistics:
@@ -12,9 +15,20 @@ import React from "react";
  * @returns
  */
 export default function UserStats() {
-  return (
-    <>
-      <h1 className="userstats">User Stats</h1>
-    </>
-  );
+  const [isLoading, setLoading] = useState(true);
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
+    extractFeatures()
+      .then(() => {
+        setLoading(false);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  return <>{isLoading ? <TopContLoading /> : <Statistics />}</>;
 }

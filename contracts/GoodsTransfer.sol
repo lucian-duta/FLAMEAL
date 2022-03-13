@@ -6,29 +6,29 @@ contract GoodsTransfer {
 
     event Transfer(
         address from,
-        address reciever,
+        address receiver,
         string content,
         uint256 timestamp
     );
 
     struct TransferStruct {
         address sender;
-        address reciever;
+        address receiver;
         string content;
         uint256 timestamp;
     }
 
     TransferStruct[] public transfers;
 
-    function addToBlockchain(address payable reciever, string memory content)
+    function addToBlockchain(address payable receiver, string memory content)
         public
     {
         transactionCount += 1;
         transfers.push(
-            TransferStruct(msg.sender, reciever, content, block.timestamp)
+            TransferStruct(msg.sender, receiver, content, block.timestamp)
         );
 
-        emit Transfer(msg.sender, reciever, content, block.timestamp);
+        emit Transfer(msg.sender, receiver, content, block.timestamp);
     }
 
     function getAllTransactions()
