@@ -4,9 +4,16 @@
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 10px;
-  height: 600px;
+  height: auto;
   display: flex;
+  flex-direction: column;
   background: #161a2b;
+}
+.stats-container h1 {
+  color: #fff;
+  font-size: 24px;
+  justify-content: center;
+  text-align: center;
 }
 .stats-num-comp {
   display: flex;
@@ -24,4 +31,15 @@
   border-radius: 5px;
   width: 240px;
   font-size: 14px;
+}
+
+.stats-num-cont {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem auto;
+}
+
+.stats-graph {
+  margin: 2rem;
+  color: #fff;
 }
