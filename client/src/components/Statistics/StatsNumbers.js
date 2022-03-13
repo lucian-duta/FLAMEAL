@@ -6,13 +6,19 @@ import {
 import "./Statistics.css";
 
 const StatsNumbers = () => {
-  console.log("PPL", fetchPeopleAided());
   return (
     <>
-      <div className="stats-num-comp">
-        <p>People aided: {fetchPeopleAided()}</p>
-        <br />
-        <p>People aided last month: {fetchPeopleAided()}</p>
+      <div className="stats-num-cont">
+        <div className="stats-num-comp">
+          <p>People aided: {fetchPeopleAided()}</p>
+          <br />
+          <p>People aided last month: {fetchPeopleAidedLM()}</p>
+        </div>
+        <div className="stats-num-comp">
+          <p>People joined: {20}</p>
+          <br />
+          <p>People joined last month: {4}</p>
+        </div>
       </div>
     </>
   );
