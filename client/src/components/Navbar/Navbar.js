@@ -8,6 +8,7 @@ import Dropdown from "../Dropdown/Dropdown";
  * *Navbar
  * * handles the navigation features of the app
  * TODO: Change the style of the links
+ * TODO: DISPLAY LOGO
  * ! Possible issues on mobile rendering - further testing required
  * @returns - the navbar component
  */
