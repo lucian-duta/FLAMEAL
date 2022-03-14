@@ -1,9 +1,10 @@
 import React from "react";
+import Landing from "../components/LandingPage/Landing";
 
 export default function Intro() {
   return (
     <>
-      <h1 className="intro">intro</h1>
+      <Landing />
     </>
   );
 }
