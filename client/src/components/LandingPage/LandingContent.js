@@ -21,6 +21,13 @@ const LandingContent = () => {
           nulla. Donec volutpat tellus eu luctus bibendum.
         </p>
       </div>
+      <div className="landing-content-img">
+        <img
+          src={window.location.origin + "/circularity.png"}
+          width="800px"
+          height="500px"
+        />
+      </div>
       <div className="landing-content">
         <h1>Blockchain:</h1>
         <p>
@@ -39,8 +46,15 @@ const LandingContent = () => {
           nulla. Donec volutpat tellus eu luctus bibendum.
         </p>
       </div>
+      <div className="landing-content-img">
+        <img
+          src={window.location.origin + "/smartppl.png"}
+          width="1000px"
+          height="500px"
+        />
+      </div>
     </>
   );
 };
-
+//<a href='https://www.freepik.com/vectors/hand-drawn'>Hand drawn vector created by freepik - www.freepik.com</a>
 export default LandingContent;
