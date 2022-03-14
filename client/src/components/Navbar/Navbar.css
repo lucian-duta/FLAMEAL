@@ -81,6 +81,15 @@
   display: none;
 }
 
+.fa-firstdraft {
+  margin-left: 0.5rem;
+  margin-top: 0.2rem;
+  display: block;
+}
+.navbar-logo-text {
+  display: none;
+}
+
 @media screen and (max-width: 960px) {
   .NavbarItems {
     position: relative;
@@ -140,9 +149,9 @@
 
   .navbar-logo {
     position: absolute;
-    top: 0;
+    top: auto;
+    bottom: auto;
     left: 0;
-    transform: translate(25%, 50%);
   }
 
   .menu-icon {
@@ -180,6 +189,14 @@
   }
 
   .btn {
+    display: none;
+  }
+  .fa-firstdraft {
+    margin-left: 0.5rem;
+    margin-top: 0.2rem;
+    display: block;
+  }
+  .navbar-logo-text {
     display: none;
   }
 }

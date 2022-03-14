@@ -43,7 +43,14 @@ function Navbar() {
     <>
       <nav className="navbar">
         <Link to="/" className="navbar-logo">
-          Flameal
+          <div className="navbar-logo-text">Flameal</div>
+
+          <img
+            class="fa-firstdraft"
+            src={window.location.origin + "/logo-flameal-nav.png"}
+            width="200rem"
+            height="50rem"
+          />
         </Link>
         <div className="menu-icon" onClick={handleClick}>
           <i className={click ? "fas fa-times" : "fas fa-bars"} />
