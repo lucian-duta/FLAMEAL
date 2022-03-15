@@ -5,6 +5,8 @@ let features = {
   transLastMonth: null,
   topSenders: [],
   contributorsLastMonth: null,
+  receivers: null,
+  receiversLM: null,
 };
 const extractFeatures = () =>
   new Promise(async (resolve, reject) => {
@@ -17,15 +19,19 @@ const extractFeatures = () =>
       let senders = [];
       //array to hold the senders in the last month
       let sendersLM = [];
+      let receivers = [];
+      let receiversLM = [];
       transactions.forEach((transaction, index) => {
         //populate the senders array with the addresses of the senders
         senders.push(transaction.sender);
+        receivers.push(transaction.receiver);
         //if the transaction happened in the last month
         //the timestamp is compared with the current time - 1 month (in seconds)
         //for more details research UNIX time
         if (transaction.timestamp > Math.trunc(Date.now() / 1000) - 2629746) {
           //populate the senders last month array with the addresses of the senders
           sendersLM.push(transaction.sender);
+          receiversLM.push(transaction.receiver);
         }
       });
 
@@ -62,11 +68,17 @@ const extractFeatures = () =>
       features.contributorsLastMonth = Object.keys(
         createHashmap(sendersLM)
       ).length;
+      //update the features with the number of receivers
+      features.receivers = Object.keys(createHashmap(receivers)).length;
+      //update the features with the number of receivers last month
+      features.receiversLM = Object.keys(createHashmap(receiversLM)).length;
 
       console.log("all senders", senders);
       console.log("top senders", features.topSenders);
       console.log("trans last montg", features.transLastMonth);
       console.log("contr last montg", features.contributorsLastMonth);
+      console.log("people aided", features.receivers);
+      console.log("people aided last month", features.receiversLM);
     });
   });
 
@@ -79,4 +91,10 @@ export const fetchTransLastMonth = () => {
 };
 export const fetchContLastMonth = () => {
   return features.contributorsLastMonth;
+};
+export const fetchPeopleAided = () => {
+  return features.receivers;
+};
+export const fetchPeopleAidedLM = () => {
+  return features.receiversLM;
 };
