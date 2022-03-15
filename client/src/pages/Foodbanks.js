@@ -1,4 +1,5 @@
 import React from "react";
+import Showcase from "../components/Showcase/Showcase";
 import extractFeatures from "../Web3/extractFeatures";
 
 /**
@@ -14,7 +15,7 @@ export default function Foodbanks() {
   //console.log(JSON.stringify(fetchTransactions));
   return (
     <>
-      <h1 className="foodbanks">Food banks</h1>
+      <Showcase />
     </>
   );
 }
