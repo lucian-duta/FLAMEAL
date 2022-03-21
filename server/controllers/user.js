@@ -21,11 +21,37 @@ export const getUsers = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
+export const updateInventory = async (req, res) => {
+  const body = req.body;
+  try {
+    let update = await UserAccount.updateOne(
+      { publicAddress: body.publicAddress },
+      { inventory: body.inventory }
+    );
+    if (update.acknowledged) {
+      res.status(200).json("updated");
+    }
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+export const getInventory = async (req, res) => {
+  try {
+    let user = await UserAccount.findOne({ publicAddress: req.params.address });
+    console.log(user);
+    res.status(200).json(user.inventory);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
 
 export const createUser = async (req, res) => {
   const user = {
     publicAddress: req.body.publicAddress,
     nonce: nonceGenerator(),
+    name: "",
+    inventory: "",
   };
   //!NEED TO CHECK IF EXISTS
   const newUser = new UserAccount(user);
