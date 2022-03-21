@@ -32,7 +32,8 @@ const reducers = (state, action) => {
       };
     case "add_to_inv":
       return {
-        inventory: [...state.inventory, action.payload],
+        ...state,
+        inventory: action.payload,
       };
     case "rm_from_inv":
       return {
