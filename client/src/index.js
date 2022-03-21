@@ -1,10 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import { StateProvider } from "./context/UserContext";
 import extractFeatures from "./Web3/extractFeatures";
 import getData from "./Web3/getData";
 //*If you ever feel useless...this about this index page
-ReactDOM.render(<App />, document.getElementById("root"));
+const app = (
+  <StateProvider>
+    <App />
+  </StateProvider>
+);
+ReactDOM.render(app, document.getElementById("root"));
 
 getData()
   .then(() => {

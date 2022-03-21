@@ -46,7 +46,7 @@ function Navbar() {
           <div className="navbar-logo-text">Flameal</div>
 
           <img
-            class="fa-firstdraft"
+            className="fa-firstdraft"
             src={window.location.origin + "/logo-flameal-nav.png"}
             width="200rem"
             height="50rem"

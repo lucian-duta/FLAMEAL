@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import ListFill from "../../components/List/ListFill";
+import { UserContext } from "../../context/UserContext";
 import "./MyInventory.css";
 /**
  * * MyInventory
@@ -8,6 +9,8 @@ import "./MyInventory.css";
  * @returns
  */
 export default function MyInventory() {
+  const [state, dispach] = useContext(UserContext);
+  console.log(state.auth);
   return (
     <div className="list-containter">
       <div className="list-app-inv">
