@@ -1,4 +1,7 @@
-import { useState } from "react";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../context/UserContext";
+let url = "http://localhost:5000/users";
 
 /**
  * * useListv2
@@ -9,14 +12,51 @@ import { useState } from "react";
 //delcare a second list of items globally to because hooks don't work outside of the function
 let globalItems = null;
 const useListv2 = (validate) => {
+  const [state, dispach] = useContext(UserContext);
+
   //declare the initial state of the list (populated for testing purposes)
   const [items, setItems] = useState([
     { itemName: "2kg box of Apples", quantity: 3 },
     { itemName: "Box of 10 Noodles", quantity: 4 },
     { itemName: "Pack of 6 Tuna", quantity: 5 },
   ]);
+
   //constant to store the state of the errors
   const [errors, setErrors] = useState({});
+
+  const pathName = () => {
+    if (window.location.pathname === "/myinventory") {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const updateDatabase = (items) => {
+    const payload = {
+      publicAddress: state.address,
+      inventory: items,
+    };
+    if (pathName()) {
+      axios
+        .post(`${url}/updateinventory`, payload)
+        .then(() => {
+          dispach({
+            type: "add_to_inv",
+            payload: items,
+          });
+        })
+        .catch((e) => {
+          alert(e);
+        });
+    }
+  };
+
+  useEffect(() => {
+    if (pathName()) {
+      setItems(state.inventory);
+    }
+  }, []);
 
   /**
    * *handleAdd
@@ -37,8 +77,11 @@ const useListv2 = (validate) => {
       };
       //creating a new list holding the old list but updated with the new element
       const newItems = [...items, newItem];
+
+      updateDatabase(newItems);
       //the old list becomes the new list
       setItems(newItems);
+
       //update the global list
       globalItems = newItems;
     }
@@ -52,6 +95,9 @@ const useListv2 = (validate) => {
     const newItems = [...items];
     //increase the quantity of the specific item
     newItems[index].quantity++;
+    //update the global state
+    updateDatabase(newItems);
+
     //update the list
     setItems(newItems);
     //update the global list
@@ -67,6 +113,9 @@ const useListv2 = (validate) => {
     const newItems = [...items];
     //increase the quantity of the specific item
     newItems[index].quantity--;
+    //update the global state
+    updateDatabase(newItems);
+
     //update the list
     setItems(newItems);
     //update the global list
@@ -84,6 +133,9 @@ const useListv2 = (validate) => {
     delete removeArr[index];
     //remove items with the null value (resulted from the deletion of the object)
     const filterArr = removeArr.filter((item) => item !== null);
+    //update database and global state
+    updateDatabase(filterArr);
+
     //update the list
     setItems(filterArr);
     //update the global list
