@@ -22,11 +22,14 @@ export const getUsers = async (req, res) => {
   }
 };
 export const updateInventory = async (req, res) => {
-  const body = req.body;
+  const address = req.body.publicAddress;
+  const inv = JSON.stringify(req.body.inventory);
+  console.log(inv);
+  console.log(address);
   try {
     let update = await UserAccount.updateOne(
-      { publicAddress: body.publicAddress },
-      { inventory: body.inventory }
+      { publicAddress: address },
+      { inventory: inv }
     );
     if (update.acknowledged) {
       res.status(200).json("updated");
