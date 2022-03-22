@@ -15,7 +15,7 @@ const nonceGenerator = () => {
 export const getUsers = async (req, res) => {
   try {
     const user = await UserAccount.find();
-    console.log(user);
+    console.log("Users fetched: ", user);
     res.status(200).json(user);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -24,8 +24,8 @@ export const getUsers = async (req, res) => {
 export const updateInventory = async (req, res) => {
   const address = req.body.publicAddress;
   const inv = JSON.stringify(req.body.inventory);
-  console.log(inv);
-  console.log(address);
+  console.log("new inventory: ", inv);
+  console.log("address: ", address);
   try {
     let update = await UserAccount.updateOne(
       { publicAddress: address },
@@ -42,7 +42,7 @@ export const updateInventory = async (req, res) => {
 export const getInventory = async (req, res) => {
   try {
     let user = await UserAccount.findOne({ publicAddress: req.params.address });
-    console.log(user);
+    console.log("getInventory: ", user);
     res.status(200).json(user.inventory);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -69,7 +69,7 @@ export const createUser = async (req, res) => {
 
 export const loginUser = async (req, res) => {
   const body = req.params;
-  console.log(body);
+  console.log("login user: ", body);
   try {
     let user = await UserAccount.findOne({ publicAddress: body.address });
     // const token = jwt.sign({ publicAddress: body.publicAddress }, "secret123");
@@ -82,8 +82,8 @@ export const loginUser = async (req, res) => {
 export const authUser = async (req, res) => {
   const address = req.body.address;
   const decodedAddress = req.body.decodedAdd;
-  console.log(address);
-  console.log(decodedAddress);
+  console.log("actual address: ", address);
+  console.log("decoded address: ", decodedAddress);
   try {
     let user = await UserAccount.findOne({ publicAddress: address });
     let testAdd = user.publicAddress.toLowerCase();
