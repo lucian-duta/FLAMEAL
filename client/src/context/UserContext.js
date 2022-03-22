@@ -24,6 +24,11 @@ const reducers = (state, action) => {
         ...state,
         auth: true,
       };
+    case "de_auth":
+      return {
+        ...state,
+        auth: false,
+      };
 
     case "address":
       return {
