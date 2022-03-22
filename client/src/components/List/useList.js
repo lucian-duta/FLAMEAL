@@ -37,6 +37,8 @@ const useListv2 = (validate) => {
       publicAddress: state.address,
       inventory: items,
     };
+    console.log(state);
+
     if (pathName()) {
       axios
         .post(`${url}/updateinventory`, payload)
@@ -53,9 +55,11 @@ const useListv2 = (validate) => {
   };
 
   useEffect(() => {
-    if (pathName()) {
-      setItems(state.inventory);
-    }
+    setItems(state.inventory);
+    axios.get(`${url}/getinventory/${state.address}`).then((res) => {
+      const inv = JSON.parse(res.data);
+      setItems(inv);
+    });
   }, []);
 
   /**
