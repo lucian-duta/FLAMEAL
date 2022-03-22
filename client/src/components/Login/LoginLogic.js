@@ -13,6 +13,9 @@ const LoginLogic = () => {
   //main function to trigger the login process
   const handleLogin = () => {
     localStorage.clear();
+    dispach({
+      type: "de_auth",
+    });
     //payload send to api
     const payload = {
       publicAddress: web3.accounts[0],

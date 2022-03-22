@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import SendData from "../../Web3/sendData.js";
 import { fetchList } from "../List/useList";
 import { fetchMetaState } from "../../Web3/getWeb3.js";
+import { UserContext } from "../../context/UserContext.js";
+import { updateInventory } from "../../api/actions.js";
 /**
  * * useForm
  * * Handles the functionality of the transfer form
@@ -14,6 +16,7 @@ import { fetchMetaState } from "../../Web3/getWeb3.js";
  * @returns - the functions required by the TransferFill component
  */
 const useForm = (callback, validate) => {
+  const [state, dispach] = useContext(UserContext);
   //declaring a variable to hold the state of blockchain transfer errors
   let transferError = null;
   //hook to hold the values of the form
@@ -52,6 +55,19 @@ const useForm = (callback, validate) => {
     //put the form in submission state
     setIsSubmitting(true);
   };
+
+  const inFirstOnly = (isUnion = false) => {
+    const totalItems = state.inventory;
+    const transferItems = values.itemsList;
+    const remainingItems = totalItems.filter(
+      (
+        (set) => (a) =>
+          isUnion === set.has(a.itemName)
+      )(new Set(transferItems.map((b) => b.itemName)))
+    );
+    updateInventory(remainingItems, state.address);
+  };
+
   //hook to be called every time the errors are changed
   useEffect(() => {
     //test if the error array is empty and the form is submitting
@@ -65,13 +81,16 @@ const useForm = (callback, validate) => {
       payload = JSON.stringify(payload);
       //Send the json string to the SendData function
       transferError = SendData(values.address, payload);
-      console.log(JSON.stringify(values)); //!SHOULD BE REMOVED IN FINAL
+      console.log("values attached to contract", JSON.stringify(values)); //!SHOULD BE REMOVED IN FINAL
       console.log("TRANSFER ERRORRR", transferError); //!SHOULD BE REMOVED IN FINAL
+      // console.log("SHOULD KEEP", inFirstOnly(state.inventory, values.items));
+      inFirstOnly();
       //constant to hold a bool state of the MetaMask connection
       const metaState = fetchMetaState();
       if (!transferError) {
         //if there are no transfer errors the callback function is called
         //and the form is refreshed as the transfer is considered succesfull
+
         callback();
       } else if (metaState) {
         //if there are transfer errors while MetaMask is connected the errors are updated

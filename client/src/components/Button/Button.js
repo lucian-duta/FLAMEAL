@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
  * *Function to display the button component in the navbar
  * @returns - A link to the login page and the button element
  */
-export function Button() {
+export function Button({ buttonName, toPage }) {
   return (
-    <Link to="signup">
-      <button className="btn">Login</button>
+    <Link to={toPage}>
+      <button className="btn">{buttonName}</button>
     </Link>
   );
 }

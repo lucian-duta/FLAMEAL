@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button } from "../Button/Button";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import Dropdown from "../Dropdown/Dropdown";
+import { UserContext } from "../../context/UserContext";
 
 /**
  * *Navbar
@@ -13,6 +14,7 @@ import Dropdown from "../Dropdown/Dropdown";
  * @returns - the navbar component
  */
 function Navbar() {
+  const [state, dispatch] = useContext(UserContext);
   //constant to hold the state of the button appearing on mobile version
   const [click, setClick] = useState(false);
   //constant to hold the state of the dropdown menu( needed for mobile compatibility)
@@ -39,6 +41,59 @@ function Navbar() {
       setDropdown(false);
     }
   };
+  //hooks for the components dependent on the authentication state
+  const [comp, setComp] = useState(null);
+  const [butt, setButt] = useState(null);
+  const [invComp, setInvComp] = useState("");
+  // update the components accoring to the auth state
+  useEffect(() => {
+    console.log(state.auth);
+    //if the user is logged out or not logged in
+    if (!state.auth) {
+      //setting the mobile button to "login"
+      setComp(
+        <Link
+          to="/signup"
+          className="nav-links-mobile"
+          onClick={closeMobileMenu}
+        >
+          Login
+        </Link>
+      );
+      //setting the desktop button to login
+      setButt(<Button buttonName="Login" toPage="signup" />);
+      //hide the inventory link
+      setInvComp("");
+    } else {
+      //if the user is logged in
+      //change the mobile button to "logout"
+      setComp(
+        <Link
+          to="/signup"
+          className="nav-links-mobile"
+          onClick={closeMobileMenu}
+        >
+          Logout
+        </Link>
+      );
+      //change the desktop button to "logout"
+      setButt(<Button buttonName="Logout" toPage="" />);
+
+      //show the inventory link
+      setInvComp(
+        <li className="nav-item">
+          <Link
+            to="/myinventory"
+            className="nav-links"
+            onClick={closeMobileMenu}
+          >
+            My Inventory
+          </Link>
+        </li>
+      );
+    }
+  }, [state.auth]); // dependent on the global state of auth
+
   return (
     <>
       <nav className="navbar">
@@ -66,15 +121,7 @@ function Navbar() {
             </Link>
           </li>
 
-          <li className="nav-item">
-            <Link
-              to="/myinventory"
-              className="nav-links"
-              onClick={closeMobileMenu}
-            >
-              My Inventory
-            </Link>
-          </li>
+          {invComp}
 
           <li
             className="nav-item-opt"
@@ -117,17 +164,23 @@ function Navbar() {
             </Link>
           </li>
 
-          <li className="nav-item">
-            <Link
-              to="/signup"
-              className="nav-links-mobile"
-              onClick={closeMobileMenu}
-            >
-              Login
-            </Link>
-          </li>
+          <li className="nav-item">{comp}</li>
         </ul>
-        <Button />
+        <div
+          onClick={() => {
+            //when the button is clicked and if the user is logged in
+            if (state.auth) {
+              //update the global authentication state
+              dispatch({
+                type: "de_auth",
+              });
+              //purge the browser storage
+              localStorage.clear();
+            }
+          }}
+        >
+          {butt}
+        </div>
       </nav>
     </>
   );

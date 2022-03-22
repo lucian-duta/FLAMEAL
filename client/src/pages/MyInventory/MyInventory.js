@@ -10,7 +10,8 @@ import "./MyInventory.css";
  */
 export default function MyInventory() {
   const [state, dispach] = useContext(UserContext);
-  console.log(state.auth);
+  console.log(state);
+  localStorage.setItem("state", JSON.stringify(state));
   return (
     <div className="list-containter">
       <div className="list-app-inv">
