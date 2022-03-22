@@ -3,6 +3,7 @@ import SendData from "../../Web3/sendData.js";
 import { fetchList } from "../List/useList";
 import { fetchMetaState } from "../../Web3/getWeb3.js";
 import { UserContext } from "../../context/UserContext.js";
+import { updateInventory } from "../../api/actions.js";
 /**
  * * useForm
  * * Handles the functionality of the transfer form
@@ -55,14 +56,18 @@ const useForm = (callback, validate) => {
     setIsSubmitting(true);
   };
 
-  const inFirstOnly = (totalItems, transferItems, isUnion = false) => {
-    return totalItems.filter(
+  const inFirstOnly = (isUnion = false) => {
+    const totalItems = state.inventory;
+    const transferItems = values.itemsList;
+    const remainingItems = totalItems.filter(
       (
         (set) => (a) =>
           isUnion === set.has(a.itemName)
       )(new Set(transferItems.map((b) => b.itemName)))
     );
+    updateInventory(remainingItems, state.address);
   };
+
   //hook to be called every time the errors are changed
   useEffect(() => {
     //test if the error array is empty and the form is submitting
@@ -78,16 +83,14 @@ const useForm = (callback, validate) => {
       transferError = SendData(values.address, payload);
       console.log("values attached to contract", JSON.stringify(values)); //!SHOULD BE REMOVED IN FINAL
       console.log("TRANSFER ERRORRR", transferError); //!SHOULD BE REMOVED IN FINAL
-      console.log("SHOULD KEEP", inFirstOnly(state.inventory, values.items));
-
+      // console.log("SHOULD KEEP", inFirstOnly(state.inventory, values.items));
+      inFirstOnly();
       //constant to hold a bool state of the MetaMask connection
       const metaState = fetchMetaState();
       if (!transferError) {
         //if there are no transfer errors the callback function is called
         //and the form is refreshed as the transfer is considered succesfull
-        console.log("state array: ", state.inventory);
-        console.log("value array: ", payload.itemsList);
-        // console.log(inFirstOnly(state.inventory, values.items));
+
         callback();
       } else if (metaState) {
         //if there are transfer errors while MetaMask is connected the errors are updated
