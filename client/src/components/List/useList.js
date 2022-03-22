@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
+import { updateInventory } from "../../api/actions";
 import { UserContext } from "../../context/UserContext";
 let url = "http://localhost:5000/users";
 
@@ -12,7 +13,7 @@ let url = "http://localhost:5000/users";
 //delcare a second list of items globally to because hooks don't work outside of the function
 let globalItems = null;
 const useListv2 = (validate) => {
-  const [state, dispach] = useContext(UserContext);
+  const [state, dispatch] = useContext(UserContext);
 
   //declare the initial state of the list (populated for testing purposes)
   const [items, setItems] = useState([
@@ -33,17 +34,12 @@ const useListv2 = (validate) => {
   };
 
   const updateDatabase = (items) => {
-    const payload = {
-      publicAddress: state.address,
-      inventory: items,
-    };
     console.log(state);
 
     if (pathName()) {
-      axios
-        .post(`${url}/updateinventory`, payload)
+      updateInventory(items, state.address)
         .then(() => {
-          dispach({
+          dispatch({
             type: "add_to_inv",
             payload: items,
           });
