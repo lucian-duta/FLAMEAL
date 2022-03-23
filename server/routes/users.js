@@ -1,6 +1,6 @@
 import express from "express";
 import {
-  getUsers,
+  findUser,
   createUser,
   loginUser,
   authUser,
@@ -10,7 +10,7 @@ import {
 const router = express.Router();
 
 //User get request routes
-router.get("/", getUsers);
+router.get("/finduser/:address", findUser);
 router.get("/login/:address", loginUser);
 router.get("/getinventory/:address", getInventory);
 //User post request routes
