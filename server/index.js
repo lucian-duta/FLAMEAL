@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 import userRoutes from "./routes/users.js";
+import fbRoutes from "./routes/foodbanks.js";
+
 const app = express();
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -11,6 +13,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/users", userRoutes);
+app.use("/fb", fbRoutes);
 const CONNECTION_URL =
   "mongodb+srv://lucian:tero@cluster0.l3v77.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
