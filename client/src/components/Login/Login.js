@@ -71,7 +71,11 @@ const Login = () => {
           />
         )}
 
-        <div className="login-container">
+        <div
+          className={` ${
+            nameComp !== "" ? "login-container" : "login-container-logged"
+          }`}
+        >
           <img
             src={window.location.origin + "/meta-mask.png"}
             width="300px"
