@@ -1,14 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import { FBProvider } from "./context/FoodBankContext";
 import { StateProvider } from "./context/UserContext";
 import extractFeatures from "./Web3/extractFeatures";
 import getData from "./Web3/getData";
 //*If you ever feel useless...this about this index page
 const app = (
-  <StateProvider>
-    <App />
-  </StateProvider>
+  <FBProvider>
+    <StateProvider>
+      <App />
+    </StateProvider>
+  </FBProvider>
 );
 ReactDOM.render(app, document.getElementById("root"));
 

@@ -1,0 +1,105 @@
+.fb-page {
+  display: flex;
+  flex-direction: row;
+}
+.preview-card {
+  margin: 10px auto 10px 0px;
+}
+.edit-fb-container {
+  margin: 100px auto;
+  width: 20%;
+  min-width: 300px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  border-radius: 10px;
+  height: 10%;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  background: #161a2b;
+}
+
+.edit-fb-container h1 {
+  font-size: 1rem;
+  text-align: start;
+  width: 80%;
+  margin-bottom: 1rem;
+  color: #fff;
+  margin: 15px auto 15px;
+}
+.fb-form p {
+  color: red;
+}
+
+.fb-form-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.fb-form-input {
+  display: block;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 2px;
+  height: 40px;
+  width: 100%;
+  border: none;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.fb-form-input::placeholder {
+  color: #595959;
+  font-size: 12px;
+}
+
+.fb-form-img {
+  color: #fff;
+}
+
+.fb-form-inputs {
+  margin: 10px auto 10px;
+  width: 80%;
+}
+
+.fb-form-input-desc {
+  display: block;
+  padding-left: 10px;
+  padding-top: 10px;
+  outline: none;
+  border-radius: 2px;
+  height: 70px;
+  width: 100%;
+  border: none;
+}
+
+.fb-form-input-btn {
+  width: 80%;
+  height: 50px;
+  margin: 10px auto 10px;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    rgb(39, 176, 255) 0%,
+    rgb(0, 232, 236) 100%
+  );
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fb-form-input-btn:hover {
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    rgb(39, 143, 255) 0%,
+    rgb(12, 99, 250) 100%
+  );
+  transition: all 0.4s ease-out;
+}
