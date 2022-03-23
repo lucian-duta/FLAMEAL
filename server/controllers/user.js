@@ -12,11 +12,17 @@ const nonceGenerator = () => {
   return text;
 };
 
-export const getUsers = async (req, res) => {
+export const findUser = async (req, res) => {
   try {
-    const user = await UserAccount.find();
-    console.log("Users fetched: ", user);
-    res.status(200).json(user);
+    const address = req.params.address;
+    console.log("attempt to find user: ", address);
+    const usr = await UserAccount.findOne({ publicAddress: address });
+    console.log("RESULT", usr);
+    if (!usr) {
+      res.status(404).json({ message: error.message });
+    } else {
+      res.status(200).json(usr);
+    }
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -53,9 +59,12 @@ export const createUser = async (req, res) => {
   const user = {
     publicAddress: req.body.publicAddress,
     nonce: nonceGenerator(),
-    name: "",
+    name: req.body.name,
+    isFoodBank: req.body.isFoodBank,
     inventory: "",
   };
+
+  console.log("PROPOSED USER: ", user);
   //!NEED TO CHECK IF EXISTS
   const newUser = new UserAccount(user);
 

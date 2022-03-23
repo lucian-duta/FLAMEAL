@@ -1,0 +1,19 @@
+.popup-box {
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.box {
+  position: relative;
+  width: 50%;
+  margin: 30px auto 0px;
+  height: auto;
+  max-height: 20%;
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  border: 1px solid #999;
+  overflow: auto;
+}

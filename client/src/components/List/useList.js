@@ -25,6 +25,7 @@ const useListv2 = (validate) => {
   //constant to store the state of the errors
   const [errors, setErrors] = useState({});
 
+  //function the find out if the current page is the inventory
   const pathName = () => {
     if (window.location.pathname === "/myinventory") {
       return true;
@@ -33,6 +34,7 @@ const useListv2 = (validate) => {
     }
   };
 
+  //function the update the database when the list is updated
   const updateDatabase = (items) => {
     console.log(state);
 
@@ -51,11 +53,18 @@ const useListv2 = (validate) => {
   };
 
   useEffect(() => {
-    setItems(state.inventory);
-    axios.get(`${url}/getinventory/${state.address}`).then((res) => {
-      const inv = JSON.parse(res.data);
-      setItems(inv);
-    });
+    //on the first render, retrieve items from the backend
+    axios
+      .get(`${url}/getinventory/${state.address}`)
+      .then((res) => {
+        //parse the string holding the object
+        const inv = JSON.parse(res.data);
+        //update the items
+        setItems(inv);
+      })
+      .catch(() => {
+        setItems([]);
+      });
   }, []);
 
   /**

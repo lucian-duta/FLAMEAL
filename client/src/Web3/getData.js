@@ -54,3 +54,8 @@ export const fetchData = () => {
 export const fetchTransactions = () => {
   return transactions;
 };
+
+//function the send the current addtess to other components
+export const fetchAddress = () => {
+  return web3Elements.accounts[0];
+};
