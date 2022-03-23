@@ -19,3 +19,17 @@ export const updateInventory = (items, address) => {
       });
   });
 };
+
+export const checkUser = (address) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(`${url}/finduser/${address}`)
+      .then((res) => {
+        resolve(true);
+        console.log("USER FOUND", res);
+      })
+      .catch((e) => {
+        reject(false);
+      });
+  });
+};
