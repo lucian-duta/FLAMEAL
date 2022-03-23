@@ -16,6 +16,7 @@ export const createFB = async (req, res) => {
     fbAddress: req.body.address,
     fbPic: req.body.pic,
   };
+  console.log(res.body);
 
   // *frontend payload
   // payload = {
@@ -26,8 +27,7 @@ export const createFB = async (req, res) => {
   // }
 
   console.log("PROPOSED FB: ", fb);
-  //!NEED TO CHECK IF EXISTS
-  const newFB = new FoodBank(user);
+  const newFB = new FoodBank(fb);
 
   try {
     await newFB.save();
