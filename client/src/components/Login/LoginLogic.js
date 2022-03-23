@@ -11,7 +11,7 @@ const LoginLogic = () => {
 
   const web3 = fetchData();
   //main function to trigger the login process
-  const handleLogin = () => {
+  const handleLogin = (orgName, isFoodBank) => {
     localStorage.clear();
     dispach({
       type: "de_auth",
@@ -19,20 +19,28 @@ const LoginLogic = () => {
     //payload send to api
     const payload = {
       publicAddress: web3.accounts[0],
+      name: orgName,
+      isFoodBank: isFoodBank,
     };
+    console.log("payload: ", payload);
     //attempt to register as new user
     axios
       .post(`${url}/register`, payload)
+      //if the user is new
+      .then((res) => {
+        alert("You registered succesfully, now you can use MetaMask to login.");
+      })
       //if the user already exists
       .catch((e) => {
         console.log("err fromn axios", e);
         //Attempt login of the user in case account exists
         loginUser(payload.publicAddress)
           .then((res) => {
+            //decrypt the token
             const decodedToken = jwt.verify(res.data, "secret123");
-            console.log("TOKEN:  ", decodedToken);
+            //if the address held in the token is the same as the current user address
             if (decodedToken.publicAddress === payload.publicAddress) {
-              console.log("AUTH SUCCESFULL");
+              //authenticate the user
               dispach({
                 type: "auth",
               });
@@ -96,9 +104,10 @@ const LoginLogic = () => {
         });
     });
   };
-
+  //function the verify the web3 signature
   const verifySign = (nonce, sign) => {
     return new Promise((resolve, reject) => {
+      //using the function provided by Metamask to decrypt the message without a private key exposed
       web3.web3.eth.personal
         .ecRecover(nonce, sign)
         .then((res) => {
@@ -110,25 +119,32 @@ const LoginLogic = () => {
     });
   };
 
+  //a function to authenticate the user in back-end
   const authUser = (publicAddress, verifiedSign) => {
     return new Promise((resolve, reject) => {
       const payload = {
         address: publicAddress,
         decodedAdd: verifiedSign,
       };
+      //send the actual address and the decrypted address to the backend
       axios
         .post(`${url}/auth`, payload)
         .then((rees) => {
+          //if the backend confirmes the user, it will send a JWT(Java Web Token)
           resolve(rees);
           console.log("jwt token", rees);
         })
+        //otherwise the request will be rejected
         .catch((e) => {
           reject(e);
         });
     });
   };
+
+  //function to sign the nonce from the back-end
   const signNonce = (nonce, publicAddress) => {
     return new Promise((resolve, reject) =>
+      //using the metamask sign function to ask the user to sign the nonce from the backend
       web3.web3.eth.personal
         .sign(nonce, publicAddress)
         .then((res) => {
