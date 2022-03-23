@@ -2,7 +2,7 @@ import FoodBank from "../models/foodBanks.js";
 
 export const getFB = async (req, res) => {
   try {
-    const fb = await UserAccount.find();
+    const fb = await FoodBank.find();
     res.status(200).json(fb);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -27,7 +27,7 @@ export const createFB = async (req, res) => {
 
   console.log("PROPOSED FB: ", fb);
   //!NEED TO CHECK IF EXISTS
-  const newFB = new UserAccount(user);
+  const newFB = new FoodBank(user);
 
   try {
     await newFB.save();
