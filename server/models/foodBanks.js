@@ -10,6 +10,6 @@ const FBSchema = mongoose.Schema(
   { collection: "food-banks", strict: true }
 );
 
-const FoodBank = mongoose.model("FBSchema", FBSchema);
+const FoodBank = mongoose.model("FoodBank", FBSchema);
 
 export default FoodBank;
