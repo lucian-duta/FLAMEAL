@@ -9,7 +9,7 @@ import TopCont from "./pages/TopContributors/TopCont";
 import UserStats from "./pages/UserStats";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar.js";
-
+import ChangeFB from "./pages/ChangeFB";
 /**
  * *App
  * *The main function handeling the React router
@@ -28,6 +28,7 @@ function App() {
         <Route path="/topcont" element={<TopCont />} />
         <Route path="/userstats" element={<UserStats />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/changefb" element={<ChangeFB />} />
       </Routes>
     </Router>
   );
