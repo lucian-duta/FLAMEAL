@@ -18,7 +18,6 @@ const EditFoodBank = () => {
   };
   const { handleChange, handleSubmit, handleImageUpload, fbData, errors } =
     useEdit(retrieveData, validateEdit);
-
   // const fbdata = {
   //   name: "BASIC",
   //   description:
@@ -74,7 +73,7 @@ const EditFoodBank = () => {
                 //used to avoid submitting with a null list
               }}
             >
-              Transfer
+              Done
             </button>
           </form>
         </div>

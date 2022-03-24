@@ -81,15 +81,30 @@ function Navbar() {
 
       //show the inventory link
       setInvComp(
-        <li className="nav-item">
-          <Link
-            to="/myinventory"
-            className="nav-links"
-            onClick={closeMobileMenu}
-          >
-            My Inventory
-          </Link>
-        </li>
+        <>
+          <li className="nav-item">
+            <Link
+              to="/myinventory"
+              className="nav-links"
+              onClick={closeMobileMenu}
+            >
+              My Inventory
+            </Link>
+          </li>
+          {state.isfb ? (
+            <li className="nav-item">
+              <Link
+                to="/changefb"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                Edit foodbank
+              </Link>
+            </li>
+          ) : (
+            ""
+          )}
+        </>
       );
     }
   }, [state.auth]); // dependent on the global state of auth

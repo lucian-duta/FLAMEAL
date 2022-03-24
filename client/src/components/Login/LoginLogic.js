@@ -1,7 +1,7 @@
 import axios from "axios";
 import { fetchData } from "../../Web3/getData";
 import jwt from "jsonwebtoken";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +10,7 @@ let url = "http://localhost:5000/users";
 const LoginLogic = () => {
   const [state, dispach] = useContext(UserContext);
   const navigate = useNavigate();
-
+  const [isfoodBank, setIsFoodBank] = useState(false);
   const web3 = fetchData();
   //main function to trigger the login process
   const handleLogin = (orgName, isFoodBank) => {
@@ -38,8 +38,9 @@ const LoginLogic = () => {
         //Attempt login of the user in case account exists
         loginUser(payload.publicAddress)
           .then((res) => {
+            console.log("RES FROM LOGIN", res);
             //decrypt the token
-            const decodedToken = jwt.verify(res.data, "secret123");
+            const decodedToken = jwt.verify(res.jwt, "secret123");
             //if the address held in the token is the same as the current user address
             if (decodedToken.publicAddress === payload.publicAddress) {
               //authenticate the user
@@ -50,6 +51,12 @@ const LoginLogic = () => {
                 type: "address",
                 payload: payload.publicAddress,
               });
+              console.log("Foodbank state:", isFoodBank);
+              if (res.isFoodBank) {
+                dispach({
+                  type: "isfb",
+                });
+              }
               navigate("/");
             }
           })
@@ -66,7 +73,10 @@ const LoginLogic = () => {
       axios
         .get(`${url}/login/${publicAddress}`)
         .then((res) => {
-          const nonce = res.data;
+          const nonce = res.data.nonce;
+          const isfbState = res.data.isFoodBank;
+          console.log("FOOD BANK STATE FROM API: ", isfbState);
+          console.log("response from login", res.data);
           //sign the nonce
           signNonce(nonce, publicAddress)
             .then((res) => {
@@ -78,8 +88,12 @@ const LoginLogic = () => {
                   //send to api for validation
                   authUser(publicAddress, resp)
                     .then((res) => {
+                      let response = {
+                        jwt: res.data,
+                        isFoodBank: isfbState,
+                      };
                       //if the user is authenticated return jwt
-                      resolve(res);
+                      resolve(response);
                     })
                     .catch((e) => {
                       reject(e);
