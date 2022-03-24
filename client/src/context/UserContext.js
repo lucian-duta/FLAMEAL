@@ -7,6 +7,7 @@ const checkState = () => {
       auth: false,
       address: null,
       inventory: [],
+      isfb: false,
     };
     return initialState;
   } else {
@@ -34,6 +35,12 @@ const reducers = (state, action) => {
       return {
         ...state,
         address: action.payload,
+      };
+
+    case "isfb":
+      return {
+        ...state,
+        isfb: true,
       };
     case "add_to_inv":
       return {
