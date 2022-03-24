@@ -82,7 +82,7 @@ export const loginUser = async (req, res) => {
   try {
     let user = await UserAccount.findOne({ publicAddress: body.address });
     // const token = jwt.sign({ publicAddress: body.publicAddress }, "secret123");
-    res.status(200).json(user.nonce);
+    res.status(200).json(user);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
