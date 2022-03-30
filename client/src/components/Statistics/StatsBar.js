@@ -66,7 +66,7 @@ export function StatsBar() {
     "September",
     "October",
     "November",
-    "December ",
+    "December",
   ];
 
   const data = {
@@ -79,8 +79,22 @@ export function StatsBar() {
             console.log("DSADASDASDASDdsA", fetchPeopleAidedLM());
             return fetchPeopleAidedLM();
           }
+          if (
+            label === "March" ||
+            label === "April" ||
+            label === "May" ||
+            label === "June" ||
+            label === "July" ||
+            label === "August" ||
+            label === "September" ||
+            label === "October" ||
+            label === "November" ||
+            label === "December"
+          ) {
+            return 0;
+          }
           console.log("labbb", label);
-          return Math.floor(Math.random() * 1000);
+          return Math.floor(Math.random() * 50);
         }),
         backgroundColor: "rgba(0, 232, 236)",
       },
