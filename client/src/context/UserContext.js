@@ -1,5 +1,4 @@
-import { func } from "prop-types";
-import React, { useState, useContext, useReducer, createContext } from "react";
+import React, { useReducer, createContext } from "react";
 
 const checkState = () => {
   if (!localStorage.getItem("state")) {

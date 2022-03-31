@@ -1,5 +1,4 @@
 import axios from "axios";
-import React, { useContext } from "react";
 let url = "http://localhost:5000/users";
 let urlfb = "http://localhost:5000/fb";
 export const updateInventory = (items, address) => {

@@ -28,6 +28,7 @@ const LandingContent = () => {
           src={window.location.origin + "/circularity.png"}
           width="800px"
           height="500px"
+          alt=" representing circulariy theroy in food sector"
         />
       </div>
       <div className="landing-content">
@@ -53,6 +54,7 @@ const LandingContent = () => {
           src={window.location.origin + "/smartppl.png"}
           width="1000px"
           height="500px"
+          alt=" presenting the process flow with smart contracts"
         />
       </div>
     </>

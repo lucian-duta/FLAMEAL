@@ -9,7 +9,7 @@ import "./MyInventory.css";
  * @returns
  */
 export default function MyInventory() {
-  const [state, dispach] = useContext(UserContext);
+  const [state] = useContext(UserContext);
   console.log(state);
   localStorage.setItem("state", JSON.stringify(state));
   return (

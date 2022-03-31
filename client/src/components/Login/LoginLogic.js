@@ -1,7 +1,7 @@
 import axios from "axios";
 import { fetchData } from "../../Web3/getData";
 import jwt from "jsonwebtoken";
-import React, { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +10,6 @@ let url = "http://localhost:5000/users";
 const LoginLogic = () => {
   const [state, dispach] = useContext(UserContext);
   const navigate = useNavigate();
-  const [isfoodBank, setIsFoodBank] = useState(false);
   const web3 = fetchData();
   //main function to trigger the login process
   const handleLogin = (orgName, isFoodBank) => {

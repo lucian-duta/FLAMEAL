@@ -107,7 +107,7 @@ function Navbar() {
         </>
       );
     }
-  }, [state.auth]); // dependent on the global state of auth
+  }, [state.auth, state.isfb]); // dependent on the global state of auth and isfb
 
   return (
     <>
@@ -120,6 +120,7 @@ function Navbar() {
             src={window.location.origin + "/logo-flameal-nav.png"}
             width="200rem"
             height="50rem"
+            alt="FLAMEAL logo"
           />
         </Link>
         <div className="menu-icon" onClick={handleClick}>

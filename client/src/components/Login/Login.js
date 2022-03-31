@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { checkUser } from "../../api/actions";
 import { UserContext } from "../../context/UserContext";
 import { fetchAddress } from "../../Web3/getData";
-import Checkbox from "../Checkbox/Checkbox";
 import Popup from "../Popup/Pupup";
 import "./Login.css";
 import LoginLogic from "./LoginLogic";
@@ -17,7 +16,7 @@ const Login = () => {
   //import the login function for web3 auth
   const { handleLogin } = LoginLogic();
   //read the global state
-  const [state, dispach] = useContext(UserContext);
+  const [state, dispatch] = useContext(UserContext);
   //temporaly store the state in localstorage (to prevent loss on reload)
   localStorage.setItem("state", JSON.stringify(state));
   //hooks to hold the organisation name and foodbank state (in case of new user)
@@ -49,6 +48,8 @@ const Login = () => {
           </>
         );
       });
+    //cleanup function to prevent memory leak
+    return setNameComp();
   }, [state.auth]);
 
   return (
@@ -80,6 +81,7 @@ const Login = () => {
             src={window.location.origin + "/meta-mask.png"}
             width="300px"
             height="300px"
+            alt="metamask log"
           />
           {nameComp}
 

@@ -16,7 +16,7 @@ import { updateInventory } from "../../api/actions.js";
  * @returns - the functions required by the TransferFill component
  */
 const useForm = (callback, validate) => {
-  const [state, dispach] = useContext(UserContext);
+  const [state, dispatch] = useContext(UserContext);
   //declaring a variable to hold the state of blockchain transfer errors
   let transferError = null;
   //hook to hold the values of the form

@@ -65,7 +65,7 @@ const useListv2 = (validate) => {
       .catch(() => {
         setItems([]);
       });
-  }, []);
+  }, [state.address]);
 
   /**
    * *handleAdd

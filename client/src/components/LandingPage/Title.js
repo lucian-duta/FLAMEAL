@@ -33,6 +33,7 @@ const Title = () => {
             src={window.location.origin + "/logo-flameal.png"}
             width="300px"
             height="300px"
+            alt="flameal logo"
           />
         </div>
       </div>
