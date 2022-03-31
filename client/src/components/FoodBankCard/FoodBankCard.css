@@ -1,22 +1,3 @@
-.showcase-container {
-  margin: 100px auto;
-  width: 90%;
-  min-width: 800px;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-  min-height: 0;
-  border-radius: 10px;
-  height: 75vh;
-  display: grid;
-  align-items: center;
-  grid-auto-flow: column;
-  grid-auto-columns: 25rem;
-  grid-template-columns: unset;
-  grid-template-rows: unset;
-  overflow-x: scroll;
-  background: #161a2b;
-  scroll-behavior: smooth;
-}
-
 .showcase-card {
   height: 600px;
   width: 350px;
@@ -36,14 +17,9 @@
   height: 30%;
 }
 
-.card-image img {
-  border-radius: 10px 10px 0 0;
-  border-bottom: 3px solid rgb(0, 195, 255);
-}
-
 .card-text {
   height: 50%;
-  width: 100%;
+  width: 350px;
   margin: 0;
   background-color: #161a2b;
   border-bottom: 3px solid rgb(0, 195, 255);
@@ -62,6 +38,21 @@
   font-size: 15px;
   color: #fff;
   text-align: justify;
+  height: 20%;
+  text-overflow: ellipsis;
+}
+.card-description {
+  padding: 7px;
+  font-size: 15px;
+  color: #fff;
+  text-align: justify;
+  display: inline-block;
+  max-width: 350px;
+  word-wrap: break-word;
+}
+
+.card-address {
+  font-size: 13px;
 }
 
 .card-links {
@@ -97,22 +88,4 @@
   margin-top: auto;
   margin-bottom: auto;
   padding-left: 5px;
-}
-
-.showcase-loader {
-  margin: 10px auto 10px;
-}
-::-webkit-scrollbar {
-  height: 9px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #161a2b;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 25px;
-  background-image: linear-gradient(rgb(25, 231, 221), rgb(16, 84, 172));
-}
-::-webkit-scrollbar-thumb hover {
-  background-image: linear-gradient(rgb(23, 190, 182), rgb(15, 66, 133));
 }

@@ -1,7 +1,4 @@
 import React from "react";
-import { useState } from "react";
-import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
-import { RiCloseCircleLine } from "react-icons/ri";
 import { fetchTopSenders } from "../../Web3/extractFeatures";
 import "./Leaderboard.css";
 

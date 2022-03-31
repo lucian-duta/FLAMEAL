@@ -1,4 +1,5 @@
 import React from "react";
+import Login from "../components/Login/Login";
 /**
  * * SignUp
  * * At some point this should be the signup page
@@ -10,7 +11,7 @@ import React from "react";
 export default function SignUp() {
   return (
     <>
-      <h1 className="signup">Sign Up</h1>
+      <Login />
     </>
   );
 }
