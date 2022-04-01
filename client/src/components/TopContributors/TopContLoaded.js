@@ -1,6 +1,7 @@
 import React from "react";
 import ReactSpeedometer from "react-d3-speedometer";
 import Leaderboard from "../Leaderboard/Leaderboard";
+import TopContLoading from "./TopContLoading";
 
 /**
  * *TopContLoaded
@@ -9,8 +10,11 @@ import Leaderboard from "../Leaderboard/Leaderboard";
  * @param {*} cont - the number of contributors this month
  * @returns - the react component
  */
+
 const TopContLoaded = ({ cont }) => {
-  return (
+  return !cont ? (
+    <TopContLoading />
+  ) : (
     <>
       <div className="tc-container">
         <div className="tc-container-lead">
