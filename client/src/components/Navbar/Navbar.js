@@ -144,7 +144,7 @@ function Navbar() {
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
           >
-            <Link to="/stats" className="nav-links" onClick={closeMobileMenu}>
+            <Link to="#" className="nav-links" onClick={closeMobileMenu}>
               Stats <i className="fas fa-caret-down" />
             </Link>
             {dropdown && <Dropdown />}
