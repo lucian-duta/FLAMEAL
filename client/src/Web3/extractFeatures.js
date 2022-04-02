@@ -7,13 +7,31 @@ let features = {
   contributorsLastMonth: null,
   receivers: null,
   receiversLM: null,
+  totalUsers: 0,
+  totalSenders: 0,
+  donatePerMonth: null,
 };
+
 const extractFeatures = () =>
   new Promise(async (resolve, reject) => {
     getData()
       .then(() => {
         const transactions = fetchTransactions();
-        // console.log(transactions);
+        console.log(transactions);
+        let tMap = new Map([
+          [0, 0],
+          [1, 0],
+          [2, 0],
+          [3, 0],
+          [4, 0],
+          [5, 0],
+          [6, 0],
+          [7, 0],
+          [8, 0],
+          [9, 0],
+          [10, 0],
+          [11, 0],
+        ]);
 
         //array to hold the senders
         let senders = [];
@@ -25,6 +43,9 @@ const extractFeatures = () =>
           //populate the senders array with the addresses of the senders
           senders.push(transaction.sender);
           receivers.push(transaction.receiver);
+          let month = new Date(transaction.timestamp * 1000).getMonth();
+          tMap.set(month, tMap.get(month) + 1);
+
           //if the transaction happened in the last month
           //the timestamp is compared with the current time - 1 month (in seconds)
           //for more details research UNIX time
@@ -34,9 +55,9 @@ const extractFeatures = () =>
             receiversLM.push(transaction.receiver);
           }
         });
-
         features.transactionCount = senders.length + 1;
-
+        features.donatePerMonth = tMap;
+        console.log(features.donatePerMonth);
         //function to create a hashmap of an array
         const createHashmap = (senders) => {
           //build a hashmap using reduce to assign each elemnt in the array
@@ -72,6 +93,8 @@ const extractFeatures = () =>
         features.receivers = Object.keys(createHashmap(receivers)).length;
         //update the features with the number of receivers last month
         features.receiversLM = Object.keys(createHashmap(receiversLM)).length;
+        features.totalSenders = Object.keys(createHashmap(senders)).length;
+        features.totalUsers = features.receivers + features.totalSenders;
 
         console.log("all senders", senders);
         console.log("top senders", features.topSenders);
@@ -102,4 +125,16 @@ export const fetchPeopleAided = () => {
 };
 export const fetchPeopleAidedLM = () => {
   return features.receiversLM;
+};
+export const fetchTransCount = () => {
+  return features.transactionCount;
+};
+export const fetchTotalUsers = () => {
+  return features.totalUsers;
+};
+export const fetchTotalSenders = () => {
+  return features.totalSenders;
+};
+export const fetchDonPerMonth = () => {
+  return features.donatePerMonth;
 };
