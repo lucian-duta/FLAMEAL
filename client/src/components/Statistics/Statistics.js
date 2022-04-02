@@ -11,7 +11,7 @@ const Statistics = () => {
           <StatsNumbers />
         </div>
         <div className="stats-graph">
-          <h1>People helped this year</h1>
+          <h1>Donations last 12 months</h1>
           <StatsBar />
         </div>
       </div>
