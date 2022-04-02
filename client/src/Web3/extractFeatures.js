@@ -10,6 +10,7 @@ let features = {
   totalUsers: 0,
   totalSenders: 0,
   donatePerMonth: null,
+  recieversMap: null,
 };
 
 const extractFeatures = () =>
@@ -95,7 +96,7 @@ const extractFeatures = () =>
         features.receiversLM = Object.keys(createHashmap(receiversLM)).length;
         features.totalSenders = Object.keys(createHashmap(senders)).length;
         features.totalUsers = features.receivers + features.totalSenders;
-
+        features.recieversMap = createHashmap(receivers);
         console.log("all senders", senders);
         console.log("top senders", features.topSenders);
         console.log("trans last montg", features.transLastMonth);
@@ -137,4 +138,7 @@ export const fetchTotalSenders = () => {
 };
 export const fetchDonPerMonth = () => {
   return features.donatePerMonth;
+};
+export const fetchRecMap = () => {
+  return features.recieversMap;
 };
