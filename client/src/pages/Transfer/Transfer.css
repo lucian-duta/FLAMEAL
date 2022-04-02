@@ -2,11 +2,9 @@
   margin: 100px auto;
   width: 1000px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-  position: relative;
   border-radius: 10px;
   height: 600px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
 }
 
 .form-content-left-transfer {
@@ -16,20 +14,18 @@
     rgb(0, 232, 236) 100%
   );
   border-radius: 10px 0 0 10px;
-  position: relative;
+  width: 50%;
 }
 
 @media screen and (max-width: 960px) {
   .form-container-transfer {
     margin: 0;
-    width: 108vh;
+    width: 100vw;
+    height: 100vh;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
-    position: relative;
     border-radius: 2rem;
-    height: 100rem;
-    display: grid;
-    grid-template-rows: auto;
-    row-gap: 0;
+    display: flex;
+    flex-direction: column-reverse;
   }
 
   .form-content-left-transfer {
@@ -41,7 +37,12 @@
     border-radius: 0;
     position: relative;
     width: 100%;
-    grid-row: 1;
-    grid-column: 1;
+    min-height: 50%;
+    height: auto;
   }
+  /* .clearfix:after {
+    clear: both;
+    content: "";
+    display: table;
+  } */
 }

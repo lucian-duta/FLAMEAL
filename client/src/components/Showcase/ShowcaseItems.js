@@ -4,11 +4,6 @@ import "./Showcase.css";
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 
 const ShowcaseItems = ({ foodbanks }) => {
-  const fbdata = {
-    name: "BASIC",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fringilla",
-  };
   return !foodbanks.length ? (
     <div className="showcase-loader">
       <ClimbingBoxLoader loading={true} color={"#fff"} size={30} />

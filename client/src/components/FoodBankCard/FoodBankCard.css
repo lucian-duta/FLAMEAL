@@ -89,3 +89,40 @@
   margin-bottom: auto;
   padding-left: 5px;
 }
+@media screen and (max-width: 380px) {
+  .showcase-card {
+    width: 315px;
+    margin-top: 0rem;
+  }
+  .card-text {
+    width: 315px;
+  }
+
+  .card-image img {
+    width: 315px;
+  }
+  .card-text h1 {
+    font-size: 18px;
+  }
+  .card-description {
+    font-size: 13px;
+  }
+  .card-links-address h1 {
+    font-size: 13px;
+  }
+  .card-links-trans h1 {
+    font-size: 13px;
+  }
+  .card-address {
+    font-size: 12px;
+  }
+}
+@media screen and (max-height: 700px) {
+  .showcase-card {
+    height: 550px;
+    margin-top: 0.5rem;
+  }
+  .card-text h1 {
+    margin-top: 11px;
+  }
+}
