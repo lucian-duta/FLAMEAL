@@ -116,3 +116,21 @@
 ::-webkit-scrollbar-thumb hover {
   background-image: linear-gradient(rgb(23, 190, 182), rgb(15, 66, 133));
 }
+
+@media screen and (max-width: 960px) {
+  .showcase-container {
+    margin: 0;
+
+    width: 100vw;
+    min-width: 0;
+    box-shadow: 0;
+    border-radius: 0;
+    height: 100vh;
+    grid-auto-columns: 25rem;
+  }
+}
+@media screen and (max-height: 700px) {
+  .showcase-container {
+    align-items: flex-start;
+  }
+}
