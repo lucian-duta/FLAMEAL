@@ -30,6 +30,7 @@ const LoginLogic = () => {
       //if the user is new
       .then((res) => {
         alert("You registered succesfully, now you can use MetaMask to login.");
+        navigate("/");
       })
       //if the user already exists
       .catch((e) => {

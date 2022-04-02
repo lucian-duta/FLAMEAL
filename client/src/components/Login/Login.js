@@ -6,6 +6,7 @@ import Popup from "../Popup/Pupup";
 import "./Login.css";
 import LoginLogic from "./LoginLogic";
 import RegisterInput from "./RegisterInput";
+import validateRegister from "./validateRegister";
 
 /**
  * * Login
@@ -24,11 +25,13 @@ const Login = () => {
   const [isFoodBank, setisFoodbank] = useState(false);
   //hook to hold the the state of user input component
   const [nameComp, setNameComp] = useState();
+  const [errors, setErrors] = useState({});
 
   //the callbank function used in the child component
   const retrieveInfo = (info) => {
     setOrgName(info.name);
     setisFoodbank(info.isFB);
+    setErrors(info.errors);
   };
 
   useEffect(() => {
@@ -89,7 +92,9 @@ const Login = () => {
             className="login-btn"
             type="submit"
             onClick={() => {
-              handleLogin(orgName, isFoodBank); //call the login function and pass the name and FB state
+              if (Object.keys(errors).length === 0 && orgName !== "") {
+                handleLogin(orgName, isFoodBank); //call the login function and pass the name and FB state
+              }
             }}
           >
             Login with metamask
