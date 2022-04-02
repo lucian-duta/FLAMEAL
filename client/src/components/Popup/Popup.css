@@ -8,6 +8,7 @@
 .box {
   position: relative;
   width: 50%;
+  min-width: 300px;
   margin: 30px auto 0px;
   height: auto;
   max-height: 20%;
