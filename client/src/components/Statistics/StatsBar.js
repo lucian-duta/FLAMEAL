@@ -9,10 +9,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import React from "react";
-import {
-  fetchDonPerMonth,
-  fetchPeopleAidedLM,
-} from "../../Web3/extractFeatures";
+import { fetchDonPerMonth } from "../../Web3/extractFeatures";
 
 export function StatsBar() {
   ChartJS.register(

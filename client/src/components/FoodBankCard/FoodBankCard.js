@@ -10,6 +10,7 @@ const FoodBankCard = ({ fbData }) => {
             src={fbData.pic || window.location.origin + "/food-bank.png"}
             width="350px"
             height="180px"
+            alt="foodbank"
           />
         </div>
         <div className="card-text">

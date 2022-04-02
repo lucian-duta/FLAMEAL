@@ -1,4 +1,4 @@
-import getWeb3, { fetchWeb3 } from "./getWeb3";
+import getWeb3 from "./getWeb3";
 import GoodsTransfer from "../contracts/GoodsTransfer.json";
 import Web3 from "web3";
 

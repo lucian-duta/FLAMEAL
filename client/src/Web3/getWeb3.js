@@ -8,7 +8,6 @@ let metamaskConnected = false;
  */
 const getWeb3 = () =>
   new Promise(async (resolve, reject) => {
-    let errors = false;
     // Wait for loading completion to avoid race conditions with web3 injection timing.
     // Modern dapp browsers...
     if (window.ethereum) {

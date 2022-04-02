@@ -92,7 +92,10 @@ const Login = () => {
             className="login-btn"
             type="submit"
             onClick={() => {
-              if (Object.keys(errors).length === 0 && orgName !== "") {
+              if (
+                (Object.keys(errors).length === 0 && orgName !== "") ||
+                nameComp === ""
+              ) {
                 handleLogin(orgName, isFoodBank); //call the login function and pass the name and FB state
               }
             }}

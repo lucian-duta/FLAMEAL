@@ -4,7 +4,6 @@ import App from "./App";
 import { FBProvider } from "./context/FoodBankContext";
 import { StateProvider } from "./context/UserContext";
 import extractFeatures from "./Web3/extractFeatures";
-import getData from "./Web3/getData";
 import getWeb3 from "./Web3/getWeb3";
 //*If you ever feel useless...this about this index page
 const app = (

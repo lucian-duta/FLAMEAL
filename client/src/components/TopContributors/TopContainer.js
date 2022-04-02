@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import TopContLoaded from "../../components/TopContributors/TopContLoaded";
 import extractFeatures, {
   fetchContLastMonth,
@@ -14,13 +14,6 @@ import "./TopCont.css";
 const TopContainer = () => {
   //use a hook to store the number of contributors
   const [cont, setCont] = useState();
-  //made use of a hook to store the state of loading
-  const [isLoading, setLoading] = useState(true);
-  //a hook to simulate a change in state for updating
-  const [, updateState] = useState();
-  //emulating foreced update to rerender the component
-  const forceUpdate = useCallback(() => updateState({}), []);
-  //fetch the data at rendering stage
 
   useEffect(() => {
     console.log("Data fetched", fetchContLastMonth());
@@ -28,7 +21,6 @@ const TopContainer = () => {
       .then(() => {
         console.log("Data fetched", fetchContLastMonth());
         setCont(fetchContLastMonth());
-        setLoading(false);
         console.log("Data fetched", fetchContLastMonth());
       })
       .catch((e) => {
