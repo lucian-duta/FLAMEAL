@@ -1,8 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
-import extractFeatures, {
-  fetchContLastMonth,
-} from "../../Web3/extractFeatures";
-import "./TopCont.css";
+import React from "react";
+
 import TopContainer from "../../components/TopContributors/TopContainer";
 
 /**

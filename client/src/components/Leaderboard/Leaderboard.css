@@ -39,3 +39,28 @@
   margin-right: auto;
   color: #fff;
 }
+@media screen and (max-width: 960px) {
+  .lead-app {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .lead-row {
+    width: 25rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .lead-row {
+    width: 95%;
+    margin: 4px 2px 0 2px;
+    padding: 16px 0.5rem 16px 0.5rem;
+  }
+  .lead-row {
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .lead-row {
+    font-size: 11px;
+  }
+}
