@@ -191,7 +191,7 @@ function Navbar() {
                 type: "de_auth",
               });
               //purge the browser storage
-              localStorage.clear();
+              sessionStorage.clear();
             }
           }}
         >

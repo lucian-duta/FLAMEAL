@@ -11,7 +11,7 @@ import "./MyInventory.css";
 export default function MyInventory() {
   const [state] = useContext(UserContext);
   console.log(state);
-  localStorage.setItem("state", JSON.stringify(state));
+  sessionStorage.setItem("state", JSON.stringify(state));
   return (
     <div className="list-containter">
       <div className="list-app-inv">

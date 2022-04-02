@@ -13,7 +13,7 @@ const LoginLogic = () => {
   const web3 = fetchData();
   //main function to trigger the login process
   const handleLogin = (orgName, isFoodBank) => {
-    localStorage.clear();
+    sessionStorage.clear();
     dispach({
       type: "de_auth",
     });

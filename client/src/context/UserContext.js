@@ -1,7 +1,7 @@
 import React, { useReducer, createContext } from "react";
 
 const checkState = () => {
-  if (!localStorage.getItem("state")) {
+  if (!sessionStorage.getItem("state")) {
     const initialState = {
       auth: false,
       address: null,
@@ -10,7 +10,7 @@ const checkState = () => {
     };
     return initialState;
   } else {
-    return JSON.parse(localStorage.getItem("state"));
+    return JSON.parse(sessionStorage.getItem("state"));
   }
 };
 
