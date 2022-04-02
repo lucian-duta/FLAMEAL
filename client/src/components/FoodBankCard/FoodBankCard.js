@@ -25,7 +25,7 @@ const FoodBankCard = ({ fbData }) => {
             </h1>
           </div>
           <div className="card-links-trans">
-            <h1>Transactions: {"0"}</h1>
+            <h1>Transactions: {fbData.trans}</h1>
           </div>
         </div>
       </div>
