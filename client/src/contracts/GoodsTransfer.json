@@ -6414,10 +6414,16 @@
       "links": {},
       "address": "0x6f554C7a1f1b7B75f482279b410Ba1735C934bd0",
       "transactionHash": "0xd27a08959d647fc6b85192c1c4418b313c9793605741bed660fa1781d801154e"
+    },
+    "5778": {
+      "events": {},
+      "links": {},
+      "address": "0x2312036b29A54c2a3c4ecac69E3018bED9676fc1",
+      "transactionHash": "0xa712d365c39a0713938cef88cb986a9c19d4261a125ea7a53521b15db399c7ed"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-04-01T12:25:39.511Z",
+  "updatedAt": "2022-04-02T23:34:31.683Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
