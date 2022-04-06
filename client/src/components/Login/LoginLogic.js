@@ -6,7 +6,10 @@ import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
 let url = "http://localhost:5000/users";
-
+/**
+ * {@link handleLogin}
+ * @returns
+ */
 const LoginLogic = () => {
   const [state, dispach] = useContext(UserContext);
   const navigate = useNavigate();

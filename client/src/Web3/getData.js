@@ -8,11 +8,12 @@ let web3Elements = {
   accounts: null,
   contract: null,
 };
+//global value to hold transaction
 let transactions = null;
 /**
- * *getData
- * *Function used to extract the elements needed from the web 3 element
- * @returns - a promise
+ * Function used to extract the elements needed from the web 3 element
+ * @returns {Promise.<Object>} Web 3 elements if could be fetched from provider
+ * @returns {Promise.<Object>} Error if provider was not found
  */
 
 const getData = () =>
@@ -55,17 +56,26 @@ const getData = () =>
   });
 
 export default getData;
-//function to send the web3 elements needed by other components
+/**
+ * Function used to fetch the web 3 elements from {@link getData}
+ * @returns {Object} Web 3 elements
+ */
 export const fetchData = () => {
   return web3Elements;
 };
 
-//function to send the transaction array needed by other components
+/**
+ * Function used to fetch transactions from {@link getData}
+ * @returns {Array} An array of transactions attached to the contract
+ */
 export const fetchTransactions = () => {
   return transactions;
 };
 
-//function the send the current addtess to other components
+/**
+ * Function used to fetch the address  from {@link getData}
+ * @returns {String} The address of the current user
+ */
 export const fetchAddress = () => {
   return web3Elements.accounts[0];
 };

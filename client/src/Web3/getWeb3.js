@@ -2,9 +2,11 @@ import Web3 from "web3";
 //global variable to hold the state of the MetaMask connection
 let metamaskConnected = false;
 /**
- * *getWeb3
- * *Function the fetch the web 3 elements based on the enviroment
- * @returns - a promise
+ * Function the fetch the web 3 instance based on the enviroment the application is opened in.
+ *
+ * TODO: Fetch instance from remote provider as well
+ * @returns {Promise.<Web3>} The Web3 instance from the provider
+ * @returns {Promise.<error>} Error if provider was not found
  */
 const getWeb3 = () =>
   new Promise(async (resolve, reject) => {
