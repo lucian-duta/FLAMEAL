@@ -9,7 +9,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import React from "react";
-import { fetchPeopleAidedLM } from "../../Web3/extractFeatures";
+import { fetchDonPerMonth } from "../../Web3/extractFeatures";
 
 export function StatsBar() {
   ChartJS.register(
@@ -54,7 +54,8 @@ export function StatsBar() {
     },
   };
 
-  const labels = [
+  //declare months as labels to be used by the chart
+  let labels = [
     "January",
     "February",
     "March",
@@ -68,33 +69,57 @@ export function StatsBar() {
     "November",
     "December",
   ];
+  //function to rearrage months depending on the current month
+  const shiftMonths = () => {
+    //get current date
+    const date = new Date();
+    //extract month number (starts from 0)
+    let month = date.getMonth();
+    //extract months before the current one (including current month) from array
+    let lbBefore = labels.slice(0, month + 1);
+    //redeclare array to include the months after the current one
+    labels = labels.slice(month + 1);
+    //add previous and current month after the months after (to represent the last year)
+    labels = labels.concat(lbBefore);
+  };
+  //fetch the hashmap of donations per month from extractFeatures
+  let donatePerMonth = fetchDonPerMonth();
+  //perform the month shift
+  shiftMonths();
+  //data to be sent to the chart
+
+  //use object literal lookup instead of switch
+  //to transform the month label string to the corresponding number
+  let monthToNum = {
+    January: 0,
+    February: 1,
+    March: 2,
+    April: 3,
+    May: 4,
+    June: 5,
+    July: 6,
+    August: 7,
+    September: 8,
+    October: 9,
+    November: 10,
+    December: 11,
+  };
 
   const data = {
     labels,
     datasets: [
       {
-        label: "Dataset 1",
+        label: "Donations",
         data: labels.map((label) => {
-          if (label === "March") {
-            console.log("DSADASDASDASDdsA", fetchPeopleAidedLM());
-            return fetchPeopleAidedLM();
+          //assign the number of donation for the current month to the returning value
+          let noOfDonations = donatePerMonth.get(monthToNum[label]);
+          //for showcase purposes if there are no donations it will assign a random number
+          //!TO BE REMOVED IN FINAL
+          if (noOfDonations === 0) {
+            noOfDonations = Math.floor(Math.random() * 20);
           }
-          if (
-            label === "March" ||
-            label === "April" ||
-            label === "May" ||
-            label === "June" ||
-            label === "July" ||
-            label === "August" ||
-            label === "September" ||
-            label === "October" ||
-            label === "November" ||
-            label === "December"
-          ) {
-            return 0;
-          }
-          console.log("labbb", label);
-          return Math.floor(Math.random() * 50);
+
+          return noOfDonations;
         }),
         backgroundColor: "rgba(0, 232, 236)",
       },

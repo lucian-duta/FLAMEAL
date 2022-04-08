@@ -1,13 +1,13 @@
 import React, { useReducer, createContext } from "react";
 
 const checkState = () => {
-  if (!localStorage.getItem("foodbanks")) {
+  if (!sessionStorage.getItem("foodbanks")) {
     const initialState = {
       foodBankData: [],
     };
     return initialState;
   } else {
-    return JSON.parse(localStorage.getItem("foodbanks"));
+    return JSON.parse(sessionStorage.getItem("foodbanks"));
   }
 };
 

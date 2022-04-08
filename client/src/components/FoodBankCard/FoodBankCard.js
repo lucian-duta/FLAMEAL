@@ -10,6 +10,7 @@ const FoodBankCard = ({ fbData }) => {
             src={fbData.pic || window.location.origin + "/food-bank.png"}
             width="350px"
             height="180px"
+            alt="foodbank"
           />
         </div>
         <div className="card-text">
@@ -24,7 +25,7 @@ const FoodBankCard = ({ fbData }) => {
             </h1>
           </div>
           <div className="card-links-trans">
-            <h1>Transactions: {"0"}</h1>
+            <h1>Transactions: {fbData.trans}</h1>
           </div>
         </div>
       </div>

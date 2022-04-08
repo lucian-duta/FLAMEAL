@@ -1,5 +1,6 @@
 import getWeb3 from "./getWeb3";
 import GoodsTransfer from "../contracts/GoodsTransfer.json";
+import Web3 from "web3";
 
 //global value to hold the elements needed
 let web3Elements = {
@@ -7,17 +8,27 @@ let web3Elements = {
   accounts: null,
   contract: null,
 };
+//global value to hold transaction
 let transactions = null;
 /**
- * *getData
- * *Function used to extract the elements needed from the web 3 element
- * @returns - a promise
+ * Function used to extract the elements needed from the web 3 element
+ * @returns {Promise.<Object>} Web 3 elements if could be fetched from provider
+ * @returns {Promise.<Object>} Error if provider was not found
  */
+
 const getData = () =>
   new Promise(async (resolve, reject) => {
     try {
       // Get network provider and web3 instance.
-      web3Elements.web3 = await getWeb3();
+      const web3 = new Web3(window.ethereum);
+      //check is the instance is valid by testing provider
+      if (!web3.currentProvider) {
+        //if the browser does not have metamask, ask fro another provider
+        web3Elements.web3 = await getWeb3();
+      } else {
+        //if metamask was detected, update the elements
+        web3Elements.web3 = web3;
+      }
 
       // Use web3 to get the user's accounts.
       web3Elements.accounts = await web3Elements.web3.eth.getAccounts();
@@ -32,8 +43,8 @@ const getData = () =>
       transactions = await web3Elements.contract.methods
         .getAllTransactions()
         .call();
-      console.log(web3Elements);
-      console.log(transactions);
+      // console.log(web3Elements);
+      // console.log(transactions);
       resolve(web3Elements);
     } catch (error) {
       reject(error);
@@ -45,17 +56,26 @@ const getData = () =>
   });
 
 export default getData;
-//function to send the web3 elements needed by other components
+/**
+ * Function used to fetch the web 3 elements from {@link getData}
+ * @returns {Object} Web 3 elements
+ */
 export const fetchData = () => {
   return web3Elements;
 };
 
-//function to send the transaction array needed by other components
+/**
+ * Function used to fetch transactions from {@link getData}
+ * @returns {Array} An array of transactions attached to the contract
+ */
 export const fetchTransactions = () => {
   return transactions;
 };
 
-//function the send the current addtess to other components
+/**
+ * Function used to fetch the address  from {@link getData}
+ * @returns {String} The address of the current user
+ */
 export const fetchAddress = () => {
   return web3Elements.accounts[0];
 };

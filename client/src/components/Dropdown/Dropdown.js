@@ -44,7 +44,7 @@ function Dropdown() {
                 to={item.path}
                 onClick={() => {
                   setClick(false);
-                  if (item.path.equals("/topcont")) window.reload();
+                  // if (item.path.equals("/topcont")) window.reload();
                 }}
               >
                 {item.title}

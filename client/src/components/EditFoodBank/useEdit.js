@@ -1,15 +1,20 @@
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createfb, getOneFb, updateFb } from "../../api/actions";
 import { UserContext } from "../../context/UserContext";
 
 const useEdit = (sendData, validate) => {
   const [state, dispatch] = useContext(UserContext);
+
+  const navigate = useNavigate();
+
   const [fbData, setfbData] = useState({
     name: "",
     description: "",
     address: state.address,
     pic: "",
   });
+
   const [fbExits, setFbExist] = useState(false);
 
   const [errors, setErrors] = useState({});
@@ -64,6 +69,7 @@ const useEdit = (sendData, validate) => {
         updateFb(fbData)
           .then(() => {
             alert("foodbank updated");
+            navigate("/foodbanks");
           })
           .catch(() => {
             alert("update failed");

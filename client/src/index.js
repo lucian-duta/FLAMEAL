@@ -4,7 +4,7 @@ import App from "./App";
 import { FBProvider } from "./context/FoodBankContext";
 import { StateProvider } from "./context/UserContext";
 import extractFeatures from "./Web3/extractFeatures";
-import getData from "./Web3/getData";
+import getWeb3 from "./Web3/getWeb3";
 //*If you ever feel useless...this about this index page
 const app = (
   <FBProvider>
@@ -14,8 +14,7 @@ const app = (
   </FBProvider>
 );
 ReactDOM.render(app, document.getElementById("root"));
-
-getData()
+getWeb3()
   .then(() => {
     // alert("Connection with web3 succesfull");
   })

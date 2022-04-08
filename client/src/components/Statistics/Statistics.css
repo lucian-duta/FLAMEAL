@@ -20,7 +20,9 @@
   flex-direction: column;
   align-items: flex-start;
   margin: auto;
-  color: #fff;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  /* text-shadow: 0.5px 0.5px #000000; */
   background: linear-gradient(
     90deg,
     rgb(39, 176, 255) 0%,
@@ -42,4 +44,42 @@
 .stats-graph {
   margin: 2rem;
   color: #fff;
+}
+
+@media screen and (max-width: 960px) {
+  .stats-container {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+  .stats-graph {
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .stats-container {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .stats-num-cont {
+    flex-direction: column;
+  }
+  .stats-num-comp {
+    margin: 1rem auto 1rem auto;
+  }
+  .stats-container h1 {
+    font-size: 18px;
+  }
+  .stats-num-comp {
+    text-shadow: 0 0;
+    font-weight: normal;
+  }
+  .stats-graph {
+    margin: 0.1rem;
+  }
 }

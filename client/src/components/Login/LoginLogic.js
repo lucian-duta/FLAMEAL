@@ -6,14 +6,17 @@ import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
 let url = "http://localhost:5000/users";
-
+/**
+ * {@link handleLogin}
+ * @returns
+ */
 const LoginLogic = () => {
   const [state, dispach] = useContext(UserContext);
   const navigate = useNavigate();
   const web3 = fetchData();
   //main function to trigger the login process
   const handleLogin = (orgName, isFoodBank) => {
-    localStorage.clear();
+    sessionStorage.clear();
     dispach({
       type: "de_auth",
     });
@@ -30,6 +33,7 @@ const LoginLogic = () => {
       //if the user is new
       .then((res) => {
         alert("You registered succesfully, now you can use MetaMask to login.");
+        navigate("/");
       })
       //if the user already exists
       .catch((e) => {

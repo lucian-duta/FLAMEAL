@@ -2,46 +2,44 @@ import Web3 from "web3";
 //global variable to hold the state of the MetaMask connection
 let metamaskConnected = false;
 /**
- * *getWeb3
- * *Function the fetch the web 3 elements based on the enviroment
- * @returns - a promise
+ * Function the fetch the web 3 instance based on the enviroment the application is opened in.
+ *
+ * TODO: Fetch instance from remote provider as well
+ * @returns {Promise.<Web3>} The Web3 instance from the provider
+ * @returns {Promise.<error>} Error if provider was not found
  */
 const getWeb3 = () =>
-  new Promise((resolve, reject) => {
+  new Promise(async (resolve, reject) => {
     // Wait for loading completion to avoid race conditions with web3 injection timing.
-    window.addEventListener("load", async () => {
-      // Modern dapp browsers...
-      if (window.ethereum) {
-        const web3 = new Web3(window.ethereum);
-        try {
-          // Request account access if needed
-          await window.ethereum.enable();
-          // Accounts now exposed
-          resolve(web3);
-          console.log("CONNECTED TO METAMASK");
-          metamaskConnected = true;
-        } catch (error) {
-          reject(error);
-        }
-      }
-      // Legacy dapp browsers...
-      else if (window.web3) {
-        // Use Mist/MetaMask's provider.
-        const web3 = window.web3;
-        console.log("Injected web3 detected.");
+    // Modern dapp browsers...
+    if (window.ethereum) {
+      const web3 = new Web3(window.ethereum);
+      try {
+        // Request account access if needed
+        await window.ethereum.enable();
+        // Accounts now exposed
+        resolve(web3);
+        console.log("CONNECTED TO METAMASK");
         metamaskConnected = true;
-        resolve(web3);
+      } catch (error) {
+        console.log(error);
       }
-      // Fallback to localhost; use dev console port by default...
-      else {
-        const provider = new Web3.providers.HttpProvider(
-          "http://127.0.0.1:7545"
-        );
-        const web3 = new Web3(provider);
-        console.log("No web3 instance injected, using Local web3.");
-        resolve(web3);
-      }
-    });
+    }
+    // Legacy dapp browsers...
+    else if (window.web3) {
+      // Use Mist/MetaMask's provider.
+      const web3 = window.web3;
+      console.log("Injected web3 detected.");
+      metamaskConnected = true;
+      resolve(web3);
+    }
+    // Fallback to localhost; use dev console port by default...
+    else {
+      const provider = new Web3.providers.HttpProvider("http://127.0.0.1:7545");
+      const web3 = new Web3(provider);
+      console.log("No web3 instance injected, using Local web3.");
+      resolve(web3);
+    }
   });
 
 export default getWeb3;

@@ -6,6 +6,7 @@ import Popup from "../Popup/Pupup";
 import "./Login.css";
 import LoginLogic from "./LoginLogic";
 import RegisterInput from "./RegisterInput";
+import validateRegister from "./validateRegister";
 
 /**
  * * Login
@@ -17,18 +18,20 @@ const Login = () => {
   const { handleLogin } = LoginLogic();
   //read the global state
   const [state, dispatch] = useContext(UserContext);
-  //temporaly store the state in localstorage (to prevent loss on reload)
-  localStorage.setItem("state", JSON.stringify(state));
+  //temporaly store the state in sessionStorage (to prevent loss on reload)
+  sessionStorage.setItem("state", JSON.stringify(state));
   //hooks to hold the organisation name and foodbank state (in case of new user)
   const [orgName, setOrgName] = useState("");
   const [isFoodBank, setisFoodbank] = useState(false);
   //hook to hold the the state of user input component
   const [nameComp, setNameComp] = useState();
+  const [errors, setErrors] = useState({});
 
   //the callbank function used in the child component
   const retrieveInfo = (info) => {
     setOrgName(info.name);
     setisFoodbank(info.isFB);
+    setErrors(info.errors);
   };
 
   useEffect(() => {
@@ -89,7 +92,12 @@ const Login = () => {
             className="login-btn"
             type="submit"
             onClick={() => {
-              handleLogin(orgName, isFoodBank); //call the login function and pass the name and FB state
+              if (
+                (Object.keys(errors).length === 0 && orgName !== "") ||
+                nameComp === ""
+              ) {
+                handleLogin(orgName, isFoodBank); //call the login function and pass the name and FB state
+              }
             }}
           >
             Login with metamask
