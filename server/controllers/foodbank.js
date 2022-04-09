@@ -1,5 +1,9 @@
 import FoodBank from "../models/foodBanks.js";
 
+/**
+ * Function used to fetch the food banks from the database
+ * @param {Object} res the response object from the server
+ */
 export const getFB = async (req, res) => {
   try {
     const fb = await FoodBank.find();
@@ -9,6 +13,11 @@ export const getFB = async (req, res) => {
   }
 };
 
+/**
+ * Function used to fetch one food bank from the database
+ * @param {Object} req the request object from the front end
+ * @param {Object} res the response object from the server
+ */
 export const getOneFB = async (req, res) => {
   try {
     const fb = await FoodBank.findOne({ fbAddress: req.params.address });
@@ -18,6 +27,11 @@ export const getOneFB = async (req, res) => {
   }
 };
 
+/**
+ * Function used to create a food bank in the database
+ * @param {Object} req the request object from the front end
+ * @param {Object} res the response object from the server
+ */
 export const createFB = async (req, res) => {
   const fb = {
     fbName: req.body.name,
@@ -26,15 +40,6 @@ export const createFB = async (req, res) => {
     fbPic: req.body.pic,
   };
   console.log(res.body);
-
-  // *frontend payload
-  // payload = {
-  // name: null,
-  // description: null,
-  // address:null,
-  // fbPic: null
-  // }
-
   console.log("PROPOSED FB: ", fb);
   const newFB = new FoodBank(fb);
 
@@ -46,6 +51,11 @@ export const createFB = async (req, res) => {
   }
 };
 
+/**
+ * Function used to update one food bank in the database
+ * @param {Object} req the request object from the front end
+ * @param {Object} res the response object from the server
+ */
 export const updateFb = async (req, res) => {
   const fb = {
     fbName: req.body.name,
@@ -54,14 +64,6 @@ export const updateFb = async (req, res) => {
     fbPic: req.body.pic,
   };
   console.log(res.body);
-
-  // *frontend payload
-  // payload = {
-  // name: null,
-  // description: null,
-  // address:null,
-  // fbPic: null
-  // }
 
   console.log("PROPOSED FB: ", fb);
 

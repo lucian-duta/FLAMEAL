@@ -10,12 +10,11 @@ let web3Elements = {
 };
 //global value to hold transaction
 let transactions = null;
-/**
- * Function used to extract the elements needed from the web 3 element
- * @returns {Promise.<Object>} Web 3 elements if could be fetched from provider
- * @returns {Promise.<Object>} Error if provider was not found
- */
 
+/**
+ * Function used to extract the elements needed from the web 3 instance
+ * @returns {Promise<object>} the promise that resolves to the {@link web3Elements} object or rejects with an error
+ */
 const getData = () =>
   new Promise(async (resolve, reject) => {
     try {
@@ -23,7 +22,7 @@ const getData = () =>
       const web3 = new Web3(window.ethereum);
       //check is the instance is valid by testing provider
       if (!web3.currentProvider) {
-        //if the browser does not have metamask, ask fro another provider
+        //if the browser does not have metamask, ask from another provider
         web3Elements.web3 = await getWeb3();
       } else {
         //if metamask was detected, update the elements

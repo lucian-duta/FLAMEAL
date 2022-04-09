@@ -1,6 +1,9 @@
 import React from "react";
 import "./Landing.css";
-
+/**
+ * The function to display the image and the logo of the application
+ * @returns {ReactComponent} the title component
+ */
 const Title = () => {
   return (
     <>

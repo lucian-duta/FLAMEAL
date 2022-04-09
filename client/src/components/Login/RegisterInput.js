@@ -3,10 +3,9 @@ import Checkbox from "../Checkbox/Checkbox";
 import "./Login.css";
 import validateRegister from "./validateRegister";
 /**
- * * RegisterInput
- * * a React component to handle the user input when it registers for the first time
- * @param {*} param0 the callback function from the parent component
- * @returns the component
+ * The react component used to display the register form and collect the data of the user is new
+ * @param {Function} sendInfo the callback function used to pass the data to the parent component
+ * @returns {ReactComponent} the register form component
  */
 const RegisterInput = ({ sendInfo }) => {
   //hook to hold the input value (name)
@@ -48,7 +47,7 @@ const RegisterInput = ({ sendInfo }) => {
           };
           //send the data to the parent
           sendInfo(info);
-          console.log(isFoodBank);
+          //console.log(isFoodBank);
         }}
       />
     </>

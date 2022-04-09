@@ -9,9 +9,16 @@ import RegisterInput from "./RegisterInput";
 import validateRegister from "./validateRegister";
 
 /**
- * * Login
- * * the react component to handle the login or register of a user
- * @returns the component
+ * The function used to handle the login and registration of a user using the {@link LoginLogic} component
+ * to perform the authentication
+ *
+ * @borrows {@link LoginLogic}  to handle the login logic
+ * @borrows {@link RegisterInput} as a child component to display the registration form and handle input
+ * @borrows {@link Popup} as a child component to display the popup message when the user is new
+ * @borrows {@link UserContext} to interact with the global state
+ * @borrows {@link fetchAddress} to get the user's address from MetaMask
+ * @borrows {@link checkUser} to check if the user is new or not when the component mounts
+ * @returns {ReactComponent} the login/register component
  */
 const Login = () => {
   //import the login function for web3 auth

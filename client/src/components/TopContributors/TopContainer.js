@@ -6,28 +6,25 @@ import extractFeatures, {
 import "./TopCont.css";
 
 /**
- * * TopCont
- * * This component should display the top contributors alogside the total contributors
-
- * @returns - either the loaded component or the loading component
+ * The component to display the top contributors in the network
+ * @returns {ReactComponent} the top contributors component
  */
 const TopContainer = () => {
   //use a hook to store the number of contributors
   const [cont, setCont] = useState();
-
+  //when the component mounts, fetch the number of contributors
   useEffect(() => {
-    console.log("Data fetched", fetchContLastMonth());
+    //console.log("Data fetched", fetchContLastMonth());
     extractFeatures()
       .then(() => {
-        console.log("Data fetched", fetchContLastMonth());
+        //console.log("Data fetched", fetchContLastMonth());
         setCont(fetchContLastMonth());
-        console.log("Data fetched", fetchContLastMonth());
+        //console.log("Data fetched", fetchContLastMonth());
       })
       .catch((e) => {
         console.log(e);
       });
   }, []);
-  //function to fetch the data
 
   return (
     <>

@@ -1,8 +1,7 @@
 /**
- * * validateInfo
- * * Validates the inputs from the transfer form
- * @param {*} values - the values to be validated
- * @returns - an array of errors
+ * Function used to validate the input of the list form from the ListFill component
+ * @param {Object} values - the input to be validated
+ * @returns {Array} the array of errors found
  */
 export default function validateInfo(values) {
   //create an empty array

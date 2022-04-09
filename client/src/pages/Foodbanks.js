@@ -2,15 +2,11 @@ import React from "react";
 import Showcase from "../components/Showcase/Showcase";
 
 /**
- * * Foodbanks showcase page
- * ? Should I use react-slick?
- * TODO: Reasearch ways to implement the horisontal scrollable cards
- * !Possibly implemented at a later stage
- * @returns
+ * React component to display the foodbanks showcase page
+ * @borrows {@link Showcase} as a child component to display the showcase element
+ * @returns {ReactComponent} the showcase component
  */
 export default function Foodbanks() {
-  //getTransactions();
-
   //console.log(JSON.stringify(fetchTransactions));
   return (
     <>

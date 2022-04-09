@@ -6,14 +6,14 @@ import Dropdown from "../Dropdown/Dropdown";
 import { UserContext } from "../../context/UserContext";
 
 /**
- * *Navbar
- * * handles the navigation features of the app
- * TODO: Change the style of the links
- * TODO: DISPLAY LOGO
- * ! Possible issues on mobile rendering - further testing required
- * @returns - the navbar component
+ * The React component what handles the navigation features of the app
+ *
+ * TODO: Enhance the styling of the links
+ * @borrows {@link Dropdown} as a child component to hold the dropdown menu activated when the statistics button is clicked
+ * @borrows {@link Button} as a child component to display the "Login/Logout" button
+ * @returns {ReactComponent} the navbar component
  */
-function Navbar() {
+const Navbar = () => {
   const [state, dispatch] = useContext(UserContext);
   //constant to hold the state of the button appearing on mobile version
   const [click, setClick] = useState(false);
@@ -76,7 +76,7 @@ function Navbar() {
           Logout
         </Link>
       );
-      //change the desktop button to "logout"
+      //change the login button to "logout"
       setButt(<Button buttonName="Logout" toPage="" />);
 
       //show the inventory link
@@ -91,7 +91,8 @@ function Navbar() {
               My Inventory
             </Link>
           </li>
-          {state.isfb ? (
+
+          {state.isfb ? ( //if the user is a foodbank show the foodbank edit link
             <li className="nav-item">
               <Link
                 to="/changefb"
@@ -200,6 +201,6 @@ function Navbar() {
       </nav>
     </>
   );
-}
+};
 
 export default Navbar;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Dropdown.css";
 
-// *Constant holding the array of elements in the dropdown list
+// Constant holding the array of elements for the dropdown list
 const MenuItems = [
   {
     title: "Food banks",
@@ -21,8 +21,8 @@ const MenuItems = [
   },
 ];
 /**
- * *Function to return the dropdown menu component from the navbar 'stats' link
- * @returns - the component with corresponding paramenters
+ * The dropdown component used in the navbar (statistics button)
+ * @returns {ReactComponent} the dropdown component as a list of links
  */
 function Dropdown() {
   //constant to hold the state of the dropdown menu
@@ -44,7 +44,6 @@ function Dropdown() {
                 to={item.path}
                 onClick={() => {
                   setClick(false);
-                  // if (item.path.equals("/topcont")) window.reload();
                 }}
               >
                 {item.title}

@@ -4,14 +4,15 @@ import Leaderboard from "../Leaderboard/Leaderboard";
 import TopContLoading from "./TopContLoading";
 
 /**
- * *TopContLoaded
- * *Displays the leaderboard and the gauge for top contributors and total contributors
- * TODO:Make the gauge self updating
- * @param {*} cont - the number of contributors this month
- * @returns - the react component
+ * The component to display the top contributors in the network by displaying
+ * the leaderboard and the gauge for top contributors in the last month
+ * @borrows {@link TopContLoading} as a child component to display the loading animation if the data was not fetched
+ * @borrows {@link Leaderboard} as a child component to display the leaderboard of top contributors
+ * @param {Number} cont - the number of contributors this month
+ * @returns {ReactComponent} the component holding the leaderboard and the gauge or the loading component if the data is not fetched yet
  */
-
 const TopContLoaded = ({ cont }) => {
+  //if the data is not fetched yet, display the loading animation
   return !cont ? (
     <TopContLoading />
   ) : (

@@ -1,8 +1,7 @@
 /**
- * * validateRegister
- * * Validates the inputs from the register form
- * @param {*} values - the values to be validated
- * @returns - an array of errors
+ * Function used to validate the user input of the register form
+ * @param {Object} values - the values to be validated
+ * @returns {Array} the array of errors found
  */
 export default function validateRegister(values) {
   //create an empty array

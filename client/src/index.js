@@ -5,7 +5,7 @@ import { FBProvider } from "./context/FoodBankContext";
 import { StateProvider } from "./context/UserContext";
 import extractFeatures from "./Web3/extractFeatures";
 import getWeb3 from "./Web3/getWeb3";
-//*If you ever feel useless...this about this index page
+//the application wrapped in a provider to provide the context to the components
 const app = (
   <FBProvider>
     <StateProvider>
@@ -13,7 +13,9 @@ const app = (
     </StateProvider>
   </FBProvider>
 );
+//render the application
 ReactDOM.render(app, document.getElementById("root"));
+//attept to get the web3 instance when the application is loaded
 getWeb3()
   .then(() => {
     // alert("Connection with web3 succesfull");
@@ -24,5 +26,5 @@ getWeb3()
     );
     console.log(error);
   });
-
+//extract the features from the smart contract to be used later
 extractFeatures();

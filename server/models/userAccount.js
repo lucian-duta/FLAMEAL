@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
-
+/**
+ * The schema of the user account
+ * @type {mongoose.Schema} the user schema
+ */
 const UserSchema = mongoose.Schema(
   {
     publicAddress: { type: String, required: true, unique: true, index: true },

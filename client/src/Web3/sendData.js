@@ -1,4 +1,11 @@
 import { fetchData } from "./getData";
+
+/**
+ *
+ * @param {String} addressIn the address of the receiver
+ * @param {String} contentIn the content of the transaction (the goods)
+ * @returns {object | null} the transaction error object or null if the transaction was successful
+ */
 const SendData = (addressIn, contentIn) => {
   const address = addressIn;
   const content = contentIn;

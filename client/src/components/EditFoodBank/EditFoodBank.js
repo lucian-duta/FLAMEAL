@@ -5,24 +5,20 @@ import validateEdit from "./validateEdit";
 import FileBase from "react-file-base64";
 import FoodBankCard from "../FoodBankCard/FoodBankCard";
 
+/**
+ * The edit foodbank component used in the edit foodbank page consisting
+ * of the foodbank card preview and the edit form
+ *
+ * TODO: Perform image validation
+ * @returns {ReactComponent} the edit foodbank component
+ * @borrows FoodBankCard from the FoodBankCard component
+ * @borrows useEdit from the useEdit hook
+ */
 const EditFoodBank = () => {
-  const [data, setData] = useState({
-    name: "",
-    description: "",
-    address: "",
-    pic: "",
-  });
-  const retrieveData = (data) => {
-    setData(data);
-    console.log(data);
-  };
+  //get the data from the form
+
   const { handleChange, handleSubmit, handleImageUpload, fbData, errors } =
-    useEdit(retrieveData, validateEdit);
-  // const fbdata = {
-  //   name: "BASIC",
-  //   description:
-  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse fringilla",
-  // };
+    useEdit(validateEdit);
 
   return (
     <>
@@ -65,14 +61,7 @@ const EditFoodBank = () => {
               {errors.pic && <p>{errors.pic}</p>}
             </div>
 
-            <button
-              className="fb-form-input-btn"
-              type="submit"
-              onMouseEnter={() => {
-                //fetching the items from the list component every time the mouse enters the transfer button
-                //used to avoid submitting with a null list
-              }}
-            >
+            <button className="fb-form-input-btn" type="submit">
               Done
             </button>
           </form>

@@ -1,8 +1,7 @@
 /**
- * *validateInput
- * *Function used to validate the inputs of the list
- * @param {*} value - the value to be validated
- * @returns - the array of errors found
+ * Function used to validate the input of the list form from the ListFill component
+ * @param {Object} value - the input to be validated
+ * @returns {Array} - the array of errors found
  */
 export default function validateInput(value) {
   //create an empty array

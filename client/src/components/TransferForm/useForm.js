@@ -15,6 +15,14 @@ import { updateInventory } from "../../api/actions.js";
  * @param {*} validate - the function to validate the inputs
  * @returns - the functions required by the TransferFill component
  */
+
+/**
+ * The function the handle the logic of the transfer form and the validation of the data before attepmting to submit the transaction to the blockchain
+ * @borrows {@link SendData} to attept to submit the transaction to the blockchain
+ * @param {Function} callback - the callback function used to fetch the submission state from the parent component
+ * @param {Function} validate - the function to validate the inputs
+ * @returns
+ */
 const useForm = (callback, validate) => {
   const [state, dispatch] = useContext(UserContext);
   //declaring a variable to hold the state of blockchain transfer errors
@@ -55,16 +63,20 @@ const useForm = (callback, validate) => {
     //put the form in submission state
     setIsSubmitting(true);
   };
-
-  const inFirstOnly = (isUnion = false) => {
+  //function to remove the items sent from the list of goods
+  const removeSentItems = (isUnion = false) => {
+    //total items in the inventory
     const totalItems = state.inventory;
+    //items sent from the transfer list
     const transferItems = values.itemsList;
+    //the remaining items list created by intersecting the total items list with the items sent from the transfer list
     const remainingItems = totalItems.filter(
       (
         (set) => (a) =>
           isUnion === set.has(a.itemName)
       )(new Set(transferItems.map((b) => b.itemName)))
     );
+    //call the api action to update the inventory
     updateInventory(remainingItems, state.address);
   };
 
@@ -84,7 +96,7 @@ const useForm = (callback, validate) => {
       console.log("values attached to contract", JSON.stringify(values)); //!SHOULD BE REMOVED IN FINAL
       console.log("TRANSFER ERRORRR", transferError); //!SHOULD BE REMOVED IN FINAL
       // console.log("SHOULD KEEP", inFirstOnly(state.inventory, values.items));
-      inFirstOnly();
+      removeSentItems();
       //constant to hold a bool state of the MetaMask connection
       const metaState = fetchMetaState();
       if (!transferError) {

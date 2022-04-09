@@ -2,14 +2,15 @@ import React from "react";
 import "./Button.css";
 import { Link } from "react-router-dom";
 /**
- * *Button
- * *Function to display the button component in the navbar
- * @returns - A link to the login page and the button element
+ * A function to return a button component (used )
+ * @param {String} buttonName name of the button to be displayed
+ * @param {String} toPage the path to navigate to
+ * @returns {ReactComponent} the button component
  */
-export function Button({ buttonName, toPage }) {
+export const Button = ({ buttonName, toPage }) => {
   return (
     <Link to={toPage}>
       <button className="btn">{buttonName}</button>
     </Link>
   );
-}
+};

@@ -14,6 +14,13 @@ import extractFeatures from "../Web3/extractFeatures";
  * !This feature will be implemented later
  * @returns
  */
+
+/**
+ * React component to display the user statistics page
+ * @borrows {@link Statistics} as a child component to display the statistics element
+ * @borrows {@link TopContLoading} as a child component to display the loading element
+ * @returns {ReactComponent} the {@link Statistics statiscics} component if the data is fetched or the {@link TopContLoading loading} component if the data is not fetched
+ */
 export default function UserStats() {
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {

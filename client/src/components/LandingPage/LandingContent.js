@@ -1,5 +1,9 @@
 import React from "react";
 
+/**
+ * The function to return the text and images used in the landing page
+ * @returns {ReactComponent} the text and images used in the landing page
+ */
 const LandingContent = () => {
   return (
     <>

@@ -5,6 +5,7 @@ import {
   getOneFB,
   updateFb,
 } from "../controllers/foodbank.js";
+//the express router
 const router = express.Router();
 //Foodbank get routes
 router.get("/getfb", getFB);

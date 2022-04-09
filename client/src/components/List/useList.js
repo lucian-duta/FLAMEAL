@@ -4,15 +4,18 @@ import { updateInventory } from "../../api/actions";
 import { UserContext } from "../../context/UserContext";
 let url = "http://localhost:5000/users";
 
-/**
- * * useListv2
- * * Holds the functions needed during user interaction i.e. adding, deleting...
- * @param {*} validate - the function used to validate the inputs of the form
- * @returns the functions needed during filling with the item list and the error list
- */
 //delcare a second list of items globally to because hooks don't work outside of the function
 let globalItems = null;
-const useListv2 = (validate) => {
+
+/**
+ * Holds the functions needed during user interaction i.e. adding, deleting..
+ * and makes api call to update the list if the used is logged in.
+ * @param {Function} validate - the function used to validate the inputs of the form
+ * @returns the functions needed during filling with the item list and the error list
+ * @api
+ */
+const useList = (validate) => {
+  //hook to hold the global state
   const [state, dispatch] = useContext(UserContext);
 
   //declare the initial state of the list (populated for testing purposes)
@@ -68,9 +71,9 @@ const useListv2 = (validate) => {
   }, [state.address]);
 
   /**
-   * *handleAdd
-   * used to handle the addition of a new item to the list
-   * @param {*} inputValue - from the main function
+   * Function used to handle the addition of a new item in the list
+   * it updates the local and global state of the list
+   * @param {Object} inputValue - the object holding the item name and quantity
    */
   function handleAdd(inputValue) {
     //constant to hold the errors ( as a result of an invalid value)
@@ -96,8 +99,8 @@ const useListv2 = (validate) => {
     }
   }
   /**
-   * *Function to take handle quantity increase
-   * @param {*} index - the identifier of the item to be updated
+   * The function used to hande the quantity increase of an item
+   * @param {Number} index - the identifier of the item to be updated
    */
   const handleQuantityIncrease = (index) => {
     //create a new list holding old items
@@ -106,7 +109,6 @@ const useListv2 = (validate) => {
     newItems[index].quantity++;
     //update the global state
     updateDatabase(newItems);
-
     //update the list
     setItems(newItems);
     //update the global list
@@ -114,8 +116,8 @@ const useListv2 = (validate) => {
   };
 
   /**
-   * *Function to take handle quantity decrease
-   * @param {*} index - the identifier of the item to be updated
+   * The function used to hande the quantity decrease of an item
+   * @param {Number} index - the identifier of the item to be updated
    */
   const handleQuantityDecrease = (index) => {
     //create a new list holding old items
@@ -132,8 +134,8 @@ const useListv2 = (validate) => {
   };
 
   /**
-   * *Function to remove an item from the list
-   * @param {*} index - the identifier of the item to be deleted
+   * The function used to hande the deletion of an item
+   * @param {Number} index - the identifier of the item to be deleted
    */
   const removeItem = (index) => {
     //create a new list based on the old list
@@ -144,7 +146,6 @@ const useListv2 = (validate) => {
     const filterArr = removeArr.filter((item) => item !== null);
     //update database and global state
     updateDatabase(filterArr);
-
     //update the list
     setItems(filterArr);
     //update the global list
@@ -161,7 +162,7 @@ const useListv2 = (validate) => {
   };
 };
 
-export default useListv2;
+export default useList;
 //Function to send the list of items to other components
 export const fetchList = () => {
   //return the globally declared items

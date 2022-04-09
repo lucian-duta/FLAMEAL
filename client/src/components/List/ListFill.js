@@ -1,14 +1,14 @@
 import React from "react";
-import useListv2 from "./useList";
+import useList from "./useList";
 import { useState } from "react";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { RiCloseCircleLine } from "react-icons/ri";
 import "./List.css";
 import validateInput from "./validateList";
 /**
- * * Listv2Fill
- * * Used to display the form and elements inside
- * @returns - the form to take and handle input of the list
+ * Component used to display an interactive list of items from the inventory of the user,
+ * and finnaly used to be attached to the transfer.
+ * @returns {ReactComponent} the list component
  */
 const ListFill = () => {
   const {
@@ -18,7 +18,7 @@ const ListFill = () => {
     handleAdd,
     removeItem,
     errors,
-  } = useListv2(validateInput);
+  } = useList(validateInput);
 
   const [inputValue, setInputValue] = useState("");
 

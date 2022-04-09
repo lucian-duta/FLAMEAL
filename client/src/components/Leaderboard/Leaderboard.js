@@ -2,10 +2,14 @@ import React from "react";
 import { fetchTopSenders } from "../../Web3/extractFeatures";
 import "./Leaderboard.css";
 
-//TODO add comments
+/**
+ * A component to display the leaderboard based on the data fetched from the blockchain
+ * using the web3 api by calling the {@link fetchTopSenders} function
+ * @returns {ReactComponent} the leaderboard component
+ */
 const Leaderboard = () => {
   const contributors = fetchTopSenders();
-  console.log("frontend", contributors);
+  //console.log("frontend", contributors);
 
   return (
     <div className="lead-app">

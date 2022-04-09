@@ -1,8 +1,8 @@
 /**
- * * validateEdit
- * * Validates the inputs from the edit form
- * @param {*} values - the values to be validated
- * @returns - an array of errors
+ * Function used to validate the input of the edit foodbank form EditFoodBank
+ *
+ * @param {Object} values - the values to be validated
+ * @returns  an array of errors
  */
 export default function validateEdit(values) {
   //create an empty array

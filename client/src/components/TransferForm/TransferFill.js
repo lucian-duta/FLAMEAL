@@ -4,14 +4,10 @@ import validate from "./validateInfo";
 import "./TransferForm.css";
 
 /**
- * *TransferFill
- * * Handles the visual aspect of the transfer form while taking imputs and handling interactions
- * !Has known mobile issues
- * TODO: Display the left div (list) on top and right div (transfer form) on bottom
- * @param {*} param0 - the function to set the state of submission to true
- * @returns - the transfer form component
+ * The react component to display the transfer form and collect the data of the transfer and update the {@link values} object
+ * @param {Function} submitForm - the callback function used to fetch the submission state from the parent component
+ * @returns {ReactComponent} the transfer form component
  */
-
 const TransferFill = ({ submitForm }) => {
   //importing the functions from the useForm function while passing the callback function and validation function
   const { handleChange, handleSubmit, fetchItemList, values, errors } = useForm(

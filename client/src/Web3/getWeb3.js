@@ -5,8 +5,9 @@ let metamaskConnected = false;
  * Function the fetch the web 3 instance based on the enviroment the application is opened in.
  *
  * TODO: Fetch instance from remote provider as well
- * @returns {Promise.<Web3>} The Web3 instance from the provider
- * @returns {Promise.<error>} Error if provider was not found
+ *
+ * !IMPORTANT: If using a local provider (e.g. ganache-cli, truffle), make sure to update the address in the {@link provider} variable
+ * @returns {Promise.<Web3>} The promise that resolves to the web 3 instance or rejects with an error
  */
 const getWeb3 = () =>
   new Promise(async (resolve, reject) => {

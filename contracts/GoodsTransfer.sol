@@ -3,23 +3,24 @@ pragma solidity >=0.4.21 <8.10.0;
 
 contract GoodsTransfer {
     uint256 transactionCount = 0;
-
+    //the event to be emmited when a transaction is made
     event Transfer(
         address from,
         address receiver,
         string content,
         uint256 timestamp
     );
-
+    //the struct to be used to store the data of a transaction in the smart contract
     struct TransferStruct {
         address sender;
         address receiver;
         string content;
         uint256 timestamp;
     }
-
+    //the array of the structs
     TransferStruct[] public transfers;
 
+    //the function to be called when a transaction is addempted
     function addToBlockchain(address payable receiver, string memory content)
         public
     {
@@ -31,6 +32,7 @@ contract GoodsTransfer {
         emit Transfer(msg.sender, receiver, content, block.timestamp);
     }
 
+    //the function used to fetch the transactions
     function getAllTransactions()
         public
         view
@@ -39,30 +41,7 @@ contract GoodsTransfer {
         return transfers;
     }
 
-    // function getTransfers()
-    //     public
-    //     view
-    //     returns (
-    //         address[] memory,
-    //         address[] memory,
-    //         string[] memory,
-    //         uint256[] memory
-    //     )
-    // {
-    //     address[] memory senders = new address[](transactionCount);
-    //     address[] memory receivers = new address[](transactionCount);
-    //     string[] memory contents = new string[](transactionCount);
-    //     uint256[] memory timestamps = new uint256[](transactionCount);
-
-    //     for (uint256 i = 0; i < 2; i++) {
-    //         senders[i] = (transfers[i].sender);
-    //         receivers[i] = (transfers[i].reciever);
-    //         contents[i] = (transfers[i].content);
-    //         timestamps[i] = (transfers[i].timestamp);
-    //     }
-    //     return (senders, receivers, contents, timestamps);
-    // }
-
+    //function used to fetch the number of transactions
     function getTrasactionCount() public view returns (uint256) {
         return transactionCount;
     }

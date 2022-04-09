@@ -1,10 +1,9 @@
 import React from "react";
 import "./Popup.css";
 /**
- * *Popup
- * * a react component to display a popup on top of the login component
- * @param {*} props the desired content passed from parent
- * @returns the component
+ * A react component to display a popup with a message
+ * @param {Object} props the desired content passed from parent component
+ * @returns {ReactComponent} the popup component
  */
 const Popup = (props) => {
   return (

@@ -11,7 +11,16 @@ import { Bar } from "react-chartjs-2";
 import React from "react";
 import { fetchDonPerMonth } from "../../Web3/extractFeatures";
 
-export function StatsBar() {
+/**
+ * The component to display the bar chart of donations over the last 12 months using the chart.js library
+ *
+ * !WARNING! This component generates fake data for the months with no donations to demonstarte a real world scenario; Look at {@link data} to change the rule
+ *
+ * @borrows {@link fetchDonPerMonth} to fetch the data from the blockchain
+ * @returns {ReactComponent} the {@link ChartJS} {@link Bar} component with the corresponding data and parameters
+ */
+export const StatsBar = () => {
+  //initialize parameters of the chart
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -20,7 +29,7 @@ export function StatsBar() {
     Tooltip,
     Legend
   );
-
+  //set the options of hte chart component
   const options = {
     responsive: true,
     plugins: {
@@ -127,4 +136,4 @@ export function StatsBar() {
   };
 
   return <Bar options={options} data={data} />;
-}
+};

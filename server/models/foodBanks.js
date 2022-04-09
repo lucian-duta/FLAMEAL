@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
 
+/**
+ * The schema of the food bank
+ * @type {mongoose.Schema} the food bank schema
+ */
 const FBSchema = mongoose.Schema(
   {
     fbName: { type: String, required: true, unique: true, index: true },
