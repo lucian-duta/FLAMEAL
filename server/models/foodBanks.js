@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 /**
  * The schema of the food bank
- * @type {mongoose.Schema} the food bank schema
+ * @type {mongoose.Schema}
  */
 const FBSchema = mongoose.Schema(
   {

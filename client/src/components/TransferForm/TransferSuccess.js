@@ -2,15 +2,10 @@ import React from "react";
 import "./TransferForm.css";
 
 /**
- * * TransferSuccess
- * * Simple function to inform the user that the transfer was successful
- * @returns
+ * A react component that renders a success message after a transfer and reloads the page.
+ * @returns {React.Component} the component
  */
 const TransferSuccess = () => {
-  /**
-   * *Function used to refresh the page
-   * @param {*} timeoutPeriod - the time to wait before refreshing
-   */
   function timedRefresh(timeoutPeriod) {
     setTimeout("location.reload(true);", timeoutPeriod);
   }

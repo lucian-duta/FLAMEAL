@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 /**
  * The schema of the user account
- * @type {mongoose.Schema} the user schema
+ * @type {mongoose.Schema}
  */
 const UserSchema = mongoose.Schema(
   {

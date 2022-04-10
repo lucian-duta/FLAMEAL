@@ -21,7 +21,7 @@ import { updateInventory } from "../../api/actions.js";
  * @borrows {@link SendData} to attept to submit the transaction to the blockchain
  * @param {Function} callback - the callback function used to fetch the submission state from the parent component
  * @param {Function} validate - the function to validate the inputs
- * @returns
+ * @returns {Object} the functions required by the TransferFill component
  */
 const useForm = (callback, validate) => {
   const [state, dispatch] = useContext(UserContext);
