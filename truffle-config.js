@@ -5,6 +5,16 @@ module.exports = {
   // to customize your Truffle configuration!
   contracts_build_directory: path.join(__dirname, "client/src/contracts"),
   networks: {
+    local: {
+      host: "192.168.50.198",
+      port: 30308,
+      network_id: "7778",
+    },
+    remote: {
+      host: "techlmd.co.uk",
+      port: 30308,
+      network_id: "7778",
+    },
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
     // You should run a client (like ganache-cli, geth or parity) in a separate terminal
@@ -14,7 +24,7 @@ module.exports = {
     development: {
       host: "127.0.0.1", // Localhost (default: none)
       // host: "192.168.50.198", // Localhost (default: none)http://192.168.50.198:7545
-      port: 7545, // Standard Ethereum port (default: none)
+      port: 30307, // Standard Ethereum port (default: none)
       network_id: "*", // Any network (default: none)
     },
   },
