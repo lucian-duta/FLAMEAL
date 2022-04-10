@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { updateInventory } from "../../api/actions";
 import { UserContext } from "../../context/UserContext";
-let url = "http://localhost:5000/users";
+let url = "https://flameal.herokuapp.com/users";
 
 //delcare a second list of items globally to because hooks don't work outside of the function
 let globalItems = null;

@@ -6,7 +6,7 @@ import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 import RegisterInput from "./RegisterInput";
 
-let url = "http://localhost:5000/users";
+let url = "https://flameal.herokuapp.com/users";
 
 /**
  * The function used to handle the Web3 authentication logic using MetaMask
@@ -66,7 +66,6 @@ const LoginLogic = () => {
         loginUser(payload.publicAddress)
           .then((res) => {
             //console.log("RES FROM LOGIN", res);
-
             //decrypt the token
             const decodedToken = jwt.verify(res.jwt, "secret123");
             //if the address held in the token is the same as the current user address

@@ -99,6 +99,7 @@ const Login = () => {
             className="login-btn"
             type="submit"
             onClick={() => {
+              console.log(errors);
               if (
                 (Object.keys(errors).length === 0 && orgName !== "") ||
                 nameComp === ""

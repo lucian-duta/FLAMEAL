@@ -1,6 +1,6 @@
 import axios from "axios";
-let url = "http://localhost:5000/users";
-let urlfb = "http://localhost:5000/fb";
+let url = "https://flameal.herokuapp.com/users";
+let urlfb = "https://flameal.herokuapp.com/fb";
 
 /**
  * Function used to handle the update of user's inventory in the database
