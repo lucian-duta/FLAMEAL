@@ -1,6 +1,6 @@
 import React from "react";
 import "./FoodBankCard.css";
-
+import foodbankimg from "../../assets/food-bank.png";
 /**
  * The foodbank card component used in the foodbank page and the foodbank card preview
  * @param {Object} fbData - the data for the foodbank card
@@ -13,7 +13,7 @@ const FoodBankCard = ({ fbData }) => {
         <div className="card-image">
           <img
             //if no image is provided use the default image
-            src={fbData.pic || window.location.origin + "/food-bank.png"}
+            src={fbData.pic || foodbankimg + "/food-bank.png"}
             width="350px"
             height="180px"
             alt="foodbank"

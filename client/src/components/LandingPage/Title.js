@@ -1,5 +1,6 @@
 import React from "react";
 import "./Landing.css";
+import logo from "../../assets/logo-flameal.png";
 /**
  * The function to display the image and the logo of the application
  * @returns {ReactComponent} the title component
@@ -32,12 +33,7 @@ const Title = () => {
           </p>
         </div>
         <div className="landing-logo">
-          <img
-            src={window.location.origin + "/logo-flameal.png"}
-            width="300px"
-            height="300px"
-            alt="flameal logo"
-          />
+          <img src={logo} width="300px" height="300px" alt="flameal logo" />
         </div>
       </div>
     </>

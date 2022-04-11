@@ -4,7 +4,7 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import Dropdown from "../Dropdown/Dropdown";
 import { UserContext } from "../../context/UserContext";
-
+import flamealnav from "../../assets/logo-flameal-nav.png";
 /**
  * The React component what handles the navigation features of the app
  *
@@ -118,7 +118,7 @@ const Navbar = () => {
 
           <img
             className="fa-firstdraft"
-            src={window.location.origin + "/logo-flameal-nav.png"}
+            src={flamealnav}
             width="200rem"
             height="50rem"
             alt="FLAMEAL logo"
