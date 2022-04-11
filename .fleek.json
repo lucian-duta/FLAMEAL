@@ -1,7 +1,7 @@
 {
   "build": {
-    "image": "node:alpine",
-    "command": "npm install && npm run build",
+    "image": "fleek/create-react-app:latest",
+    "command": "yarn && yarn build",
     "publicDir": "/build",
     "baseDir": "/client"
   }
