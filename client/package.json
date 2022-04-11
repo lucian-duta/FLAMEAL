@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "https://flameal.herokuapp.com",
-  "homepage": "./",
+  "homepage": ".",
   "dependencies": {
     "@babel/runtime": "^7.17.2",
     "@emotion/react": "^11.8.2",
