@@ -7,7 +7,7 @@ import "./Login.css";
 import LoginLogic from "./LoginLogic";
 import RegisterInput from "./RegisterInput";
 import validateRegister from "./validateRegister";
-
+import metamaskimg from "../../assets/meta-mask.png";
 /**
  * The function used to handle the login and registration of a user using the {@link LoginLogic} component
  * to perform the authentication
@@ -88,7 +88,7 @@ const Login = () => {
           }`}
         >
           <img
-            src={window.location.origin + "/meta-mask.png"}
+            src={metamaskimg}
             width="300px"
             height="300px"
             alt="metamask log"

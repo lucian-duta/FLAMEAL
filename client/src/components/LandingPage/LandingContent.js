@@ -1,5 +1,6 @@
 import React from "react";
-
+import circularity from "../../assets/circularity.png";
+import smartppl from "../../assets/smartppl.png";
 /**
  * The function to return the text and images used in the landing page
  * @returns {ReactComponent} the text and images used in the landing page
@@ -29,7 +30,7 @@ const LandingContent = () => {
       </div>
       <div className="landing-content-img">
         <img
-          src={window.location.origin + "/circularity.png"}
+          src={circularity}
           width="800px"
           height="500px"
           alt=" representing circulariy theroy in food sector"
@@ -55,7 +56,7 @@ const LandingContent = () => {
       </div>
       <div className="landing-content-img">
         <img
-          src={window.location.origin + "/smartppl.png"}
+          src={smartppl}
           width="1000px"
           height="500px"
           alt=" presenting the process flow with smart contracts"
