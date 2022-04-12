@@ -4,17 +4,7 @@ import { fetchList } from "../List/useList";
 import { fetchMetaState } from "../../Web3/getWeb3.js";
 import { UserContext } from "../../context/UserContext.js";
 import { updateInventory } from "../../api/actions.js";
-/**
- * * useForm
- * * Handles the functionality of the transfer form
- * TODO: Find a way to import items from the list
- * !Does not refresh after subbmit
- * ? Should it refresh after the transaction is confirmed ?
- *
- * @param {*} callback - the callback function
- * @param {*} validate - the function to validate the inputs
- * @returns - the functions required by the TransferFill component
- */
+import getData from "../../Web3/getData.js";
 
 /**
  * The function the handle the logic of the transfer form and the validation of the data before attepmting to submit the transaction to the blockchain
@@ -82,6 +72,8 @@ const useForm = (callback, validate) => {
 
   //hook to be called every time the errors are changed
   useEffect(() => {
+    //if there are errors, attept to get the web3 metamask instance to log in the user
+    if (Object.keys(errors).length === 0) getData();
     //test if the error array is empty and the form is submitting
     if (Object.keys(errors).length === 0 && isSubmitting) {
       //Preparing the payload by creating a new object without the address

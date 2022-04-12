@@ -19,16 +19,11 @@ const getData = () =>
   new Promise(async (resolve, reject) => {
     try {
       // Get network provider and web3 instance.
-      const web3 = new Web3(window.ethereum);
       //check is the instance is valid by testing provider
-      if (!web3.currentProvider) {
-        //if the browser does not have metamask, ask from another provider
-        web3Elements.web3 = await getWeb3();
-      } else {
-        //if metamask was detected, update the elements
-        web3Elements.web3 = web3;
-      }
-
+      await getWeb3().then((res) => {
+        web3Elements.web3 = res;
+      });
+      //console.log("web3 fetched from meta", web3Elements.web3);
       // Use web3 to get the user's accounts.
       web3Elements.accounts = await web3Elements.web3.eth.getAccounts();
 
@@ -43,7 +38,7 @@ const getData = () =>
         .getAllTransactions()
         .call();
       // console.log(web3Elements);
-      // console.log(transactions);
+      //console.log("META TRANSACTIONS", transactions);
       resolve(web3Elements);
     } catch (error) {
       reject(error);

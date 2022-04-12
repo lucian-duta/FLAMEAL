@@ -44,10 +44,13 @@ const RegisterInput = ({ sendInfo }) => {
           const info = {
             name: inputValue,
             isFB: isFoodBank,
+            errors: null,
           };
+          info.errors = validateRegister(info);
+          setErrors(info.errors);
+
           //send the data to the parent
           sendInfo(info);
-          //console.log(isFoodBank);
         }}
       />
     </>

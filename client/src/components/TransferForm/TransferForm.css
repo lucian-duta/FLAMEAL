@@ -30,6 +30,7 @@
 }
 
 .form-content-right {
+  justify-content:center;
   border-radius: 0 10px 10px 0;
   display: flex;
   background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(17, 17, 17) 100%);

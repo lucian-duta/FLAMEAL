@@ -81,6 +81,7 @@ const useEdit = (validate) => {
         createfb(fbData)
           .then(() => {
             alert("foodbank created");
+            navigate("/foodbanks");
           })
           .catch(() => {
             alert("Creation failed");

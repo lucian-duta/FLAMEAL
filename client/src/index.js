@@ -16,15 +16,15 @@ const app = (
 //render the application
 ReactDOM.render(app, document.getElementById("root"));
 //attept to get the web3 instance when the application is loaded
-getWeb3()
-  .then(() => {
-    // alert("Connection with web3 succesfull");
-  })
-  .catch((error) => {
-    alert(
-      `Failed to load web3, accounts, or contract. Check console for details.`
-    );
-    console.log(error);
-  });
+// getWeb3()
+//   .then(() => {
+//     // alert("Connection with web3 succesfull");
+//   })
+//   .catch((error) => {
+//     alert(
+//       `Failed to load web3, accounts, or contract. Check console for details.`
+//     );
+//     console.log(error);
+//   });
 //extract the features from the smart contract to be used later
 extractFeatures();
