@@ -1,4 +1,5 @@
 import getData, { fetchTransactions } from "./getData";
+import getWeb3Http from "./getWeb3Http";
 //global variable to hold the features
 let features = {
   transactionCount: 0,
@@ -21,10 +22,10 @@ let features = {
 const extractFeatures = () =>
   new Promise(async (resolve, reject) => {
     //update the web3 instance with getdata
-    getData()
-      .then(() => {
+    getWeb3Http()
+      .then((res) => {
         //get the transaction count
-        const transactions = fetchTransactions();
+        const transactions = res.transactions;
         console.log(transactions);
         //declare the empty map to hold the data in specific order
         let tMap = new Map([
