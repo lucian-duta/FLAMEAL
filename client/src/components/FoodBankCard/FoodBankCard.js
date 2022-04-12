@@ -13,7 +13,7 @@ const FoodBankCard = ({ fbData }) => {
         <div className="card-image">
           <img
             //if no image is provided use the default image
-            src={fbData.pic || foodbankimg + "/food-bank.png"}
+            src={fbData.pic || foodbankimg}
             width="350px"
             height="180px"
             alt="foodbank"
