@@ -9,7 +9,7 @@ const getWeb3Http = () =>
   new Promise(async (resolve, reject) => {
     try {
       const provider = new Web3.providers.HttpProvider(
-        "http://techlmd.co.uk:30308"
+        "https://eth.techlmd.co.uk"
       );
       const web3 = new Web3(provider);
       console.log("web3 fetched", web3);
