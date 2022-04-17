@@ -13,6 +13,8 @@ let transactions = null;
 
 /**
  * Function used to extract the elements needed from the web 3 instance
+ * @category Web3
+ * @function getData
  * @returns {Promise<object>} the promise that resolves to the {@link web3Elements} object or rejects with an error
  */
 const getData = () =>
@@ -52,6 +54,7 @@ const getData = () =>
 export default getData;
 /**
  * Function used to fetch the web 3 elements from {@link getData}
+ * @category Web3
  * @returns {Object} Web 3 elements
  */
 export const fetchData = () => {
@@ -60,6 +63,7 @@ export const fetchData = () => {
 
 /**
  * Function used to fetch transactions from {@link getData}
+ * @category Web3
  * @returns {Array} An array of transactions attached to the contract
  */
 export const fetchTransactions = () => {
@@ -68,6 +72,7 @@ export const fetchTransactions = () => {
 
 /**
  * Function used to fetch the address  from {@link getData}
+ * @category Web3
  * @returns {String} The address of the current user
  */
 export const fetchAddress = () => {

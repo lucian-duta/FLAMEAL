@@ -1,3 +1,10 @@
+/**
+ * Function to validate the input of the search field
+ * @category Search Transactions
+ * @function validateSearch
+ * @param {Object} value - the input to be validated
+ * @returns
+ */
 export default function validateSearch(value) {
   //create an empty array
   let error = "";

@@ -2,6 +2,11 @@ import { fetchData } from "./getData";
 
 /**
  *Function to send the data to initaite the transaction on blockchain
+ * - The page will be refreshed after each transaction attempt to avoid the user to send the same data twice and refresh the web3 instance
+ * - If the transaction is succesfull it will generate an alert with the transaction hash
+ *
+ * @method sendData
+ * @category Web3
  * @param {String} addressIn the address of the receiver
  * @param {String} contentIn the content of the transaction (the goods)
  * @returns {object | null} the transaction error object or null if the transaction was successful

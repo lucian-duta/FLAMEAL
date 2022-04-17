@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 
 /**
  * The schema of the food bank
+ * @category REST API
+ * @subcategory Schema
  * @type {mongoose.Schema}
  */
 const FBSchema = mongoose.Schema(

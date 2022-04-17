@@ -4,9 +4,8 @@ import getWeb3Http from "../../Web3/getWeb3Http";
 /**
  * The function to hadle the logic behind the search transaction feature. The data is fetched by calling
  * the {@link getWeb3Http} and extracting all the transactions from the response
- * @function
- *
- * @external {@link getWeb3Http} the function used to extract the transactions from a http rpc provider
+ * @category Search Transactions
+ * @function useSearch
  * @param {String} error - the error generated after the validation of the input
  * @returns {Function} handleSearch - the function that handles the search transaction
  * @returns {Array} results - the array of the results of the search

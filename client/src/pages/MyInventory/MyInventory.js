@@ -5,10 +5,12 @@ import "./MyInventory.css";
 
 /**
  * The component to be displayed in the MyInventory page
+ * @category MyInventory
+ * @component
  * @borrows {@link ListFill} as a child component to handle the list of items
  * @returns {ReactComponent} the MyInventory component
  */
-export default function MyInventory() {
+const MyInventory = () => {
   //get the user context
   const [state] = useContext(UserContext);
   //console.log(state);
@@ -23,4 +25,5 @@ export default function MyInventory() {
       </div>
     </div>
   );
-}
+};
+export default MyInventory;

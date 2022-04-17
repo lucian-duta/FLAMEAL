@@ -2,6 +2,8 @@ import { useRef, useEffect } from "react";
 
 /**
  * The function used to enable horisontal scrolling on the showcase component
+ * @category Showcase
+ * @function useHorizontalScroll
  * @returns {RefObject} the refrence to be used in the component
  */
 export function useHorizontalScroll() {

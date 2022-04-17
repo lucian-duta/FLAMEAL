@@ -1,4 +1,3 @@
-import getData, { fetchTransactions } from "./getData";
 import getWeb3Http from "./getWeb3Http";
 //global variable to hold the features
 let features = {
@@ -16,7 +15,9 @@ let features = {
 
 /**
  * Function to extract features from the smart contract deployed on the blockchain network using Web3. This function
- * is called when the app is loaded and it prepares the data to be consumed by various components.
+ * is called when the app is loaded and it prepares the data to be consumed by various components. The data is fetched by calling additional functions.
+ * @category Web3
+ * @function extractFeatures
  * @returns {Promise<Object>} - returns a promise that resolves to the features object or rejects with an error
  */
 const extractFeatures = () =>
@@ -143,6 +144,7 @@ export default extractFeatures;
  *
  * !IMPORTANT! If the the {@link extractFeatures} function is not called before calling this function,
  * the data returned by this function will be outdated. (dating back to the last time the {@link extractFeatures} function was called)
+ * @category Web3
  * @returns {Array} an array of addresses of the top senders ordered from the most transactions to the least transactions
  */
 export const fetchTopSenders = () => {
@@ -157,6 +159,7 @@ export const fetchTopSenders = () => {
  *
  * !IMPORTANT! If the the {@link extractFeatures} function is not called before calling this function,
  * the data returned by this function will be outdated. (dating back to the last time the {@link extractFeatures} function was called)
+ * @category Web3
  * @returns {number} the number of contributors who performed any tranasaction over last 30 days
  */
 export const fetchContLastMonth = () => {
@@ -171,6 +174,7 @@ export const fetchContLastMonth = () => {
  *
  * !IMPORTANT! If the the {@link extractFeatures} function is not called before calling this function,
  * the data returned by this function will be outdated. (dating back to the last time the {@link extractFeatures} function was called)
+ * @category Web3
  * @returns {number} the number of receivers
  */
 export const fetchReceivers = () => {
@@ -185,6 +189,7 @@ export const fetchReceivers = () => {
  *
  * !IMPORTANT! If the the {@link extractFeatures} function is not called before calling this function,
  * the data returned by this function will be outdated. (dating back to the last time the {@link extractFeatures} function was called)
+ * @category Web3
  * @returns {number} the number of receivers over the last 30 days
  */
 export const fetchReceiversLM = () => {
@@ -199,6 +204,7 @@ export const fetchReceiversLM = () => {
  *
  * !IMPORTANT! If the the {@link extractFeatures} function is not called before calling this function,
  * the data returned by this function will be outdated. (dating back to the last time the {@link extractFeatures} function was called)
+ * @category Web3
  * @returns {number} the number of transactions stored in the contract
  */
 export const fetchTransCount = () => {
@@ -213,6 +219,7 @@ export const fetchTransCount = () => {
  *
  * !IMPORTANT! If the the {@link extractFeatures} function is not called before calling this function,
  * the data returned by this function will be outdated. (dating back to the last time the {@link extractFeatures} function was called)
+ * @category Web3
  * @returns {number} the number of transactions performed over last 30 days
  */
 export const fetchTransLastMonth = () => {
@@ -227,6 +234,7 @@ export const fetchTransLastMonth = () => {
  *
  * !IMPORTANT! If the the {@link extractFeatures} function is not called before calling this function,
  * the data returned by this function will be outdated. (dating back to the last time the {@link extractFeatures} function was called)
+ * @category Web3
  * @returns {number} the number of unique users
  */
 export const fetchTotalUsers = () => {
@@ -241,6 +249,7 @@ export const fetchTotalUsers = () => {
  *
  * !IMPORTANT! If the the {@link extractFeatures} function is not called before calling this function,
  * the data returned by this function will be outdated. (dating back to the last time the {@link extractFeatures} function was called)
+ * @category Web3
  * @returns {number} the number of senders
  */
 export const fetchTotalSenders = () => {
@@ -255,6 +264,7 @@ export const fetchTotalSenders = () => {
  *
  * !IMPORTANT! If the the {@link extractFeatures} function is not called before calling this function,
  * the data returned by this function will be outdated. (dating back to the last time the {@link extractFeatures} function was called)
+ * @category Web3
  * @returns {Map} the donation map
  */
 export const fetchDonPerMonth = () => {
@@ -269,6 +279,7 @@ export const fetchDonPerMonth = () => {
  *
  * !IMPORTANT! If the the {@link extractFeatures} function is not called before calling this function,
  * the data returned by this function will be outdated. (dating back to the last time the {@link extractFeatures} function was called)
+ * @category Web3
  * @returns {Map} the donation map
  */
 export const fetchRecMap = () => {

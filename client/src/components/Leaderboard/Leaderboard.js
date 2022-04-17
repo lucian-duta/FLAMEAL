@@ -5,6 +5,8 @@ import "./Leaderboard.css";
 /**
  * A component to display the leaderboard based on the data fetched from the blockchain
  * using the web3 api by calling the {@link fetchTopSenders} function
+ * @category Top Contributors
+ * @component
  * @returns {ReactComponent} the leaderboard component
  */
 const Leaderboard = () => {

@@ -8,6 +8,8 @@ import validateInput from "./validateList";
 /**
  * Component used to display an interactive list of items from the inventory of the user,
  * and finnaly used to be attached to the transfer.
+ * @category List
+ * @component
  * @returns {ReactComponent} the list component
  */
 const ListFill = () => {

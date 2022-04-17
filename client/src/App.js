@@ -13,6 +13,7 @@ import ChangeFB from "./pages/ChangeFB";
 import Explorer from "./pages/Explorer";
 /**
  * React functional component to display the application, wrapped in a router to point to the different pages
+ *
  * @returns {ReactComponent} the application component
  */
 function App() {

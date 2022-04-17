@@ -12,6 +12,8 @@ import validateSearch from "./validateSearch";
  * function and the results are displayed using the {@link TransItem} component.
  *
  * TODO: Make the search more efficient (Lazy loading, infinite scroll or any other better way)
+ * @category Search Transactions
+ * @component
  * @returns {ReactComponent} the search transaction component
  */
 const SearchTransaction = () => {

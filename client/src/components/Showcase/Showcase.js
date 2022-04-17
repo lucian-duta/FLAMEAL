@@ -7,6 +7,8 @@ import { useHorizontalScroll } from "./useSideScroll";
 
 /**
  * The react component to display the showcase of foodbanks
+ * @category Showcase
+ * @component
  * @borrows {@link ShowcaseItems} as a child component to display the showcase items
  * @borrows {@link useHorizontalScroll} to handle the horizontal scroll
  * @returns {ReactCoponent}

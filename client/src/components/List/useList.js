@@ -10,9 +10,10 @@ let globalItems = null;
 /**
  * Holds the functions needed during user interaction i.e. adding, deleting..
  * and makes api call to update the list if the used is logged in.
+ * @category List
+ * @function useList
  * @param {Function} validate - the function used to validate the inputs of the form
  * @returns the functions needed during filling with the item list and the error list
- * @api
  */
 const useList = (validate) => {
   //hook to hold the global state

@@ -15,7 +15,9 @@ import { fetchDonPerMonth } from "../../Web3/extractFeatures";
  * The component to display the bar chart of donations over the last 12 months using the chart.js library
  *
  * !WARNING! This component generates fake data for the months with no donations to demonstarte a real world scenario; Look at {@link data} to change the rule
- *
+ * @category User Statistics
+ * @component
+ * @externals {@link ChartJS}
  * @borrows {@link fetchDonPerMonth} to fetch the data from the blockchain
  * @returns {ReactComponent} the {@link ChartJS} {@link Bar} component with the corresponding data and parameters
  */

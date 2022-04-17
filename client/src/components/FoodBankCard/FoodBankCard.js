@@ -3,6 +3,8 @@ import "./FoodBankCard.css";
 import foodbankimg from "../../assets/food-bank.png";
 /**
  * The foodbank card component used in the foodbank page and the foodbank card preview
+ * @category Showcase
+ * @component
  * @param {Object} fbData - the data for the foodbank card
  * @returns {ReactComponent} the foodbank card component
  */

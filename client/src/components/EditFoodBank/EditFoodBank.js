@@ -8,7 +8,8 @@ import FoodBankCard from "../FoodBankCard/FoodBankCard";
 /**
  * The edit foodbank component used in the edit foodbank page consisting
  * of the foodbank card preview and the edit form
- *
+ * @category Edit Foodbank
+ * @component
  * TODO: Perform image validation
  * @returns {ReactComponent} the edit foodbank component
  * @borrows FoodBankCard from the FoodBankCard component

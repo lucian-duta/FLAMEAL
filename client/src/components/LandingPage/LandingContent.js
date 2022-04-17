@@ -3,6 +3,8 @@ import circularity from "../../assets/circularity.png";
 import smartppl from "../../assets/smartppl.png";
 /**
  * The function to return the text and images used in the landing page
+ * @category LandingPage
+ * @component
  * @returns {ReactComponent} the text and images used in the landing page
  */
 const LandingContent = () => {

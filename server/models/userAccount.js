@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 /**
  * The schema of the user account
+ * @category REST API
+ * @subcategory Schema
  * @type {mongoose.Schema}
  */
 const UserSchema = mongoose.Schema(

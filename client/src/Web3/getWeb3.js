@@ -4,19 +4,18 @@ let metamaskConnected = false;
 /**
  * Function the fetch the web 3 instance based on the enviroment the application is opened in.
  *
- * TODO: Fetch instance from remote provider as well
- *
  * !IMPORTANT: If using a local provider (e.g. ganache-cli, truffle), make sure to update the address in the {@link provider} variable
+ * @method getWeb3
+ * @category Web3
  * @returns {Promise.<Web3>} The promise that resolves to the web 3 instance or rejects with an error
  */
 const getWeb3 = () =>
   new Promise(async (resolve, reject) => {
-    // Wait for loading completion to avoid race conditions with web3 injection timing.
-    // Modern dapp browsers...
+    // If the browser supports a web3 instance, it will attempt to connect with the provider
     if (window.ethereum) {
       const web3 = new Web3(window.ethereum);
       try {
-        // Request account access if needed
+        // Request account access
         await window.ethereum
           .enable()
           .then(() => {
@@ -29,14 +28,11 @@ const getWeb3 = () =>
             console.log("FAILED TO CONNECT TO METAMASK");
             metamaskConnected = false;
           });
-
-        // Accounts now exposed
       } catch (error) {
         console.log(error);
       }
-    }
-    // Fallback to localhost; use dev console port by default...
-    else {
+    } else {
+      //!Change if you are using a local provider
       //const provider = new Web3.providers.HttpProvider("http://127.0.0.1:7545");
       //const web3 = new Web3(provider);
       //console.log("No web3 instance injected, using Local web3.");
@@ -45,7 +41,12 @@ const getWeb3 = () =>
   });
 
 export default getWeb3;
-//function used to send the state of the MetaMask connection to other components
+/**
+ * A function to return the state of the MetaMask connection state.
+ * @category Web3
+ * @extends getWeb3
+ * @returns {Boolean} true if the user is connected to the MetaMask, false otherwise
+ */
 export const fetchMetaState = () => {
   return metamaskConnected;
 };
