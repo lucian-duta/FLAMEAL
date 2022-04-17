@@ -19,6 +19,11 @@ const MenuItems = [
     path: "/topcont",
     cName: "dropdown-link",
   },
+  {
+    title: "Search donations",
+    path: "/explorer",
+    cName: "dropdown-link",
+  },
 ];
 /**
  * The dropdown component used in the navbar (statistics button)

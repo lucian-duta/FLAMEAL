@@ -181,6 +181,16 @@ const Navbar = () => {
             </Link>
           </li>
 
+          <li className="nav-item-drop">
+            <Link
+              to="/explorer"
+              className="nav-links-drop"
+              onClick={closeMobileMenu}
+            >
+              Search Donations
+            </Link>
+          </li>
+
           <li className="nav-item">{comp}</li>
         </ul>
         <div

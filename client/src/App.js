@@ -10,6 +10,7 @@ import UserStats from "./pages/UserStats";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar.js";
 import ChangeFB from "./pages/ChangeFB";
+import Explorer from "./pages/Explorer";
 /**
  * React functional component to display the application, wrapped in a router to point to the different pages
  * @returns {ReactComponent} the application component
@@ -20,7 +21,6 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Intro />} exact />
-
         <Route path="/transfer" element={<Transfer />} />
         <Route path="/myinventory" element={<MyInventory />} />
         <Route path="/foodbanks" element={<Foodbanks />} />
@@ -28,6 +28,7 @@ function App() {
         <Route path="/userstats" element={<UserStats />} />
         <Route path="/signup" element={<LoginRegisterPage />} />
         <Route path="/changefb" element={<ChangeFB />} />
+        <Route path="/explorer" element={<Explorer />} />
       </Routes>
     </Router>
   );
