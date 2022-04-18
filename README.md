@@ -6,6 +6,14 @@
 A decentralised software solution using blockchain technology that will help communities to effectively distribute food or other forms of help for the ones in need. 
 
 
+## Demo: 
+https://flameal.techlmd.co.uk/
+
+## Documentation
+
+[Documentation](https://lucian-duta.github.io/flameal-docs/)
+
+
 ## Installation
 
 NodeJS and npm which can be downloaded from the [NodeJS website](https://nodejs.org/en/download/).
@@ -93,11 +101,17 @@ Important: Before running the server make sure to update the MongoDB path.
 
 **Client:** React
 
-**Server:** Node, MongoDB
+**Server:** Node, MongoDB, Express, Mongoose
 
-**EVM** Truffle Suite
+**Smart Contracts**: Solidity
+
+**EVM**: Truffle Suite
 
 
 ## Acknowledgements
+ - I would like to thank Dr Bilyaminu Auwal Romo for his expert advice, encouragement and commitment to supporting me throughout this challenging project
+
+### Code Acknowledgements
 
  - [Moesif For Dapp Example](https://github.com/Moesif/moesif-ethereum-js-example)
+ - [briancodex](https://github.com/briancodex)
