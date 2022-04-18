@@ -2,7 +2,9 @@ import React from "react";
 import "./Button.css";
 import { Link } from "react-router-dom";
 /**
- * A function to return a button component (used )
+ * A function to return a button component.
+ * @category Components
+ * @component
  * @param {String} buttonName name of the button to be displayed
  * @param {String} toPage the path to navigate to
  * @returns {ReactComponent} the button component

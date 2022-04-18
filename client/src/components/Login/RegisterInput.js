@@ -4,6 +4,8 @@ import "./Login.css";
 import validateRegister from "./validateRegister";
 /**
  * The react component used to display the register form and collect the data of the user is new
+ * @category Login
+ * @component
  * @param {Function} sendInfo the callback function used to pass the data to the parent component
  * @returns {ReactComponent} the register form component
  */

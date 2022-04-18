@@ -7,6 +7,8 @@ import "./TopCont.css";
 
 /**
  * The component to display the top contributors in the network
+ * @category Top Contributors
+ * @component
  * @returns {ReactComponent} the top contributors component
  */
 const TopContainer = () => {

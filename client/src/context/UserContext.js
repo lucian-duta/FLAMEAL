@@ -2,6 +2,8 @@ import React, { useReducer, createContext } from "react";
 
 /**
  * Function used to check if there is a saved state in session storage
+ * @category Context
+ * @function checkStateUser
  * @returns {Object} the state if there is one, else the {@link initialState}
  */
 const checkState = () => {
@@ -25,6 +27,9 @@ const { Provider } = UserContext;
 
 /**
  * The reducer function used to interact with the state
+ * @category Context
+ * @function userReducers
+ * @see {@link https://reactjs.org/docs/hooks-reference.html#usereducer} for more information the reducer hook
  * @param {Object} state the passed state
  * @param {String} action the action to be performed
  * @returns {Object} the new state
@@ -67,7 +72,13 @@ const reducers = (state, action) => {
       throw new Error();
   }
 };
-//create the provider
+/**
+ * The provider to be used to handle the global state of the user to be used in any component of the application
+ * @category Context
+ * @see {@link https://reactjs.org/docs/hooks-reference.html#usecontext} for more information the useContext hook
+ * @param {ReactComponent} children the children provider will be wrapped around
+ * @returns {<Provider>} the provider component
+ */
 const StateProvider = ({ children }) => {
   const [state, dispach] = useReducer(reducers, checkState());
 

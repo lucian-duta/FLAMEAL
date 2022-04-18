@@ -6,6 +6,8 @@ import TopContLoading from "./TopContLoading";
 /**
  * The component to display the top contributors in the network by displaying
  * the leaderboard and the gauge for top contributors in the last month
+ * @category Top Contributors
+ * @component
  * @borrows {@link TopContLoading} as a child component to display the loading animation if the data was not fetched
  * @borrows {@link Leaderboard} as a child component to display the leaderboard of top contributors
  * @param {Number} cont - the number of contributors this month

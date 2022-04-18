@@ -3,6 +3,8 @@ import "./Landing.css";
 import logo from "../../assets/logo-flameal.png";
 /**
  * The function to display the image and the logo of the application
+ * @category LandingPage
+ * @component
  * @returns {ReactComponent} the title component
  */
 const Title = () => {

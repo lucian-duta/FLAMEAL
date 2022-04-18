@@ -2,6 +2,8 @@ import FoodBank from "../models/foodBanks.js";
 
 /**
  * Function used to fetch the food banks from the database
+ * @category REST API
+ * @function getFoodBanks
  * @param {Object} res the response object from the server
  */
 export const getFB = async (req, res) => {
@@ -15,6 +17,8 @@ export const getFB = async (req, res) => {
 
 /**
  * Function used to fetch one food bank from the database
+ * @category REST API
+ * @function getOneFb
  * @param {Object} req the request object from the front end
  * @param {Object} res the response object from the server
  */
@@ -29,6 +33,8 @@ export const getOneFB = async (req, res) => {
 
 /**
  * Function used to create a food bank in the database
+ * @category REST API
+ * @function createFb
  * @param {Object} req the request object from the front end
  * @param {Object} res the response object from the server
  */
@@ -53,6 +59,8 @@ export const createFB = async (req, res) => {
 
 /**
  * Function used to update one food bank in the database
+ * @category REST API
+ * @function updateFB
  * @param {Object} req the request object from the front end
  * @param {Object} res the response object from the server
  */
