@@ -17,8 +17,7 @@
     "search": true,
     "better-docs": {
       "name": "FLAMEAL Documentation",
-      "logo": "./public/logo-flameal-nav.png",
-      "title": "",
+      "title": "FLAMEAL Documentation",
       "css": "style.css",
       "trackingCode": "tracking-code-which-will-go-to-the-HEAD",
       "hideGenerator": true,
