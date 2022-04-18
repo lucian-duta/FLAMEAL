@@ -17,6 +17,9 @@ import "./Statistics.css";
  * - Total number of users on the network using the {@link fetchTotalUsers} function
  * - Number of users who have contributed using the {@link fetchTotalSenders} function
  * - Number of contributors last month using the {@link fetchContLastMonth} function
+ *
+ * @category User Statistics
+ * @component
  * @returns {ReactComponent} the statistics component
  */
 const StatsNumbers = () => {

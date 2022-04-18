@@ -11,6 +11,8 @@ import metamaskimg from "../../assets/meta-mask.png";
  * The function used to handle the login and registration of a user using the {@link LoginLogic} component
  * to perform the authentication
  *
+ * @category Login
+ * @component
  * @borrows {@link LoginLogic}  to handle the login logic
  * @borrows {@link RegisterInput} as a child component to display the registration form and handle input
  * @borrows {@link Popup} as a child component to display the popup message when the user is new

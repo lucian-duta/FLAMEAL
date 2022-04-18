@@ -4,6 +4,15 @@ import TransferSuccess from "../../components/TransferForm/TransferSuccess";
 import "./Transfer.css";
 import ListFill from "../../components/List/ListFill";
 
+/**
+ * The component to be displayed as the transfer page used in the router.
+ * @category Transfer
+ * @component
+ * @borrows {@link TransferFill} as a child component to handle the transfer form
+ * @borrows {@link TransferSuccess} as a child component to handle the success message
+ * @borrows {@link ListFill} as a child component to handle the list of items
+ * @returns {ReactComponent} the component
+ */
 const Transfer = () => {
   //hook to hold the state of submission
   const [isSubmitted, setIsSubmitted] = useState(false);

@@ -35,7 +35,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generate-docs": "/docs/node_modules/.bin/jsdoc --configure jsdoc.json --verbose"
+    "generate-docs": "/docs/node_modules/.bin/jsdoc --configure jsdoc.json --verbose",
+    "docs": "jsdoc --configure jsdoc.json --verbose"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -51,5 +52,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "better-docs": "^2.7.2"
   }
 }

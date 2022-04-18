@@ -19,9 +19,16 @@ const MenuItems = [
     path: "/topcont",
     cName: "dropdown-link",
   },
+  {
+    title: "Search donations",
+    path: "/explorer",
+    cName: "dropdown-link",
+  },
 ];
 /**
- * The dropdown component used in the navbar (statistics button)
+ * The dropdown component used in the navbar (statistics button) which generates links from the {@link MenuItems} array
+ * @category Navbar
+ * @component
  * @returns {ReactComponent} the dropdown component as a list of links
  */
 function Dropdown() {

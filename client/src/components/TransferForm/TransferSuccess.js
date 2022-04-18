@@ -3,6 +3,8 @@ import "./TransferForm.css";
 
 /**
  * A react component that renders a success message after a transfer and reloads the page.
+ * @category Transfer
+ * @component
  * @returns {React.Component} the component
  */
 const TransferSuccess = () => {

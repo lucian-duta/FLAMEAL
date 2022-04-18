@@ -5,6 +5,8 @@ import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 
 /**
  * The react component to display each foodbank card in the showcase
+ * @category Showcase
+ * @component
  * @param {Array<Object>} foodbank - array of foodbank data to be displayed
  * @param {Object} transMap - map of number of transction in relation to the address of the receiever
  * @returns {ReactComponent} the foodbank items component

@@ -8,7 +8,8 @@ import flamealnav from "../../assets/logo-flameal-nav.png";
 /**
  * The React component what handles the navigation features of the app
  *
- * TODO: Enhance the styling of the links
+ * @category Navbar
+ * @component
  * @borrows {@link Dropdown} as a child component to hold the dropdown menu activated when the statistics button is clicked
  * @borrows {@link Button} as a child component to display the "Login/Logout" button
  * @returns {ReactComponent} the navbar component
@@ -178,6 +179,16 @@ const Navbar = () => {
               onClick={closeMobileMenu}
             >
               Top Contributors
+            </Link>
+          </li>
+
+          <li className="nav-item-drop">
+            <Link
+              to="/explorer"
+              className="nav-links-drop"
+              onClick={closeMobileMenu}
+            >
+              Search Donations
             </Link>
           </li>
 

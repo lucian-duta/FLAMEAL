@@ -1,5 +1,7 @@
 /**
  * Function used to validate the input of the list form from the ListFill component
+ * @category Transfer
+ * @function validateInfo
  * @param {Object} values - the input to be validated
  * @returns {Array} the array of errors found
  */

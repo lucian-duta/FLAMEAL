@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
-import RegisterInput from "./RegisterInput";
 
 let url = "https://flameal.herokuapp.com/users";
 
@@ -12,6 +11,8 @@ let url = "https://flameal.herokuapp.com/users";
  * The function used to handle the Web3 authentication logic using MetaMask
  *
  * !IMPORTANT! The user must use MetaMask for the function to work as it is entirely dependent on the {@link fetchData} function
+ * @category Login
+ * @function LoginLogic
  * @returns {Function} {@link handleLogin} the function to be called when authentication is attempted
  */
 const LoginLogic = () => {

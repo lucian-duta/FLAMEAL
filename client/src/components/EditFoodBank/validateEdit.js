@@ -1,6 +1,8 @@
 /**
  * Function used to validate the input of the edit foodbank form EditFoodBank
  *
+ * @category Edit Foodbank
+ * @function validateEdit
  * @param {Object} values - the values to be validated
  * @returns  an array of errors
  */

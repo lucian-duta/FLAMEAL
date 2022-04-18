@@ -3,12 +3,15 @@ import Login from "../components/Login/Login";
 
 /**
  * React component to display the login/registration page
+ * @category Login
+ * @component
  * @returns {ReactComponent} the signup page component
  */
-export default function LoginRegisterPage() {
+const LoginRegisterPage = () => {
   return (
     <>
       <Login />
     </>
   );
-}
+};
+export default LoginRegisterPage;

@@ -4,12 +4,14 @@ import TopContLoading from "../components/TopContributors/TopContLoading";
 import extractFeatures from "../Web3/extractFeatures";
 
 /**
- * React component to display the user statistics page
+ * React main component to display the user statistics page
+ * @category User Statistics
+ * @component
  * @borrows {@link Statistics} as a child component to display the statistics element
  * @borrows {@link TopContLoading} as a child component to display the loading element
  * @returns {ReactComponent} the {@link Statistics statiscics} component if the data is fetched or the {@link TopContLoading loading} component if the data is not fetched
  */
-export default function UserStats() {
+const UserStats = () => {
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     fetchData();
@@ -26,4 +28,5 @@ export default function UserStats() {
   };
 
   return <>{isLoading ? <TopContLoading /> : <Statistics />}</>;
-}
+};
+export default UserStats;

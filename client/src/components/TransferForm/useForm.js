@@ -8,6 +8,8 @@ import getData from "../../Web3/getData.js";
 
 /**
  * The function the handle the logic of the transfer form and the validation of the data before attepmting to submit the transaction to the blockchain
+ * @category Transfer
+ * @function useForm
  * @borrows {@link SendData} to attept to submit the transaction to the blockchain
  * @param {Function} callback - the callback function used to fetch the submission state from the parent component
  * @param {Function} validate - the function to validate the inputs

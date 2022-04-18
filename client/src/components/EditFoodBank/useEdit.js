@@ -7,6 +7,8 @@ import { UserContext } from "../../context/UserContext";
  * The function used to handle the logic of the {@link EditFoodBank} component
  * makes the api call to update the foodbank using the {@link updateFb} function
  * makes the api call to create a new foodbank using the {@link createfb} function
+ * @category Edit Foodbank
+ * @function useEdit
  * @param {Function} validate - the function to validate the input
  * @returns {Object} the object containing the functions and data to be used in the main component
  */

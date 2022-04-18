@@ -5,6 +5,8 @@ import "./TransferForm.css";
 
 /**
  * The react component to display the transfer form and collect the data of the transfer and update the {@link values} object
+ * @category Transfer
+ * @component
  * @param {Function} submitForm - the callback function used to fetch the submission state from the parent component
  * @returns {ReactComponent} the transfer form component
  */

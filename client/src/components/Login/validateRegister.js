@@ -1,5 +1,7 @@
 /**
  * Function used to validate the user input of the register form
+ * @category Login
+ * @function validateRegister
  * @param {Object} values - the values to be validated
  * @returns {Array} the array of errors found
  */

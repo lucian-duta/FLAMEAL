@@ -22,3 +22,6 @@ yarn-debug.log*
 yarn-error.log*
 # src/contracts/GoodsTransfer.json
 # src/contracts/Migrations.json
+
+/jsdoc-copy.json
+/out

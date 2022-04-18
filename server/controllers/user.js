@@ -4,6 +4,8 @@ import jwt from "jsonwebtoken";
 /**
  * Function used to generate a unique nonce to be asssigned to a user in the database.
  * The nonce is a 16 character string containing upper and lower case letters and numbers.
+ * @category REST API
+ * @function generateNonce
  * @returns {String} a uniquely generated nonce
  */
 const nonceGenerator = () => {
@@ -18,6 +20,8 @@ const nonceGenerator = () => {
 
 /**
  * Function used to find a user in the database based on the address.
+ * @category REST API
+ * @function findUser
  * @param {Object} req the request object from the front end
  * @param {Object} res the response object from the server
  */
@@ -39,6 +43,8 @@ export const findUser = async (req, res) => {
 
 /**
  * Function used to update the inventory of a user in the database.
+ * @category REST API
+ * @function updateUser
  * @param {Object} req the request object from the front end
  * @param {Object} res the response object from the server
  */
@@ -62,6 +68,8 @@ export const updateInventory = async (req, res) => {
 
 /**
  * Function used to fetch the inventory of a user in the database.
+ * @category REST API
+ * @function fetchInventory
  * @param {Object} req the request object from the front end
  * @param {Object} res the response object from the server
  */
@@ -77,6 +85,8 @@ export const getInventory = async (req, res) => {
 
 /**
  * Function used to create a user in the database.
+ * @category REST API
+ * @function createUser
  * @param {Object} req the request object from the front end
  * @param {Object} res the response object from the server
  */
@@ -102,6 +112,8 @@ export const createUser = async (req, res) => {
 
 /**
  * Function used to login the user and compare the address provided with the address in the database.
+ * @category REST API
+ * @function loginUser
  * @param {Object} req the request object from the front end
  * @param {Object} res the response object from the server
  */
@@ -121,6 +133,8 @@ export const loginUser = async (req, res) => {
  * Function used to authenticate the user by comparing the address provided with the address in the database.
  *
  * If the function is called the nonce is changed regardless of whether the user is authenticated or not.
+ * @category REST API
+ * @function authenticateUser
  * @param {Object} req the request object from the front end
  * @param {Object} res the response object from the server
  */
