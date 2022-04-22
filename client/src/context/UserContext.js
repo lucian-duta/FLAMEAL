@@ -46,6 +46,9 @@ const reducers = (state, action) => {
       return {
         ...state,
         auth: false,
+        isfb: false,
+        address: null,
+        inventory: [],
       };
 
     case "address":

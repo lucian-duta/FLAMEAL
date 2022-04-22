@@ -20,11 +20,7 @@ const useList = (validate) => {
   const [state, dispatch] = useContext(UserContext);
 
   //declare the initial state of the list (populated for testing purposes)
-  const [items, setItems] = useState([
-    { itemName: "2kg box of Apples", quantity: 3 },
-    { itemName: "Box of 10 Noodles", quantity: 4 },
-    { itemName: "Pack of 6 Tuna", quantity: 5 },
-  ]);
+  const [items, setItems] = useState([]);
 
   //constant to store the state of the errors
   const [errors, setErrors] = useState({});
