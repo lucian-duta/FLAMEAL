@@ -7,13 +7,13 @@ import React, { useReducer, createContext } from "react";
  * @returns {Object} the state if there is one, else the {@link initialState}
  */
 const checkState = () => {
-  if (!sessionStorage.getItem("foodbanks")) {
+  if (!window.sessionStorage.getItem("foodbanks")) {
     const initialState = {
       foodBankData: [],
     };
     return initialState;
   } else {
-    return JSON.parse(sessionStorage.getItem("foodbanks"));
+    return JSON.parse(window.sessionStorage.getItem("foodbanks"));
   }
 };
 //create the context

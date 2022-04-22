@@ -16,7 +16,7 @@ const MyInventory = () => {
   //console.log(state);
 
   //pass te user context to the session storage
-  sessionStorage.setItem("state", JSON.stringify(state));
+  window.sessionStorage.setItem("state", JSON.stringify(state));
   return (
     <div className="list-containter">
       <div className="list-app-inv">

@@ -20,14 +20,15 @@ const useList = (validate) => {
   const [state, dispatch] = useContext(UserContext);
 
   //declare the initial state of the list (populated for testing purposes)
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([{}]);
 
   //constant to store the state of the errors
   const [errors, setErrors] = useState({});
 
   //function the find out if the current page is the inventory
   const pathName = () => {
-    if (window.location.pathname === "/myinventory") {
+    console.log(window.location.hash);
+    if (window.location.hash === "#/myinventory") {
       return true;
     } else {
       return false;

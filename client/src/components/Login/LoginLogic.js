@@ -38,7 +38,7 @@ const LoginLogic = () => {
    */
   const handleLogin = (orgName, isFoodBank) => {
     //clearing the browser cache to avoid conflicts
-    sessionStorage.clear();
+    window.sessionStorage.clear();
     //updating the global state to deauthenticate user
     dispach({
       type: "de_auth",

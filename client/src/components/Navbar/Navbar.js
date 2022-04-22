@@ -203,7 +203,7 @@ const Navbar = () => {
                 type: "de_auth",
               });
               //purge the browser storage
-              sessionStorage.clear();
+              window.sessionStorage.clear();
             }
           }}
         >

@@ -27,7 +27,7 @@ const Login = () => {
   //read the global state
   const [state, dispatch] = useContext(UserContext);
   //temporaly store the state in sessionStorage (to prevent loss on reload)
-  sessionStorage.setItem("state", JSON.stringify(state));
+  window.sessionStorage.setItem("state", JSON.stringify(state));
   //hooks to hold the organisation name and foodbank state (in case of new user)
   const [orgName, setOrgName] = useState();
   const [isFoodBank, setisFoodbank] = useState(false);

@@ -7,7 +7,7 @@ import React, { useReducer, createContext } from "react";
  * @returns {Object} the state if there is one, else the {@link initialState}
  */
 const checkState = () => {
-  if (!sessionStorage.getItem("state")) {
+  if (!window.sessionStorage.getItem("state")) {
     const initialState = {
       auth: false,
       address: null,
@@ -16,7 +16,7 @@ const checkState = () => {
     };
     return initialState;
   } else {
-    return JSON.parse(sessionStorage.getItem("state"));
+    return JSON.parse(window.sessionStorage.getItem("state"));
   }
 };
 //create the context
