@@ -143,6 +143,7 @@ const Login = () => {
                   orgName !== undefined) ||
                 nameComp === true
               ) {
+                console.log(orgName, isFoodBank);
                 handleLogin(orgName, isFoodBank); //call the login function and pass the name and FB state
               }
             }}
