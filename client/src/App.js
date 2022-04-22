@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  HashRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
 import Intro from "./pages/Intro";
 import Transfer from "./pages/Transfer/Transfer";
 import MyInventory from "./pages/MyInventory/MyInventory";
@@ -16,9 +21,10 @@ import Explorer from "./pages/Explorer";
  *
  * @returns {ReactComponent} the application component
  */
+
 function App() {
   return (
-    <Router>
+    <HashRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Intro />} exact />
@@ -31,7 +37,7 @@ function App() {
         <Route path="/changefb" element={<ChangeFB />} />
         <Route path="/explorer" element={<Explorer />} />
       </Routes>
-    </Router>
+    </HashRouter>
   );
 }
 
