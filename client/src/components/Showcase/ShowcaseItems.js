@@ -2,6 +2,8 @@ import React from "react";
 import FoodBankCard from "../FoodBankCard/FoodBankCard";
 import "./Showcase.css";
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
+import { FBContext } from "../../context/FoodBankContext";
+import { useNavigate } from "react-router-dom";
 
 /**
  * The react component to display each foodbank card in the showcase
@@ -13,6 +15,13 @@ import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
  */
 const ShowcaseItems = ({ foodbanks, transMap }) => {
   console.log(transMap);
+  const navigate = useNavigate();
+  const [state, dispatch] = React.useContext(FBContext);
+  const seeTransactions = (address) => {
+    console.log(address);
+    dispatch({ type: "search", payload: address });
+    navigate("/explorer");
+  };
   return !foodbanks.length ? (
     <div className="showcase-loader">
       <ClimbingBoxLoader loading={true} color={"#fff"} size={30} />
@@ -30,7 +39,13 @@ const ShowcaseItems = ({ foodbanks, transMap }) => {
         console.log(index);
         console.log("ADD OF FB", fbData.address);
         console.log("TRANSACTIONS OF IT: ", transMap[fbData.address]);
-        return <FoodBankCard key={index} fbData={fbData} />;
+        return (
+          <FoodBankCard
+            key={index}
+            fbData={fbData}
+            seeTrans={seeTransactions}
+          />
+        );
       })}
     </>
   );

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useParams, useContext } from "react";
 import "./Searchtransaction.css";
 import { RiSearchEyeLine } from "react-icons/ri";
 import GridLoader from "react-spinners/GridLoader";
 import useSearch from "./useSearch";
 import TransItem from "../TransactionItem/TransItem";
 import validateSearch from "./validateSearch";
+import { FBContext } from "../../context/FoodBankContext";
 
 /**
  * The component that handles the search transaction feature using the {@link useSearch} function,
@@ -17,10 +18,19 @@ import validateSearch from "./validateSearch";
  * @returns {ReactComponent} the search transaction component
  */
 const SearchTransaction = () => {
-  const [searchValue, setSearchValue] = useState("");
+  const [state, dispatch] = React.useContext(FBContext);
+  const [searchValue, setSearchValue] = useState(state.searchedTrans);
   const [storeSearch, setStoreSearch] = useState("");
   const [error, setError] = useState("");
   const { handleSearch, results, isFetching, found } = useSearch(error);
+  console.log("STATE", state.searchedTrans);
+  useEffect(() => {
+    if (state.searchedTrans) {
+      setStoreSearch(searchValue);
+      handleSearch(searchValue);
+      dispatch({ type: "search", payload: "" });
+    }
+  }, []);
 
   return (
     <>

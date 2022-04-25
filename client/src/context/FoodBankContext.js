@@ -10,6 +10,7 @@ const checkState = () => {
   if (!window.sessionStorage.getItem("foodbanks")) {
     const initialState = {
       foodBankData: [],
+      searchedTrans: "",
     };
     return initialState;
   } else {
@@ -57,6 +58,11 @@ const reducers = (state, action) => {
     case "rm_from_inv":
       return {
         inventory: state.inventory.filter((item) => item.id !== action.payload),
+      };
+    case "search":
+      return {
+        ...state,
+        searchedTrans: action.payload,
       };
     default:
       throw new Error();

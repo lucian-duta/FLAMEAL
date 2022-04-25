@@ -41,13 +41,13 @@ const TransItem = ({ result, index, searched }) => {
     <div key={index} className="search-result-row">
       <div className="search-result-row-item">
         <h1>Sender Address: </h1>
-        <p className={searched === result.sender && "address"}>
+        <p className={searched === result.sender ? "address" : ""}>
           {result.sender}
         </p>
       </div>
       <div className="search-result-row-item">
         <h1>Receiver Address: </h1>
-        <p className={searched === result.receiver && "address"}>
+        <p className={searched === result.receiver ? "address" : ""}>
           {result.receiver}
         </p>
       </div>
