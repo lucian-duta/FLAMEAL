@@ -8,7 +8,7 @@ import foodbankimg from "../../assets/food-bank.png";
  * @param {Object} fbData - the data for the foodbank card
  * @returns {ReactComponent} the foodbank card component
  */
-const FoodBankCard = ({ fbData }) => {
+const FoodBankCard = ({ fbData, seeTrans }) => {
   return (
     <>
       <div className="showcase-card">
@@ -34,6 +34,18 @@ const FoodBankCard = ({ fbData }) => {
           </div>
           <div className="card-links-trans">
             <h1>Transactions: {fbData.trans}</h1>
+            {window.location.hash === "#/changefb" ? (
+              ""
+            ) : (
+              <button
+                className="btn-fb"
+                onClick={() => {
+                  seeTrans(fbData.address);
+                }}
+              >
+                Explore
+              </button>
+            )}
           </div>
         </div>
       </div>
