@@ -15,6 +15,21 @@ import TopContLoading from "./TopContLoading";
  */
 const TopContLoaded = ({ cont }) => {
   //if the data is not fetched yet, display the loading animation
+  const calcRange = (cont) => {
+    if (cont < 10) {
+      return 1;
+    } else if (cont < 50 && cont >= 10) {
+      return 5;
+    } else if (cont < 100 && cont >= 50) {
+      return 10;
+    } else if (cont < 200 && cont >= 100) {
+      return 20;
+    } else if (cont < 500 && cont >= 200) {
+      return 50;
+    } else if (cont < 1000 && cont >= 500) {
+      return 100;
+    }
+  };
   return !cont ? (
     <TopContLoading />
   ) : (
@@ -30,7 +45,7 @@ const TopContLoaded = ({ cont }) => {
               fluidWidth={true}
               fluidHeight={true}
               minValue={0}
-              maxValue={10}
+              maxValue={10 * calcRange(cont)}
               segments={1}
               ringWidth={70}
               segmentColors={["#0083F9"]}
