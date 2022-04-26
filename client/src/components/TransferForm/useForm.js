@@ -5,6 +5,7 @@ import { fetchMetaState } from "../../Web3/getWeb3.js";
 import { UserContext } from "../../context/UserContext.js";
 import { updateInventory } from "../../api/actions.js";
 import getData from "../../Web3/getData.js";
+import { FBContext } from "../../context/FoodBankContext.js";
 
 /**
  * The function the handle the logic of the transfer form and the validation of the data before attepmting to submit the transaction to the blockchain
@@ -17,14 +18,17 @@ import getData from "../../Web3/getData.js";
  */
 const useForm = (callback, validate) => {
   const [state, dispatch] = useContext(UserContext);
+  const [stateFB, dispatchFB] = useContext(FBContext);
   //declaring a variable to hold the state of blockchain transfer errors
   let transferError = null;
   //hook to hold the values of the form
   const [values, setValues] = useState({
-    address: "",
+    //the address to transfer to in case of quick donation call
+    address: stateFB.donateAddress,
     comments: "",
     itemsList: null,
   });
+
   //hook to hold the erros from the validation function
   const [errors, setErrors] = useState({});
   //hook to hold the state of submission
@@ -74,6 +78,12 @@ const useForm = (callback, validate) => {
 
   //hook to be called every time the errors are changed
   useEffect(() => {
+    //wipe the global state of address to donate to
+    dispatchFB({
+      type: "donate",
+      payload: "",
+    });
+
     //if there are errors, attept to get the web3 metamask instance to log in the user
     if (Object.keys(errors).length === 0) getData();
     //test if the error array is empty and the form is submitting

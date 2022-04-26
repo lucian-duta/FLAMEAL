@@ -22,6 +22,10 @@ const ShowcaseItems = ({ foodbanks, transMap }) => {
     dispatch({ type: "search", payload: address });
     navigate("/explorer");
   };
+  const donate = (address) => {
+    dispatch({ type: "donate", payload: address });
+    navigate("/transfer");
+  };
   return !foodbanks.length ? (
     <div className="showcase-loader">
       <ClimbingBoxLoader loading={true} color={"#fff"} size={30} />
@@ -44,6 +48,7 @@ const ShowcaseItems = ({ foodbanks, transMap }) => {
             key={index}
             fbData={fbData}
             seeTrans={seeTransactions}
+            donate={donate}
           />
         );
       })}
