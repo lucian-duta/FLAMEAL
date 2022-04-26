@@ -127,10 +127,10 @@ export const StatsBar = () => {
           //for showcase purposes if there are no donations it will assign a random number
           //!TO BE REMOVED IN FINAL
           if (noOfDonations === 0) {
-            noOfDonations = Math.floor(Math.random() * 20);
+            noOfDonations = Math.floor(Math.random() * (40 - 10) + 10);
           }
 
-          return noOfDonations;
+          return noOfDonations + 1;
         }),
         backgroundColor: "rgba(0, 232, 236)",
       },
