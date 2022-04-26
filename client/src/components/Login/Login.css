@@ -79,6 +79,11 @@
   background: transparent;
   color: #fff;
 }
+.loading-container{
+  display:flex;
+  margin: 170px auto 10px auto;
+
+}
 
 .name-input::placeholder {
   color: #e2e2e2;

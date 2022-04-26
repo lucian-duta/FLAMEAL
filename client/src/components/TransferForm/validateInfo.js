@@ -14,7 +14,7 @@ export default function validateInfo(values) {
     errors.address = "Address required";
   } else if (values.address.length < 42) {
     //if the address is too short update error
-    errors.address = "Adddres must be x caracters or more";
+    errors.address = "Adddres must be 42 caracters or more";
   }
 
   if (!values.comments) {

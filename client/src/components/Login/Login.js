@@ -7,6 +7,8 @@ import "./Login.css";
 import LoginLogic from "./LoginLogic";
 import RegisterInput from "./RegisterInput";
 import metamaskimg from "../../assets/meta-mask.png";
+import HashLoader from "react-spinners/HashLoader";
+
 /**
  * The function used to handle the login and registration of a user using the {@link LoginLogic} component
  * to perform the authentication
@@ -32,7 +34,7 @@ const Login = () => {
   const [orgName, setOrgName] = useState();
   const [isFoodBank, setisFoodbank] = useState(false);
   //hook to hold the the state of user input component
-  const [nameComp, setNameComp] = useState(false);
+  const [nameComp, setNameComp] = useState(undefined);
   const [errors, setErrors] = useState({});
 
   //the callbank function used in the child component
@@ -77,81 +79,88 @@ const Login = () => {
 
   return (
     <>
-      <div className="login-page">
-        {nameComp !== true &&
-          nameComp !== false && ( // if the user input is shown, display the popup
+      {nameComp === undefined ? (
+        <div className="login-page">
+          <div className="loading-container">
+            <HashLoader color={"#fff"} size={"150px"} />
+          </div>
+        </div>
+      ) : (
+        <div className="login-page">
+          {nameComp !== true &&
+            nameComp !== false && ( // if the user input is shown, display the popup
+              <Popup
+                content={
+                  <>
+                    <b>MetaMask Fox: </b>
+                    <p>
+                      Wow...you don't have an account on FLAMEAL yet. It's about
+                      the time you make one. Fill in your organisation's name
+                      and tick the box if you represent a food bank. Be careful,
+                      you won't be able to change this information later.
+                    </p>
+                  </>
+                }
+              />
+            )}
+
+          {!nameComp && ( // if the user does not have metamask installed
             <Popup
               content={
                 <>
                   <b>MetaMask Fox: </b>
                   <p>
-                    Wow...you don't have an account on FLAMEAL yet. It's about
-                    the time you make one. Fill in your organisation's name and
-                    tick the box if you are a food bank. Be careful, you won't
-                    be able to change this information later. And don't
-                    lie...THE FOX KNOWS.
+                    If you don't have MetaMask installed, please install it to
+                    use the login feature.
+                    <br />
+                    <br />
+                    <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn">
+                      Install MetaMask Chrome Extension
+                    </a>
+                    <br />
+                    Please connect your wallet if you have already installed
+                    MetaMask.
                   </p>
                 </>
               }
             />
           )}
 
-        {!nameComp && ( // if the user does not have metamask installed
-          <Popup
-            content={
-              <>
-                <b>MetaMask Fox: </b>
-                <p>
-                  If you don't have MetaMask installed, please install it to use
-                  the login feature.
-                  <br />
-                  <br />
-                  <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn">
-                    Install MetaMask Chrome Extension
-                  </a>
-                  <br />
-                  Please connect your wallet if you have already installed
-                  MetaMask.
-                </p>
-              </>
-            }
-          />
-        )}
-
-        <div
-          className={` ${
-            nameComp !== true ? "login-container" : "login-container-logged"
-          }`}
-        >
-          <img
-            src={metamaskimg}
-            width="300px"
-            height="300px"
-            alt="metamask log"
-          />
-          {nameComp}
-
-          <button
-            className="login-btn"
-            type="submit"
-            onClick={() => {
-              console.log(errors);
-              console.log(orgName);
-              if (
-                (Object.keys(errors).length === 0 &&
-                  orgName !== "" &&
-                  orgName !== undefined) ||
-                nameComp === true
-              ) {
-                console.log(orgName, isFoodBank);
-                handleLogin(orgName, isFoodBank); //call the login function and pass the name and FB state
-              }
-            }}
+          <div
+            className={` ${
+              nameComp !== true ? "login-container" : "login-container-logged"
+            }`}
           >
-            Login with metamask
-          </button>
+            <img
+              src={metamaskimg}
+              width="300px"
+              height="300px"
+              alt="metamask log"
+            />
+            {nameComp}
+
+            <button
+              className="login-btn"
+              type="submit"
+              onClick={() => {
+                console.log(errors);
+                console.log(orgName);
+                if (
+                  (Object.keys(errors).length === 0 &&
+                    orgName !== "" &&
+                    orgName !== undefined) ||
+                  nameComp === true
+                ) {
+                  console.log(orgName, isFoodBank);
+                  handleLogin(orgName, isFoodBank); //call the login function and pass the name and FB state
+                }
+              }}
+            >
+              Login with metamask
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
