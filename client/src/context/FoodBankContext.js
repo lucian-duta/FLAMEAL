@@ -11,6 +11,7 @@ const checkState = () => {
     const initialState = {
       foodBankData: [],
       searchedTrans: "",
+      donateAddress: "",
     };
     return initialState;
   } else {
@@ -63,6 +64,11 @@ const reducers = (state, action) => {
       return {
         ...state,
         searchedTrans: action.payload,
+      };
+    case "donate":
+      return {
+        ...state,
+        donateAddress: action.payload,
       };
     default:
       throw new Error();

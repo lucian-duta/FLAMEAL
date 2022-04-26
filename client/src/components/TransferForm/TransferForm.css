@@ -162,8 +162,8 @@
       rgb(17, 17, 17) 100%
     );
     width: 100%;
-    height: auto;
-    min-height: 50%;
+    min-height: 353px;
+
     border-bottom: 3px solid rgb(0, 195, 255);
     border-top: 1.5px solid rgb(0, 195, 255);
     border-left: 0px;

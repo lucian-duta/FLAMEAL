@@ -26,19 +26,16 @@
     border-radius: 2rem;
     display: flex;
     flex-direction: column-reverse;
+    justify-content: flex-end;
   }
 
   .form-content-left-transfer {
-    background: linear-gradient(
-      90deg,
-      rgb(39, 176, 255) 0%,
-      rgb(0, 232, 236) 100%
-    );
+    background: linear-gradient( 90deg, rgb(39, 176, 255) 0%, rgb(0, 232, 236) 100% );
     border-radius: 0;
     position: relative;
     width: 100%;
-    min-height: 50%;
-    height: auto;
+    min-height: 200px;
+    height: 100%;
   }
   /* .clearfix:after {
     clear: both;
