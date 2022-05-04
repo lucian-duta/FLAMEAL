@@ -1,0 +1,62 @@
+
+.instructions-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 35px;
+
+}
+
+
+.instructions-container h1 {
+    font-size: 25px;
+    color: #fff;
+  
+  }
+
+.instructions-container p {
+    font-size: 18px;
+  color: #fff;
+  margin: 20px auto 5px auto;
+  padding: 0 8px 0 8px;
+
+
+}
+
+.instruct-net-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.instruct-net-form p {
+    font-size: 14px;
+    color: #fff;
+    margin: 0px 0px 4px 0px;
+
+  }
+
+
+.instruct-img {
+    margin-left: auto;
+    margin-right: auto;
+}
+.instruct-img-net {
+    margin-left: auto;
+    margin-right: auto;
+}
+.instruct-img-meta-add {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.instructions-container a:link{
+    color: #06c2ff;
+}
+.instructions-container a:hover{
+    color: #fff;
+}
+.instructions-container a:visited{
+    color: #06c2ff;
+}
