@@ -1,4 +1,5 @@
 import React from "react";
+import Instructions from "./Instructions";
 import "./Landing.css";
 import LandingContent from "./LandingContent";
 import Title from "./Title";
@@ -13,10 +14,15 @@ import Title from "./Title";
  * @returns {ReactComponent} the landing page component
  */
 const Landing = () => {
+  const [ins, setIns] = React.useState(false);
   return (
     <>
       <div className="landing-container">
         <Title />
+        <button className="more-button" onClick={() => setIns(!ins)}>
+          Get started
+        </button>
+        {ins ? <Instructions /> : null}
         <LandingContent />
       </div>
     </>

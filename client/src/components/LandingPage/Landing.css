@@ -39,6 +39,23 @@
 
   padding: 1rem;
 }
+
+.landing-content-creds{
+  display: flex;
+    flex-direction: row;
+    margin-top: 3rem;
+    padding: 1rem;
+}
+
+.landing-content-creds p {
+  font-size: 14px;
+  color: #fff;
+  text-align: justify;
+}
+
+.landing-content-creds a {
+  color: rgb(0, 195, 255);
+}
 .landing-content h1 {
   font-size: 25px;
   color: #fff;
@@ -46,6 +63,7 @@
   border-right: 3px solid rgb(0, 195, 255);
   margin-right: 0.4rem;
 }
+
 .landing-content p {
   font-size: 18px;
   color: #fff;
@@ -54,6 +72,27 @@
 .landing-content-img {
   margin-left: auto;
   margin-right: auto;
+}
+.more-button {
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient( 317deg, rgb(0 195 255) 0%, rgb(247 112 171) 100% );
+  width: 200px;
+  height: 52px;
+ 
+  margin-left: 20%;
+}
+.more-button:hover {
+  transition: all 0.3s ease-out;
+  background-color: transparent;
+  background: linear-gradient( 133deg, rgb(0 195 255 / 70%) 0%, rgb(247 112 171 /70%) 100% );
+  border: 0.2px solid;
+  border-radius: 4px;
+  transition: 100ms;
 }
 
 @media screen and (max-width: 960px) {
@@ -69,6 +108,24 @@
     height: 100%;
     width: 100%;
     aspect-ratio: 16/9;
+    justify-self: center;
+  }
+  .instruct-img-net img {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 16/9;
+    justify-self: center;
+  }
+  .instruct-img img {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 0.98/1;
+    justify-self: center;
+  }
+  .instruct-img-meta-add img {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1.53/1;
     justify-self: center;
   }
   .landing-content {
@@ -115,6 +172,9 @@
   .landing-content p {
     font-size: calc(16px + (30 - 16) * (100vw - 647px) / (1500 - 300));
   }
+  .landing-content-creds p {
+    font-size: calc(16px + (30 - 16) * (100vw - 647px) / (1500 - 300));
+  }
 }
 @media screen and (max-width: 350px) {
   .landing-logo img {
@@ -128,6 +188,10 @@
     padding: 0.8rem;
   }
   .landing-content p {
+    text-align: left;
+    word-spacing: 1.5px;
+  }
+  .landing-content-creds p {
     text-align: left;
     word-spacing: 1.5px;
   }

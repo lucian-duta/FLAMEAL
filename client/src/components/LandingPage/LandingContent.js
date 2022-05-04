@@ -64,8 +64,20 @@ const LandingContent = () => {
           alt=" presenting the process flow with smart contracts"
         />
       </div>
+      <div className="landing-content-creds">
+        <p>
+          This project used graphical elements from{" "}
+          <a href="https://www.freepik.com/" target="_blank">
+            Freepik
+          </a>{" "}
+          and{" "}
+          <a href="https://www.flaticon.com/" target="_blank">
+            Flaticon
+          </a>{" "}
+        </p>
+      </div>
     </>
   );
 };
-//<a href='https://www.freepik.com/vectors/hand-drawn'>Hand drawn vector created by freepik - www.freepik.com</a>
+
 export default LandingContent;
