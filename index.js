@@ -17,7 +17,7 @@ app.use("/fb", fbRoutes);
 //connect to the remote database
 //!Sensitive information should be stored in a .env file
 const CONNECTION_URL =
-  "mongodb+srv://lucian:tero@cluster0.l3v77.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+  "mongodb+srv://lucian:<password>@cluster0.l3v77.mongodb.net/?retryWrites=true&w=majority";
 
 const PORT = process.env.PORT || 5000;
 
