@@ -6,8 +6,9 @@
 A decentralised software solution using blockchain technology that will help communities to effectively distribute food or other forms of help for the ones in need. 
 
 
-## Demo: 
-https://flameal.techlmd.co.uk/
+## [Demo](https://www.youtube.com/embed/hvknVXfV-rk?si=vC_0ZDukHCtHneci)
+ 
+[<img src="https://picsur.techlmd.com/i/bb9e0844-426f-44bc-9f6e-4d205f91fdc7.jpg">](https://www.youtube.com/embed/hvknVXfV-rk?si=vC_0ZDukHCtHneci)
 
 ## Documentation
 
