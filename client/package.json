@@ -28,7 +28,7 @@
     "redux-thunk": "^2.4.1",
     "regenerator-runtime": "^0.13.9",
     "styled-components": "^5.3.3",
-    "web3": "^1.6.1"
+    "web3": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
